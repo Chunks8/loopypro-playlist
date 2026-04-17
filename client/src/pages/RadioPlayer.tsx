@@ -42,6 +42,28 @@ function getDirectUrl(track: Track): string {
   return track.mediaUrl;
 }
 
+// Build embed src for a given track and autoplay preference
+function buildEmbedSrc(track: Track, autoplay: boolean): string | null {
+  if (track.mediaType === "youtube") {
+    const vid = getYouTubeId(track.embedCode ?? track.mediaUrl);
+    if (!vid) return null;
+    return `https://www.youtube.com/embed/${vid}?autoplay=${autoplay ? 1 : 0}&rel=0&modestbranding=1&enablejsapi=1`;
+  }
+  if (track.mediaType === "soundcloud" && track.embedCode
+      && track.embedCode.startsWith("https://w.soundcloud.com/player/")) {
+    let url = track.embedCode;
+    const ap = autoplay ? "true" : "false";
+    url = url.replace(/auto_play=(true|false)/, `auto_play=${ap}`);
+    if (!url.includes("auto_play=")) url += `&auto_play=${ap}`;
+    url = url.replace(/&visual=true/, "").replace(/visual=true&/, "");
+    return url;
+  }
+  if (track.mediaType === "hearthis" && track.embedCode) {
+    return track.embedCode;
+  }
+  return null;
+}
+
 export default function RadioPlayer() {
   const { theme, toggle: toggleTheme } = useTheme();
 
@@ -55,183 +77,94 @@ export default function RadioPlayer() {
 
   const [playlist, setPlaylist] = useState<Track[]>([]);
   const [currentIndex, setCurrentIndex] = useState(0);
+  // embedSrc state is set directly — autoplay=true only when user triggers navigation
+  const [embedSrc, setEmbedSrc] = useState<string | null>(null);
   const [embedKey, setEmbedKey] = useState(0);
-  const [hasInteracted, setHasInteracted] = useState(false);
   const [lastRefresh, setLastRefresh] = useState<string | null>(null);
 
-  // Track refs for postMessage-based control
-  const iframeRef = useRef<HTMLIFrameElement>(null);
+  const playlistRef = useRef<Track[]>([]);
   const currentIndexRef = useRef(0);
-  const playlistLenRef = useRef(0);
-  const hasInteractedRef = useRef(false);
-  const pendingPlayRef = useRef(false); // whether we should play once iframe is ready
 
+  useEffect(() => { playlistRef.current = playlist; }, [playlist]);
   useEffect(() => { currentIndexRef.current = currentIndex; }, [currentIndex]);
-  useEffect(() => { playlistLenRef.current = playlist.length; }, [playlist.length]);
-  useEffect(() => { hasInteractedRef.current = hasInteracted; }, [hasInteracted]);
 
   useEffect(() => {
     if (rawTracks.length > 0) {
-      setPlaylist(shuffle(rawTracks));
+      const shuffled = shuffle(rawTracks);
+      setPlaylist(shuffled);
+      playlistRef.current = shuffled;
       setCurrentIndex(0);
-      setHasInteracted(false);
-      pendingPlayRef.current = false;
+      currentIndexRef.current = 0;
+      // First load: no autoplay (browser would block it anyway without gesture)
+      setEmbedSrc(buildEmbedSrc(shuffled[0], false));
       setEmbedKey((k) => k + 1);
     }
   }, [rawTracks]);
 
   const currentTrack = playlist[currentIndex] ?? null;
 
-  // ── postMessage helpers ──────────────────────────────────────────────────
-  // Send a play command to the current iframe
-  const sendPlay = useCallback(() => {
-    const iframe = iframeRef.current;
-    if (!iframe?.contentWindow) return;
-    const track = playlist[currentIndexRef.current];
-    if (!track) return;
-
-    if (track.mediaType === "youtube") {
-      // YouTube IFrame API postMessage
-      iframe.contentWindow.postMessage(
-        JSON.stringify({ event: "command", func: "playVideo", args: [] }),
-        "*"
-      );
-    } else if (track.mediaType === "soundcloud") {
-      // SoundCloud Widget API postMessage
-      iframe.contentWindow.postMessage(
-        JSON.stringify({ method: "play" }),
-        "*"
-      );
-    }
-  }, [playlist]);
-
-  // Build embed src — always autoplay=0/false in URL; we trigger play via postMessage
-  const embedSrc = (() => {
-    if (!currentTrack) return null;
-    if (currentTrack.mediaType === "youtube") {
-      const vid = getYouTubeId(currentTrack.embedCode ?? currentTrack.mediaUrl);
-      if (!vid) return null;
-      // enablejsapi=1 is required for postMessage commands AND end-of-video events
-      return `https://www.youtube.com/embed/${vid}?autoplay=0&rel=0&modestbranding=1&enablejsapi=1&origin=${encodeURIComponent(window.location.origin)}`;
-    }
-    if (currentTrack.mediaType === "soundcloud" && currentTrack.embedCode
-        && currentTrack.embedCode.startsWith("https://w.soundcloud.com/player/")) {
-      let url = currentTrack.embedCode;
-      url = url.replace(/auto_play=(true|false)/, "auto_play=false");
-      if (!url.includes("auto_play=")) url += "&auto_play=false";
-      url = url.replace(/&visual=true/, "").replace(/visual=true&/, "");
-      return url;
-    }
-    if (currentTrack.mediaType === "hearthis" && currentTrack.embedCode) {
-      return currentTrack.embedCode;
-    }
-    return null;
-  })();
-
-  // ── Listen for iframe → parent messages (end of track, SC ready) ──────────
-  const advanceNext = useCallback(() => {
-    const nextIndex = (currentIndexRef.current + 1) % playlistLenRef.current;
-    pendingPlayRef.current = true; // autoplay the next track
-    setCurrentIndex(nextIndex);
-    setHasInteracted(true);
-    setEmbedKey((k) => k + 1);
-  }, []);
-
-  useEffect(() => {
-    function onMessage(e: MessageEvent) {
-      try {
-        const data = typeof e.data === "string" ? JSON.parse(e.data) : e.data;
-
-        // ── YouTube ──
-        if (data?.event === "onStateChange") {
-          if (data.info === 0) {
-            // ENDED → advance
-            advanceNext();
-          }
-          return;
-        }
-        // YouTube "ready" confirmation — send play if pending
-        if (data?.event === "onReady" || data?.event === "infoDelivery") {
-          if (pendingPlayRef.current) {
-            pendingPlayRef.current = false;
-            setTimeout(sendPlay, 100);
-          }
-          return;
-        }
-
-        // ── SoundCloud ──
-        if (data?.method === "ready" || data?.method === "soundCloudPlayerReady") {
-          // SC widget is ready — bind finish event, then play if pending
-          iframeRef.current?.contentWindow?.postMessage(
-            JSON.stringify({ method: "addEventListener", value: "finish" }),
-            "*"
-          );
-          if (pendingPlayRef.current) {
-            pendingPlayRef.current = false;
-            setTimeout(sendPlay, 200);
-          }
-          return;
-        }
-        if (data?.method === "finish") {
-          advanceNext();
-          return;
-        }
-      } catch {}
-    }
-
-    window.addEventListener("message", onMessage);
-    return () => window.removeEventListener("message", onMessage);
-  }, [advanceNext, sendPlay]);
-
-  // ── When iframe loads (onLoad), trigger play if pending ──────────────────
-  const onIframeLoad = useCallback(() => {
-    if (!pendingPlayRef.current) return;
-    const track = playlist[currentIndexRef.current];
-    if (!track) return;
-
-    if (track.mediaType === "soundcloud") {
-      // For SC: bind finish event first, then play
-      iframeRef.current?.contentWindow?.postMessage(
-        JSON.stringify({ method: "addEventListener", value: "finish" }),
-        "*"
-      );
-      setTimeout(() => {
-        pendingPlayRef.current = false;
-        sendPlay();
-      }, 400);
-    } else if (track.mediaType === "youtube") {
-      // YouTube: postMessage play after a short delay for API init
-      setTimeout(() => {
-        pendingPlayRef.current = false;
-        sendPlay();
-      }, 800);
-    } else {
-      pendingPlayRef.current = false;
-    }
-  }, [playlist, sendPlay]);
-
-  // ── Navigation ────────────────────────────────────────────────────────────
-  const goTo = useCallback((index: number) => {
-    pendingPlayRef.current = true;
+  // ── Core navigation: sets index AND injects autoplay=true src synchronously ──
+  // This is critical: the src must be set inside the same synchronous call stack
+  // as the user gesture (click) for browsers to allow autoplay.
+  const navigateTo = useCallback((index: number) => {
+    const pl = playlistRef.current;
+    if (!pl.length) return;
+    const track = pl[index];
+    const src = buildEmbedSrc(track, true); // autoplay=true
     setCurrentIndex(index);
-    setHasInteracted(true);
+    currentIndexRef.current = index;
+    setEmbedSrc(src);
     setEmbedKey((k) => k + 1);
   }, []);
 
   const skipNext = useCallback(() => {
-    const next = (currentIndexRef.current + 1) % playlistLenRef.current;
-    pendingPlayRef.current = true;
-    setCurrentIndex(next);
-    setHasInteracted(true);
-    setEmbedKey((k) => k + 1);
-  }, []);
+    const next = (currentIndexRef.current + 1) % playlistRef.current.length;
+    navigateTo(next);
+  }, [navigateTo]);
 
   const skipPrev = useCallback(() => {
-    const prev = (currentIndexRef.current - 1 + playlistLenRef.current) % playlistLenRef.current;
-    pendingPlayRef.current = true;
-    setCurrentIndex(prev);
-    setHasInteracted(true);
-    setEmbedKey((k) => k + 1);
+    const prev = (currentIndexRef.current - 1 + playlistRef.current.length) % playlistRef.current.length;
+    navigateTo(prev);
+  }, [navigateTo]);
+
+  // ── Auto-advance on track end (postMessage from iframe) ──────────────────
+  useEffect(() => {
+    function onMessage(e: MessageEvent) {
+      try {
+        const data = typeof e.data === "string" ? JSON.parse(e.data) : e.data;
+        // YouTube: state 0 = ended
+        if (data?.event === "onStateChange" && data?.info === 0) {
+          const next = (currentIndexRef.current + 1) % playlistRef.current.length;
+          // Auto-advance counts as a continuation, not a new gesture —
+          // use autoplay=true since YT already granted permission this session
+          navigateTo(next);
+          return;
+        }
+        // SoundCloud: finish event
+        if (data?.method === "finish") {
+          const next = (currentIndexRef.current + 1) % playlistRef.current.length;
+          navigateTo(next);
+          return;
+        }
+      } catch {}
+    }
+    window.addEventListener("message", onMessage);
+    return () => window.removeEventListener("message", onMessage);
+  }, [navigateTo]);
+
+  // ── Bind SC finish event after iframe loads ───────────────────────────────
+  const iframeRef = useRef<HTMLIFrameElement>(null);
+  const onIframeLoad = useCallback(() => {
+    const track = playlistRef.current[currentIndexRef.current];
+    if (!track) return;
+    if (track.mediaType === "soundcloud") {
+      setTimeout(() => {
+        iframeRef.current?.contentWindow?.postMessage(
+          JSON.stringify({ method: "addEventListener", value: "finish" }),
+          "*"
+        );
+      }, 300);
+    }
   }, []);
 
   useEffect(() => {
@@ -288,7 +221,6 @@ export default function RadioPlayer() {
           <button
             onClick={toggleTheme}
             aria-label="Toggle theme"
-            data-testid="button-theme"
             style={{
               padding: "6px 8px", borderRadius: "6px", border: "1px solid var(--color-border)",
               background: "transparent", color: "var(--color-text-muted)", cursor: "pointer", lineHeight: 1
@@ -320,7 +252,7 @@ export default function RadioPlayer() {
                   background: "var(--color-accent)",
                   display: "inline-block",
                   boxShadow: "0 0 0 3px var(--color-accent-dim)"
-                }} aria-label="Now playing" />
+                }} />
                 <span style={{ fontSize: "var(--text-xs)", color: "var(--color-accent)", fontWeight: 600, letterSpacing: "0.1em" }}>
                   ON AIR
                 </span>
@@ -329,19 +261,16 @@ export default function RadioPlayer() {
                 </span>
               </div>
 
-              <h1
-                data-testid="text-song-title"
-                style={{ fontSize: "var(--text-lg)", fontWeight: 700, color: "var(--color-text)", lineHeight: 1.25, marginBottom: "4px" }}
-              >
+              <h1 style={{ fontSize: "var(--text-lg)", fontWeight: 700, color: "var(--color-text)", lineHeight: 1.25, marginBottom: "4px" }}>
                 {currentTrack?.songTitle ?? "—"}
               </h1>
 
-              <p data-testid="text-artist" style={{ fontSize: "var(--text-sm)", color: "var(--color-text-muted)", marginBottom: "2px" }}>
+              <p style={{ fontSize: "var(--text-sm)", color: "var(--color-text-muted)", marginBottom: "2px" }}>
                 {currentTrack?.artistName ?? ""}
               </p>
 
               {currentTrack?.artistName !== currentTrack?.forumMember && currentTrack?.forumMember && (
-                <p data-testid="text-member" style={{ fontSize: "var(--text-xs)", color: "var(--color-text-faint)" }}>
+                <p style={{ fontSize: "var(--text-xs)", color: "var(--color-text-faint)" }}>
                   posted by {currentTrack.forumMember}
                 </p>
               )}
@@ -351,7 +280,6 @@ export default function RadioPlayer() {
                   href={currentTrack.threadUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  data-testid="link-thread"
                   style={{
                     display: "inline-flex", alignItems: "center", gap: "5px",
                     marginTop: "8px", fontSize: "var(--text-xs)",
@@ -367,7 +295,6 @@ export default function RadioPlayer() {
             <div style={{ display: "flex", alignItems: "center", gap: "8px", flexShrink: 0, paddingTop: "4px" }}>
               <button
                 onClick={skipPrev}
-                data-testid="button-prev"
                 aria-label="Previous track"
                 style={{
                   width: "38px", height: "38px", borderRadius: "50%",
@@ -376,12 +303,9 @@ export default function RadioPlayer() {
                   color: "var(--color-text-muted)", cursor: "pointer",
                   display: "flex", alignItems: "center", justifyContent: "center", fontSize: "16px"
                 }}
-              >
-                &#9664;
-              </button>
+              >&#9664;</button>
               <button
                 onClick={skipNext}
-                data-testid="button-next"
                 aria-label="Next track"
                 style={{
                   width: "38px", height: "38px", borderRadius: "50%",
@@ -390,20 +314,19 @@ export default function RadioPlayer() {
                   color: "var(--color-text-muted)", cursor: "pointer",
                   display: "flex", alignItems: "center", justifyContent: "center", fontSize: "16px"
                 }}
-              >
-                &#9654;
-              </button>
+              >&#9654;</button>
             </div>
           </div>
 
           {/* Player area */}
           {currentTrack && (
             <div style={{ display: "flex", flexDirection: "column", gap: "10px" }}>
+
+              {/* Open externally */}
               <a
                 href={getDirectUrl(currentTrack)}
                 target="_blank"
                 rel="noopener noreferrer"
-                data-testid="btn-open-track"
                 style={{
                   display: "flex", alignItems: "center", justifyContent: "center", gap: "10px",
                   padding: "14px", borderRadius: "10px",
@@ -417,11 +340,12 @@ export default function RadioPlayer() {
                 Open on {mediaTypeLabel(currentTrack.mediaType)} ↗
               </a>
 
-              {embedSrc && (
+              {/* Embed player */}
+              {embedSrc ? (
                 <div style={{ borderRadius: "10px", overflow: "hidden", border: "1px solid var(--color-border)", background: "#000" }}>
                   <iframe
                     ref={iframeRef}
-                    key={`${currentTrack.id}-${embedKey}`}
+                    key={embedKey}
                     src={embedSrc}
                     width="100%"
                     height={currentTrack.mediaType === "youtube" ? "220" : "140"}
@@ -429,9 +353,19 @@ export default function RadioPlayer() {
                     allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
                     allowFullScreen
                     onLoad={onIframeLoad}
-                    data-testid="iframe-player"
                     title={currentTrack.songTitle}
                   />
+                </div>
+              ) : (
+                /* No embed available (short redirect URL) — show open button only */
+                <div style={{
+                  padding: "16px", borderRadius: "10px",
+                  border: "1px solid var(--color-border)",
+                  background: "var(--color-surface-offset)",
+                  textAlign: "center",
+                  fontSize: "var(--text-xs)", color: "var(--color-text-muted)"
+                }}>
+                  Click "Open on {mediaTypeLabel(currentTrack.mediaType)}" above to play this track
                 </div>
               )}
             </div>
@@ -461,8 +395,7 @@ export default function RadioPlayer() {
               return (
                 <li key={track.id} style={{ borderBottom: "1px solid var(--color-divider)" }}>
                   <button
-                    onClick={() => goTo(idx)}
-                    data-testid={`track-${track.id}`}
+                    onClick={() => navigateTo(idx)}
                     aria-current={isActive ? "true" : undefined}
                     style={{
                       width: "100%", textAlign: "left",
@@ -470,7 +403,8 @@ export default function RadioPlayer() {
                       display: "flex", alignItems: "center", gap: "14px",
                       background: isActive ? "var(--color-surface-offset)" : "transparent",
                       borderLeft: isActive ? "3px solid var(--color-accent)" : "3px solid transparent",
-                      cursor: "pointer", transition: "background 0.15s"
+                      cursor: "pointer", transition: "background 0.15s",
+                      border: "none", borderBottom: "none"
                     }}
                   >
                     <div style={{
@@ -480,7 +414,6 @@ export default function RadioPlayer() {
                     }}>
                       {isActive ? "●" : String(idx + 1).padStart(2, "0")}
                     </div>
-
                     <div style={{ flex: 1, minWidth: 0 }}>
                       <div style={{
                         fontSize: "var(--text-sm)", fontWeight: isActive ? 600 : 400,
@@ -498,7 +431,6 @@ export default function RadioPlayer() {
                           ? ` · ${track.forumMember}` : ""}
                       </div>
                     </div>
-
                     <span style={{
                       flexShrink: 0, fontSize: "0.6rem", fontWeight: 700, letterSpacing: "0.05em",
                       padding: "2px 6px", borderRadius: "4px", color: "#fff",
