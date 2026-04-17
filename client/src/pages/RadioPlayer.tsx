@@ -103,16 +103,26 @@ export default function RadioPlayer() {
 
   const currentTrack = playlist[currentIndex] ?? null;
 
-  // ── Core navigation: sets index AND injects autoplay=true src synchronously ──
-  // This is critical: the src must be set inside the same synchronous call stack
-  // as the user gesture (click) for browsers to allow autoplay.
-  const navigateTo = useCallback((index: number) => {
+  // iframe ref must be declared before navigateTo so it can be used inside it
+  const iframeRef = useRef<HTMLIFrameElement>(null);
+
+  // ── Core navigation ──────────────────────────────────────────────────────
+  // CRITICAL: iframeRef.current.src is mutated DIRECTLY and SYNCHRONOUSLY.
+  // React setState is async — if we only called setEmbedSrc(), the DOM update
+  // would happen after the gesture ends and browsers would block autoplay.
+  // Direct ref.src mutation is synchronous and stays within the gesture window.
+  const navigateTo = useCallback((index: number, autoplay = true) => {
     const pl = playlistRef.current;
     if (!pl.length) return;
     const track = pl[index];
-    const src = buildEmbedSrc(track, true); // autoplay=true
-    setCurrentIndex(index);
+    const src = buildEmbedSrc(track, autoplay);
     currentIndexRef.current = index;
+    // Mutate iframe src DIRECTLY — synchronous, within the gesture tick
+    if (iframeRef.current && src) {
+      iframeRef.current.src = src;
+    }
+    // Also update React state for re-renders / track display updates
+    setCurrentIndex(index);
     setEmbedSrc(src);
     setEmbedKey((k) => k + 1);
   }, []);
@@ -153,7 +163,6 @@ export default function RadioPlayer() {
   }, [navigateTo]);
 
   // ── Bind SC finish event after iframe loads ───────────────────────────────
-  const iframeRef = useRef<HTMLIFrameElement>(null);
   const onIframeLoad = useCallback(() => {
     const track = playlistRef.current[currentIndexRef.current];
     if (!track) return;
@@ -345,7 +354,6 @@ export default function RadioPlayer() {
                 <div style={{ borderRadius: "10px", overflow: "hidden", border: "1px solid var(--color-border)", background: "#000" }}>
                   <iframe
                     ref={iframeRef}
-                    key={embedKey}
                     src={embedSrc}
                     width="100%"
                     height={currentTrack.mediaType === "youtube" ? "220" : "140"}
