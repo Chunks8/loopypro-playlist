@@ -42,19 +42,8 @@ function getDirectUrl(track: Track): string {
   return track.mediaUrl;
 }
 
-// Inject YouTube IFrame API script once
-function useYouTubeAPI() {
-  useEffect(() => {
-    if ((window as any).YT) return;
-    const tag = document.createElement("script");
-    tag.src = "https://www.youtube.com/iframe_api";
-    document.head.appendChild(tag);
-  }, []);
-}
-
 export default function RadioPlayer() {
   const { theme, toggle: toggleTheme } = useTheme();
-  useYouTubeAPI();
 
   const { data: rawTracks = [], isLoading } = useQuery<Track[]>({
     queryKey: ["/api/tracks"],
@@ -67,46 +56,69 @@ export default function RadioPlayer() {
   const [playlist, setPlaylist] = useState<Track[]>([]);
   const [currentIndex, setCurrentIndex] = useState(0);
   const [embedKey, setEmbedKey] = useState(0);
-  // hasInteracted: true once user clicks skip/track — enables autoplay=1 on subsequent loads
   const [hasInteracted, setHasInteracted] = useState(false);
   const [lastRefresh, setLastRefresh] = useState<string | null>(null);
 
-  // For YouTube end-of-video detection via postMessage
+  // Track refs for postMessage-based control
   const iframeRef = useRef<HTMLIFrameElement>(null);
-  const ytPlayerRef = useRef<any>(null);
-  const currentIndexRef = useRef(currentIndex);
-  const playlistLenRef = useRef(playlist.length);
+  const currentIndexRef = useRef(0);
+  const playlistLenRef = useRef(0);
+  const hasInteractedRef = useRef(false);
+  const pendingPlayRef = useRef(false); // whether we should play once iframe is ready
 
   useEffect(() => { currentIndexRef.current = currentIndex; }, [currentIndex]);
   useEffect(() => { playlistLenRef.current = playlist.length; }, [playlist.length]);
+  useEffect(() => { hasInteractedRef.current = hasInteracted; }, [hasInteracted]);
 
   useEffect(() => {
     if (rawTracks.length > 0) {
       setPlaylist(shuffle(rawTracks));
       setCurrentIndex(0);
       setHasInteracted(false);
+      pendingPlayRef.current = false;
       setEmbedKey((k) => k + 1);
     }
   }, [rawTracks]);
 
   const currentTrack = playlist[currentIndex] ?? null;
 
-  // Build embed src — autoplay=1 after first user interaction
+  // ── postMessage helpers ──────────────────────────────────────────────────
+  // Send a play command to the current iframe
+  const sendPlay = useCallback(() => {
+    const iframe = iframeRef.current;
+    if (!iframe?.contentWindow) return;
+    const track = playlist[currentIndexRef.current];
+    if (!track) return;
+
+    if (track.mediaType === "youtube") {
+      // YouTube IFrame API postMessage
+      iframe.contentWindow.postMessage(
+        JSON.stringify({ event: "command", func: "playVideo", args: [] }),
+        "*"
+      );
+    } else if (track.mediaType === "soundcloud") {
+      // SoundCloud Widget API postMessage
+      iframe.contentWindow.postMessage(
+        JSON.stringify({ method: "play" }),
+        "*"
+      );
+    }
+  }, [playlist]);
+
+  // Build embed src — always autoplay=0/false in URL; we trigger play via postMessage
   const embedSrc = (() => {
     if (!currentTrack) return null;
     if (currentTrack.mediaType === "youtube") {
       const vid = getYouTubeId(currentTrack.embedCode ?? currentTrack.mediaUrl);
       if (!vid) return null;
-      // enablejsapi=1 allows postMessage end-of-video detection
-      const autoplay = hasInteracted ? 1 : 0;
-      return `https://www.youtube.com/embed/${vid}?autoplay=${autoplay}&rel=0&modestbranding=1&enablejsapi=1`;
+      // enablejsapi=1 is required for postMessage commands AND end-of-video events
+      return `https://www.youtube.com/embed/${vid}?autoplay=0&rel=0&modestbranding=1&enablejsapi=1&origin=${encodeURIComponent(window.location.origin)}`;
     }
     if (currentTrack.mediaType === "soundcloud" && currentTrack.embedCode
         && currentTrack.embedCode.startsWith("https://w.soundcloud.com/player/")) {
       let url = currentTrack.embedCode;
-      const autoplay = hasInteracted ? "true" : "false";
-      url = url.replace(/auto_play=(true|false)/, `auto_play=${autoplay}`);
-      if (!url.includes("auto_play=")) url += `&auto_play=${autoplay}`;
+      url = url.replace(/auto_play=(true|false)/, "auto_play=false");
+      if (!url.includes("auto_play=")) url += "&auto_play=false";
       url = url.replace(/&visual=true/, "").replace(/visual=true&/, "");
       return url;
     }
@@ -116,9 +128,10 @@ export default function RadioPlayer() {
     return null;
   })();
 
-  // ── Auto-advance: listen for postMessage events from YouTube & SoundCloud iframes ──
+  // ── Listen for iframe → parent messages (end of track, SC ready) ──────────
   const advanceNext = useCallback(() => {
     const nextIndex = (currentIndexRef.current + 1) % playlistLenRef.current;
+    pendingPlayRef.current = true; // autoplay the next track
     setCurrentIndex(nextIndex);
     setHasInteracted(true);
     setEmbedKey((k) => k + 1);
@@ -126,23 +139,40 @@ export default function RadioPlayer() {
 
   useEffect(() => {
     function onMessage(e: MessageEvent) {
-      // ── YouTube ──
-      // YouTube sends JSON via postMessage when enablejsapi=1
       try {
         const data = typeof e.data === "string" ? JSON.parse(e.data) : e.data;
-        if (data?.event === "onStateChange" && data?.info === 0) {
-          // info === 0 means ENDED
-          advanceNext();
+
+        // ── YouTube ──
+        if (data?.event === "onStateChange") {
+          if (data.info === 0) {
+            // ENDED → advance
+            advanceNext();
+          }
           return;
         }
-      } catch {}
+        // YouTube "ready" confirmation — send play if pending
+        if (data?.event === "onReady" || data?.event === "infoDelivery") {
+          if (pendingPlayRef.current) {
+            pendingPlayRef.current = false;
+            setTimeout(sendPlay, 100);
+          }
+          return;
+        }
 
-      // ── SoundCloud Widget API ──
-      try {
-        const data = typeof e.data === "string" ? JSON.parse(e.data) : e.data;
-        if (data?.method === "soundCloudPlayerReady" || data?.method === "getCurrentSound") return;
-        // SC fires "finish" event
-        if (data?.method === "finish" || (typeof e.data === "string" && e.data.includes('"finish"'))) {
+        // ── SoundCloud ──
+        if (data?.method === "ready" || data?.method === "soundCloudPlayerReady") {
+          // SC widget is ready — bind finish event, then play if pending
+          iframeRef.current?.contentWindow?.postMessage(
+            JSON.stringify({ method: "addEventListener", value: "finish" }),
+            "*"
+          );
+          if (pendingPlayRef.current) {
+            pendingPlayRef.current = false;
+            setTimeout(sendPlay, 200);
+          }
+          return;
+        }
+        if (data?.method === "finish") {
           advanceNext();
           return;
         }
@@ -151,42 +181,58 @@ export default function RadioPlayer() {
 
     window.addEventListener("message", onMessage);
     return () => window.removeEventListener("message", onMessage);
-  }, [advanceNext]);
+  }, [advanceNext, sendPlay]);
 
-  // For SoundCloud, we also need to subscribe to finish events via the Widget API
-  useEffect(() => {
-    if (!currentTrack || currentTrack.mediaType !== "soundcloud" || !iframeRef.current) return;
-    // Send bind command for finish event after iframe loads
-    const iframe = iframeRef.current;
-    const onLoad = () => {
-      try {
-        iframe.contentWindow?.postMessage(
-          JSON.stringify({ method: "addEventListener", value: "finish" }),
-          "*"
-        );
-      } catch {}
-    };
-    iframe.addEventListener("load", onLoad);
-    return () => iframe.removeEventListener("load", onLoad);
-  }, [currentTrack, embedKey]);
+  // ── When iframe loads (onLoad), trigger play if pending ──────────────────
+  const onIframeLoad = useCallback(() => {
+    if (!pendingPlayRef.current) return;
+    const track = playlist[currentIndexRef.current];
+    if (!track) return;
 
+    if (track.mediaType === "soundcloud") {
+      // For SC: bind finish event first, then play
+      iframeRef.current?.contentWindow?.postMessage(
+        JSON.stringify({ method: "addEventListener", value: "finish" }),
+        "*"
+      );
+      setTimeout(() => {
+        pendingPlayRef.current = false;
+        sendPlay();
+      }, 400);
+    } else if (track.mediaType === "youtube") {
+      // YouTube: postMessage play after a short delay for API init
+      setTimeout(() => {
+        pendingPlayRef.current = false;
+        sendPlay();
+      }, 800);
+    } else {
+      pendingPlayRef.current = false;
+    }
+  }, [playlist, sendPlay]);
+
+  // ── Navigation ────────────────────────────────────────────────────────────
   const goTo = useCallback((index: number) => {
+    pendingPlayRef.current = true;
     setCurrentIndex(index);
     setHasInteracted(true);
     setEmbedKey((k) => k + 1);
   }, []);
 
   const skipNext = useCallback(() => {
-    setCurrentIndex((i) => (i + 1) % playlist.length);
+    const next = (currentIndexRef.current + 1) % playlistLenRef.current;
+    pendingPlayRef.current = true;
+    setCurrentIndex(next);
     setHasInteracted(true);
     setEmbedKey((k) => k + 1);
-  }, [playlist.length]);
+  }, []);
 
   const skipPrev = useCallback(() => {
-    setCurrentIndex((i) => (i - 1 + playlist.length) % playlist.length);
+    const prev = (currentIndexRef.current - 1 + playlistLenRef.current) % playlistLenRef.current;
+    pendingPlayRef.current = true;
+    setCurrentIndex(prev);
     setHasInteracted(true);
     setEmbedKey((k) => k + 1);
-  }, [playlist.length]);
+  }, []);
 
   useEffect(() => {
     apiRequest("GET", "/api/tracks/status")
@@ -368,7 +414,7 @@ export default function RadioPlayer() {
                 }}
               >
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
-                {hasInteracted ? `Now playing on ${mediaTypeLabel(currentTrack.mediaType)} ↗` : `Play on ${mediaTypeLabel(currentTrack.mediaType)}`}
+                Open on {mediaTypeLabel(currentTrack.mediaType)} ↗
               </a>
 
               {embedSrc && (
@@ -382,6 +428,7 @@ export default function RadioPlayer() {
                     style={{ display: "block", border: "none" }}
                     allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
                     allowFullScreen
+                    onLoad={onIframeLoad}
                     data-testid="iframe-player"
                     title={currentTrack.songTitle}
                   />
