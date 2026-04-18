@@ -72,9 +72,12 @@ export default function RadioPlayer() {
   // This is the only reliable way to stop audio on iOS — destroying the iframe
   const [embedKey, setEmbedKey] = useState(0);
   const [lastRefresh, setLastRefresh] = useState<string | null>(null);
+  const [flash, setFlash] = useState(false);
 
   const playlistRef = useRef<Track[]>([]);
   const currentIndexRef = useRef(0);
+  const nowPlayingRef = useRef<HTMLDivElement>(null);
+  const bodyRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => { playlistRef.current = playlist; }, [playlist]);
   useEffect(() => { currentIndexRef.current = currentIndex; }, [currentIndex]);
@@ -115,6 +118,10 @@ export default function RadioPlayer() {
     currentIndexRef.current = index;
     setCurrentIndex(index);
     setEmbedKey(k => k + 1); // destroys current iframe, stopping all audio
+    // Scroll back to top so the player is visible, then flash it
+    bodyRef.current?.scrollTo({ top: 0, behavior: 'smooth' });
+    setFlash(true);
+    setTimeout(() => setFlash(false), 600);
   }, []);
 
   const skipNext = useCallback(() => {
@@ -172,9 +179,11 @@ export default function RadioPlayer() {
       <div style={{ flex: 1, display: "flex", flexDirection: "column", overflow: "hidden" }} className="radio-layout">
 
         {/* Now Playing */}
-        <div style={{
+        <div ref={nowPlayingRef} style={{
           padding: "28px 28px 20px", borderBottom: "1px solid var(--color-border)",
-          background: "var(--color-surface)", display: "flex", flexDirection: "column", gap: "4px"
+          background: flash ? "var(--color-surface-offset)" : "var(--color-surface)",
+          display: "flex", flexDirection: "column", gap: "4px",
+          transition: "background 0.3s"
         }} className="now-playing-panel">
 
           <div style={{ display: "flex", alignItems: "flex-start", justifyContent: "space-between", gap: "16px", marginBottom: "14px" }}>
@@ -266,7 +275,7 @@ export default function RadioPlayer() {
         </div>
 
         {/* Playlist */}
-        <div style={{ flex: 1, overflowY: "auto" }}>
+        <div ref={bodyRef} style={{ flex: 1, overflowY: "auto" }}>
           <div style={{
             padding: "12px 24px 10px", borderBottom: "1px solid var(--color-divider)",
             position: "sticky", top: 0, zIndex: 10, background: "var(--color-bg)"
