@@ -320,17 +320,6 @@ const SEED_TRACKS: InsertTrack[] = [
     embedCode: "https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/2303650415&color=ff5500&auto_play=false&hide_related=false&show_comments=false&show_user=true&show_reposts=false",
     fetchedAt: "2026-03-02T00:00:00.000Z",
   },
-  {
-    // Wagtunes Corner — most recent (same track as March SOTM, but different thread, use once)
-    songTitle: "Not The Girl You Used To Love",
-    artistName: "Steven Wagenheim",
-    forumMember: "wagtunes",
-    mediaUrl: "https://soundcloud.com/steven-wagenheim/not-the-girl-you-used-to-love",
-    mediaType: "soundcloud",
-    threadUrl: "https://forum.loopypro.com/discussion/66861/the-wagtunes-corner",
-    embedCode: "https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/2303650415&color=ff5500&auto_play=false&hide_related=false&show_comments=false&show_user=true&show_reposts=false",
-    fetchedAt: "2025-12-04T00:00:00.000Z",
-  }
 ];
 
 function seedIfEmpty() {
