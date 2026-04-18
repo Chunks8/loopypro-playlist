@@ -1,7 +1,7 @@
 import { drizzle } from "drizzle-orm/better-sqlite3";
 import Database from "better-sqlite3";
 import { tracks, type Track, type InsertTrack } from "@shared/schema";
-import { eq } from "drizzle-orm";
+import { eq, desc } from "drizzle-orm";
 
 const sqlite = new Database("radio.db");
 const db = drizzle(sqlite);
@@ -29,7 +29,7 @@ export interface IStorage {
 
 export const storage: IStorage = {
   getAllTracks(): Track[] {
-    return db.select().from(tracks).all();
+    return db.select().from(tracks).orderBy(desc(tracks.id)).all();
   },
 
   replaceAllTracks(newTracks: InsertTrack[]): Track[] {

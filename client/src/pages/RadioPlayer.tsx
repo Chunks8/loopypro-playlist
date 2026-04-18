@@ -102,9 +102,9 @@ export default function RadioPlayer() {
 
   useEffect(() => {
     if (rawTracks.length > 0) {
-      const shuffled = shuffle(rawTracks);
-      setPlaylist(shuffled);
-      playlistRef.current = shuffled;
+      // Tracks arrive sorted most-recent first (by id desc) from the API
+      setPlaylist(rawTracks);
+      playlistRef.current = rawTracks;
       setCurrentIndex(0);
       currentIndexRef.current = 0;
       setEmbedKey(k => k + 1);
