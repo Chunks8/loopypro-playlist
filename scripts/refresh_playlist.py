@@ -124,6 +124,30 @@ def main():
             continue
         seen_urls.add(murl)
 
+        # Build embed if missing
+        if embed is None and mtype == 'soundcloud':
+            # Resolve short URLs first
+            resolved = murl
+            if 'on.soundcloud.com' in murl:
+                try:
+                    req2 = urllib.request.Request(murl, headers={'User-Agent': 'Mozilla/5.0'})
+                    with urllib.request.urlopen(req2, timeout=10) as r2:
+                        resolved = r2.url
+                except:
+                    pass
+            encoded = urllib.parse.quote(resolved, safe='')
+            embed = f"https://w.soundcloud.com/player/?url={encoded}&color=ff5500&auto_play=false&hide_related=false&show_comments=false&show_user=true&show_reposts=false"
+        elif embed is None and mtype == 'hearthis':
+            try:
+                req3 = urllib.request.Request(murl, headers={'User-Agent': 'Mozilla/5.0'})
+                with urllib.request.urlopen(req3, timeout=10) as r3:
+                    body3 = r3.read().decode('utf-8', errors='ignore')
+                m3 = re.search(r'embed/(\d+)', body3)
+                if m3:
+                    embed = f"https://app.hearthis.at/embed/{m3.group(1)}/transparent_black/?"
+            except:
+                pass
+
         username = get_username(user_id)
         tracks.append({
             'songTitle': clean_title(title),
