@@ -28,6 +28,16 @@ const SEED_TRACKS: InsertTrack[] = [
     fetchedAt: "2026-04-19T18:13:34+00:00",
   },
   {
+    songTitle: "Live Session iPad",
+    artistName: "RedSkyLullaby",
+    forumMember: "RedSkyLullaby",
+    mediaUrl: "https://www.youtube.com/watch?v=FeEde9QI17w",
+    mediaType: "youtube",
+    threadUrl: "https://forum.loopypro.com/discussion/68212/live-session-ipad",
+    embedCode: "https://www.youtube.com/embed/FeEde9QI17w",
+    fetchedAt: "2026-04-19T16:22:01+00:00",
+  },
+  {
     songTitle: "\"Ambient Beat Thing\" (Electronic Music in Gadget)",
     artistName: "jwmmakerofmusic",
     forumMember: "jwmmakerofmusic",
@@ -66,16 +76,6 @@ const SEED_TRACKS: InsertTrack[] = [
     threadUrl: "https://forum.loopypro.com/discussion/68191/happy-to-announce-horseflies-a-new-single-recording",
     embedCode: "https://app.hearthis.at/embed/14181159/transparent_black/?",
     fetchedAt: "2026-04-17T12:59:22+00:00",
-  },
-  {
-    songTitle: "The Portrait of a Deranged Mind -something  different from us!",
-    artistName: "Fear2Stop",
-    forumMember: "Fear2Stop",
-    mediaUrl: "https://www.youtube.com/watch?v=videoseries",
-    mediaType: "youtube",
-    threadUrl: "https://forum.loopypro.com/discussion/68166/the-portrait-of-a-deranged-mind-something-different-from-us",
-    embedCode: "https://www.youtube.com/embed/videoseries",
-    fetchedAt: "2026-04-15T07:25:01+00:00",
   },
   {
     songTitle: "My most recent track",

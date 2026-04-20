@@ -39,9 +39,11 @@ def get_media(html_body):
         vid = m.group(1)
         results.append(('youtube', f'https://www.youtube.com/watch?v={vid}',
                         f'https://www.youtube.com/embed/{vid}'))
-    # YouTube iframes
-    for m in re.finditer(r'src=["\']?(https://www\.youtube\.com/embed/([A-Za-z0-9_-]{11})[^"\'>\s]*)', html_body):
+    # YouTube iframes (skip videoseries/playlist embeds — no single playable video ID)
+    for m in re.finditer(r'src=["\']?(https://www\.youtube\.com/embed/([A-Za-z0-9_-]{11,})[^"\'>\s]*)', html_body):
         vid = m.group(2)
+        if vid == 'videoseries' or len(vid) != 11:
+            continue
         results.append(('youtube', f'https://www.youtube.com/watch?v={vid}',
                         f'https://www.youtube.com/embed/{vid}'))
     # YouTube links
