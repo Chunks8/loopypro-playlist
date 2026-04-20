@@ -8,14 +8,14 @@ import * as http from "http";
 // Corrected, deduplicated seed tracks — most recent post per thread
 const SEED_TRACKS: InsertTrack[] = [
   {
-    songTitle: "Chitlin con carne cover.NAM XT.",
-    artistName: "flo",
-    forumMember: "flo",
-    mediaUrl: "https://www.youtube.com/watch?v=MbK-ha0VytE",
-    mediaType: "youtube",
-    threadUrl: "https://forum.loopypro.com/discussion/68221/chitlin-con-carne-cover-nam-xt",
-    embedCode: "https://www.youtube.com/embed/MbK-ha0VytE",
-    fetchedAt: "2026-04-20T10:43:28+00:00",
+    songTitle: "\"Gentle Lullaby\" (Orchestral Downtempo in Korg Gadget)",
+    artistName: "jwmmakerofmusic",
+    forumMember: "jwmmakerofmusic",
+    mediaUrl: "https://on.soundcloud.com/MrShbw4thows5N4eh4",
+    mediaType: "soundcloud",
+    threadUrl: "https://forum.loopypro.com/discussion/68226/gentle-lullaby-orchestral-downtempo-in-korg-gadget",
+    embedCode: "https://w.soundcloud.com/player/?url=https%3A%2F%2Fsoundcloud.com%2Fjwmmakerofmusic%2Fjwm-gentle-lullaby%3Fsi%3D8e3c48c27e8f4435a7a4cd5517885bec%26utm_source%3Dclipboard%26utm_medium%3Dtext%26utm_campaign%3Dsocial_sharing&color=ff5500&auto_play=false&hide_related=false&show_comments=false&show_user=true&show_reposts=false",
+    fetchedAt: "2026-04-20T19:01:15+00:00",
   },
   {
     songTitle: "Korg Gadget LE Challenge, 2026 Edition",
@@ -36,6 +36,16 @@ const SEED_TRACKS: InsertTrack[] = [
     threadUrl: "https://forum.loopypro.com/discussion/68213/after-the-storm-lofi-in-korg-gadget",
     embedCode: "https://w.soundcloud.com/player/?url=https%3A%2F%2Fsoundcloud.com%2Fjwmmakerofmusic%2Fjwm-after-the-storm%3Fsi%3D96aeafc20f3d43f092906a8afa372790%26utm_source%3Dclipboard%26utm_medium%3Dtext%26utm_campaign%3Dsocial_sharing&color=ff5500&auto_play=false&hide_related=false&show_comments=false&show_user=true&show_reposts=false",
     fetchedAt: "2026-04-19T18:13:34+00:00",
+  },
+  {
+    songTitle: "Live Session iPad",
+    artistName: "RedSkyLullaby",
+    forumMember: "RedSkyLullaby",
+    mediaUrl: "https://www.youtube.com/watch?v=FeEde9QI17w",
+    mediaType: "youtube",
+    threadUrl: "https://forum.loopypro.com/discussion/68212/live-session-ipad",
+    embedCode: "https://www.youtube.com/embed/FeEde9QI17w",
+    fetchedAt: "2026-04-19T16:22:01+00:00",
   },
   {
     songTitle: "\"Ambient Beat Thing\" (Electronic Music in Gadget)",
