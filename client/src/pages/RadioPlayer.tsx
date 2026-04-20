@@ -118,10 +118,13 @@ export default function RadioPlayer() {
     currentIndexRef.current = index;
     setCurrentIndex(index);
     setEmbedKey(k => k + 1); // destroys current iframe, stopping all audio
-    // Scroll back to top so the player is visible, then flash it
-    window.scrollTo({ top: 0, behavior: "smooth" });
-    nowPlayingRef.current?.scrollIntoView({ behavior: "smooth", block: "start" });
     setFlash(true);
+    // Defer scroll until after React re-renders the new embed panel,
+    // so the player has its full height before we scroll to it.
+    setTimeout(() => {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+      nowPlayingRef.current?.scrollIntoView({ behavior: "smooth", block: "start" });
+    }, 80);
     setTimeout(() => setFlash(false), 600);
   }, []);
 
