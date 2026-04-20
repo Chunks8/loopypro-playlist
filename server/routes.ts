@@ -8,6 +8,16 @@ import * as http from "http";
 // Corrected, deduplicated seed tracks — most recent post per thread
 const SEED_TRACKS: InsertTrack[] = [
   {
+    songTitle: "Chitlin con carne cover.NAM XT.",
+    artistName: "flo",
+    forumMember: "flo",
+    mediaUrl: "https://www.youtube.com/watch?v=MbK-ha0VytE",
+    mediaType: "youtube",
+    threadUrl: "https://forum.loopypro.com/discussion/68221/chitlin-con-carne-cover-nam-xt",
+    embedCode: "https://www.youtube.com/embed/MbK-ha0VytE",
+    fetchedAt: "2026-04-20T10:43:28+00:00",
+  },
+  {
     songTitle: "Korg Gadget LE Challenge, 2026 Edition",
     artistName: "jwmmakerofmusic",
     forumMember: "jwmmakerofmusic",
@@ -26,16 +36,6 @@ const SEED_TRACKS: InsertTrack[] = [
     threadUrl: "https://forum.loopypro.com/discussion/68213/after-the-storm-lofi-in-korg-gadget",
     embedCode: "https://w.soundcloud.com/player/?url=https%3A%2F%2Fsoundcloud.com%2Fjwmmakerofmusic%2Fjwm-after-the-storm%3Fsi%3D96aeafc20f3d43f092906a8afa372790%26utm_source%3Dclipboard%26utm_medium%3Dtext%26utm_campaign%3Dsocial_sharing&color=ff5500&auto_play=false&hide_related=false&show_comments=false&show_user=true&show_reposts=false",
     fetchedAt: "2026-04-19T18:13:34+00:00",
-  },
-  {
-    songTitle: "Live Session iPad",
-    artistName: "RedSkyLullaby",
-    forumMember: "RedSkyLullaby",
-    mediaUrl: "https://www.youtube.com/watch?v=FeEde9QI17w",
-    mediaType: "youtube",
-    threadUrl: "https://forum.loopypro.com/discussion/68212/live-session-ipad",
-    embedCode: "https://www.youtube.com/embed/FeEde9QI17w",
-    fetchedAt: "2026-04-19T16:22:01+00:00",
   },
   {
     songTitle: "\"Ambient Beat Thing\" (Electronic Music in Gadget)",
@@ -136,16 +136,6 @@ const SEED_TRACKS: InsertTrack[] = [
     threadUrl: "https://forum.loopypro.com/discussion/68154/a-bass-thing-bass-house-edm-stuff-created-in-gadget",
     embedCode: "https://w.soundcloud.com/player/?url=https%3A//soundcloud.com/jwmmakerofmusic/jwm-a-bass-thing&amp;color=ff5500&amp;auto_play=false&amp;hide_related=false&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false",
     fetchedAt: "2026-04-13T21:49:14+00:00",
-  },
-  {
-    songTitle: "Well Considered",
-    artistName: "Gravitas",
-    forumMember: "Gravitas",
-    mediaUrl: "https://on.soundcloud.com/6liFAn6gYRpqltDwMk",
-    mediaType: "soundcloud",
-    threadUrl: "https://forum.loopypro.com/discussion/68152/well-considered",
-    embedCode: "https://w.soundcloud.com/player/?url=https%3A%2F%2Fsoundcloud.com%2Fmdbch1%2Fwell-considered-139-opto-rough%3Fsi%3D4f7a821f7a5140d0b4ab6f96bf2601b4%26utm_source%3Dclipboard%26utm_medium%3Dtext%26utm_campaign%3Dsocial_sharing&color=ff5500&auto_play=false&hide_related=false&show_comments=false&show_user=true&show_reposts=false",
-    fetchedAt: "2026-04-13T20:12:08+00:00",
   },
   {
     songTitle: "'Going Home' another new blues recording in collab with pbelgium",
