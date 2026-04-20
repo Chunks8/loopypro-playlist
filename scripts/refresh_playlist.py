@@ -65,41 +65,85 @@ def ts_val(v):
     if v is None: return 'null'
     return json.dumps(str(v))
 
-def get_most_recent_media_from_author(disc_id, insert_user_id, count_comments):
+def fetch_html(url):
+    req = urllib.request.Request(url, headers={'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36'})
+    with urllib.request.urlopen(req, timeout=15) as r:
+        return r.read().decode('utf-8', errors='ignore')
+
+def get_media_from_html_page(html):
+    """Extract media URLs directly from raw forum HTML (not JSON API)."""
+    results = []
+    # SoundCloud iframes (URL-encoded in src)
+    for m in re.finditer(r'src=["\']?(https://w\.soundcloud\.com/player/\?url=([^&"\'>\s]+)[^"\'>\s]*)', html):
+        media_url = urllib.parse.unquote(m.group(2))
+        embed = urllib.parse.unquote(m.group(1))
+        embed = re.sub(r'auto_play=(true|false)', 'auto_play=false', embed)
+        if 'auto_play=' not in embed: embed += '&auto_play=false'
+        embed = embed.replace('&amp;', '&')
+        results.append(('soundcloud', media_url, embed))
+    # SoundCloud direct links
+    for m in re.finditer(r'href=["\']?(https?://(?:on\.)?soundcloud\.com/[^"\'>\s]+)', html):
+        u = m.group(1)
+        if '/player' not in u:
+            results.append(('soundcloud', u, None))
+    # YouTube
+    for m in re.finditer(r'data-youtube=["\']?([A-Za-z0-9_-]{11})', html):
+        vid = m.group(1)
+        results.append(('youtube', f'https://www.youtube.com/watch?v={vid}', f'https://www.youtube.com/embed/{vid}'))
+    for m in re.finditer(r'href=["\']?(https?://(?:www\.)?(?:youtube\.com/watch\?v=|youtu\.be/)([A-Za-z0-9_-]{11})[^"\'>\s]*)', html):
+        vid = m.group(2)
+        results.append(('youtube', f'https://www.youtube.com/watch?v={vid}', f'https://www.youtube.com/embed/{vid}'))
+    # HearThis
+    for m in re.finditer(r'href=["\']?(https://hearthis\.at/[^"\'>\s]+)', html):
+        u = m.group(1).rstrip('/')
+        if '/set/' not in u and u.count('/') >= 3:
+            results.append(('hearthis', u, None))
+    return results
+
+def get_most_recent_media_from_author(disc_id, insert_user_id, count_comments, author_username=None):
     """
-    For long-running threads (e.g. Wagtunes Corner) where the thread author posts
-    all their own tracks as comments: paginate from the last page backwards and
-    return the most recent comment by the thread author that contains media.
+    For long-running threads where the API pagination is unreliable,
+    fetch the actual HTML pages from the last page backwards and find
+    the most recent post by the thread author that contains media.
+    Uses HTML scraping since the Vanilla API returns duplicate pages for some threads.
     """
     if count_comments == 0:
         return None
 
-    # Calculate last page offset
-    last_offset = ((count_comments - 1) // 50) * 50
+    # Forum shows 30 comments per page on the web UI
+    POSTS_PER_PAGE = 30
+    last_page = ((count_comments - 1) // POSTS_PER_PAGE) + 1
+    base_url = f"https://forum.loopypro.com/discussion/{disc_id}"
 
-    # Walk pages from last to first
-    offset = last_offset
-    while offset >= 0:
+    for page in range(last_page, 0, -1):
+        page_url = f"{base_url}/p{page}" if page > 1 else base_url
         try:
-            comments = fetch(
-                f"https://forum.loopypro.com/api/v2/comments"
-                f"?discussionID={disc_id}&limit=50&offset={offset}&sort=dateInserted"
-            )
+            html = fetch_html(page_url)
         except Exception as e:
-            print(f"    Warning: failed to fetch comments at offset {offset}: {e}")
-            break
+            print(f"    Warning: failed to fetch HTML page {page}: {e}")
+            continue
 
-        # Walk this page in reverse (most recent first)
-        for c in reversed(comments):
-            if c.get('insertUserID') != insert_user_id:
+        # Split HTML into per-post blocks using the AuthorWrap div as delimiter.
+        # Each post starts with: <div class="Item-Header CommentHeader">
+        # preceded by </div> from the previous post's body.
+        # We split on profile links which uniquely mark each post's author.
+        # Pattern: href="/profile/{username}" appears twice per post (photo + name link).
+        # We split on the opening of each Item-Header block.
+        blocks = re.split(r'<div class="Item-Header CommentHeader">', html)
+        # blocks[0] = page header, blocks[1..] = one per comment
+        for block in reversed(blocks[1:]):
+            # Extract author username from this block
+            author_match = re.search(r'href="/profile/([^"]+)"\s+class="Username"', block)
+            if not author_match:
                 continue
-            media = get_media(c.get('body', ''))
+            post_author = author_match.group(1).lower()
+            # Check if this post is by our target author
+            if author_username and post_author != author_username.lower():
+                continue
+            # Find media in this block
+            media = get_media_from_html_page(block)
             if media:
-                return media[-1]  # last media item in that comment
-
-        if offset == 0:
-            break
-        offset = max(0, offset - 50)
+                return media[-1]
 
     return None
 
@@ -182,7 +226,7 @@ def main():
             # Long-running thread: only look at posts by the thread author,
             # paginate from the end to find their most recent track
             print(f"  Author-only mode for: {title} ({count_comments} comments)")
-            result = get_most_recent_media_from_author(disc_id, insert_user_id, count_comments)
+            result = get_most_recent_media_from_author(disc_id, insert_user_id, count_comments, author_username=username)
             if result is None:
                 # Fall back to OP body
                 body_media = get_media(body)

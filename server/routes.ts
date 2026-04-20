@@ -201,10 +201,10 @@ const SEED_TRACKS: InsertTrack[] = [
     songTitle: "The Wagtunes Corner",
     artistName: "wagtunes",
     forumMember: "wagtunes",
-    mediaUrl: "https://soundcloud.com/steven-wagenheim/beyond-the-nexus",
+    mediaUrl: "https://soundcloud.com/steven-wagenheim/i-can-dream-if-i-want-to",
     mediaType: "soundcloud",
     threadUrl: "https://forum.loopypro.com/discussion/66861/the-wagtunes-corner",
-    embedCode: "https://w.soundcloud.com/player/?url=https%3A//soundcloud.com/steven-wagenheim/beyond-the-nexus&amp;color=ff5500&amp;auto_play=false&amp;hide_related=false&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false",
+    embedCode: "https://w.soundcloud.com/player/?url=https://soundcloud.com/steven-wagenheim/i-can-dream-if-i-want-to&color=ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false",
     fetchedAt: "2025-12-04T14:10:25+00:00",
   }
 ];
