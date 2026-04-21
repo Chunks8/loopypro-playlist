@@ -164,30 +164,43 @@ def get_most_recent_media_from_author(disc_id, insert_user_id, count_comments, a
 
     return None
 
-def get_most_recent_media_standard(disc_id, disc_body):
+def get_most_recent_media_standard(disc_id, disc_body, insert_user_id=None):
     """
-    Standard logic for normal threads: collect all media from the OP body,
-    then find the most recent comment that has media (fetch with sort=-dateInserted).
-    Returns the last media item found (most recent).
+    Standard logic for normal threads: prefer the most recent media posted by
+    the thread author (insertUserID). Falls back to any member's most recent
+    media if the author has none in the comments.
     """
-    all_media = get_media(disc_body)
+    # Start with OP body media
+    op_media = get_media(disc_body)
 
     try:
         comments = fetch(
             f"https://forum.loopypro.com/api/v2/comments"
             f"?discussionID={disc_id}&limit=50&sort=-dateInserted"
         )
+        # First pass: find most recent comment with media from the thread author
+        author_media = None
+        any_media = None
         for c in comments:
             media = get_media(c.get('body', ''))
-            if media:
-                all_media.extend(media)
-                break
+            if not media:
+                continue
+            if any_media is None:
+                any_media = media  # most recent from anyone
+            if insert_user_id and c.get('insertUserID') == insert_user_id:
+                author_media = media
+                break  # most recent from author — stop here
+
+        # Prefer author's most recent, else most recent from anyone, else OP
+        chosen = author_media or any_media
+        if chosen:
+            return chosen[-1]
     except Exception as e:
         print(f"    Warning: failed to fetch comments: {e}")
 
-    if not all_media:
+    if not op_media:
         return None
-    return all_media[-1]
+    return op_media[-1]
 
 def main():
     print(f"[{datetime.now().isoformat()}] Starting playlist refresh...")
@@ -254,7 +267,7 @@ def main():
             mtype, murl, embed = result
         else:
             # Standard thread: most recent media from OP + most recent comment
-            result = get_most_recent_media_standard(disc_id, body)
+            result = get_most_recent_media_standard(disc_id, body, insert_user_id=insert_user_id)
             if result is None:
                 continue
             mtype, murl, embed = result
