@@ -88,10 +88,14 @@ export default function RadioPlayer() {
       try {
         const data = typeof e.data === "string" ? JSON.parse(e.data) : e.data;
         if (data?.event === "onStateChange" && data?.info === 0) {
-          // YouTube ended — advance to next
-          const next = (currentIndexRef.current + 1) % playlistRef.current.length;
-          setCurrentIndex(next);
-          currentIndexRef.current = next;
+          // YouTube ended — advance to next visible track
+          const vis = visiblePlaylistRef.current;
+          const cur = playlistRef.current[currentIndexRef.current];
+          const visIdx = vis.indexOf(cur);
+          const nextTrack = vis[(visIdx + 1) % vis.length];
+          const nextIdx = playlistRef.current.indexOf(nextTrack);
+          setCurrentIndex(nextIdx);
+          currentIndexRef.current = nextIdx;
           setEmbedKey(k => k + 1);
         }
       } catch {}
@@ -129,7 +133,6 @@ export default function RadioPlayer() {
     return { mainPlaylist: main, overflowByMember: overflow };
   })();
 
-  const hasOverflow = Object.keys(overflowByMember).length > 0;
   const [expandedMembers, setExpandedMembers] = useState<Set<string>>(new Set());
   const toggleExpanded = (member: string) => {
     setExpandedMembers(prev => {
@@ -139,17 +142,31 @@ export default function RadioPlayer() {
     });
   };
 
-  // currentIndex maps into the full playlist; derive display index in mainPlaylist
+  // visiblePlaylist = main tracks + expanded overflow tracks, in display order.
+  // Skip buttons and the counter operate on this list only.
+  const visiblePlaylist = (() => {
+    const result: Track[] = [];
+    for (const t of mainPlaylist) {
+      result.push(t);
+      const member = t.forumMember ?? t.artistName ?? "unknown";
+      if (expandedMembers.has(member)) {
+        result.push(...(overflowByMember[member] ?? []));
+      }
+    }
+    return result;
+  })();
+  const visiblePlaylistRef = useRef<Track[]>(visiblePlaylist);
+  useEffect(() => { visiblePlaylistRef.current = visiblePlaylist; }, [visiblePlaylist]);
+
+  // navigateTo accepts a full-playlist index (used internally + by row taps)
   const currentTrack = playlist[currentIndex] ?? null;
   const embedSrc = currentTrack ? buildEmbedSrc(currentTrack) : null;
 
   const navigateTo = useCallback((index: number) => {
     currentIndexRef.current = index;
     setCurrentIndex(index);
-    setEmbedKey(k => k + 1); // destroys current iframe, stopping all audio
+    setEmbedKey(k => k + 1);
     setFlash(true);
-    // Defer scroll until after React re-renders the new embed panel,
-    // so the player has its full height before we scroll to it.
     setTimeout(() => {
       window.scrollTo({ top: 0, behavior: "smooth" });
       nowPlayingRef.current?.scrollIntoView({ behavior: "smooth", block: "start" });
@@ -157,12 +174,21 @@ export default function RadioPlayer() {
     setTimeout(() => setFlash(false), 600);
   }, []);
 
+  // Skip operates within visiblePlaylist so collapsed tracks are never silently traversed
   const skipNext = useCallback(() => {
-    navigateTo((currentIndexRef.current + 1) % playlistRef.current.length);
+    const vis = visiblePlaylistRef.current;
+    const cur = playlist[currentIndexRef.current];
+    const visIdx = vis.indexOf(cur);
+    const nextTrack = vis[(visIdx + 1) % vis.length];
+    navigateTo(playlistRef.current.indexOf(nextTrack));
   }, [navigateTo]);
 
   const skipPrev = useCallback(() => {
-    navigateTo((currentIndexRef.current - 1 + playlistRef.current.length) % playlistRef.current.length);
+    const vis = visiblePlaylistRef.current;
+    const cur = playlist[currentIndexRef.current];
+    const visIdx = vis.indexOf(cur);
+    const prevTrack = vis[(visIdx - 1 + vis.length) % vis.length];
+    navigateTo(playlistRef.current.indexOf(prevTrack));
   }, [navigateTo]);
 
   useEffect(() => {
@@ -227,7 +253,7 @@ export default function RadioPlayer() {
                   display: "inline-block", boxShadow: "0 0 0 3px var(--color-accent-dim)"
                 }} />
                 <span style={{ fontSize: "var(--text-xs)", color: "var(--color-accent)", fontWeight: 600, letterSpacing: "0.1em" }}>ON AIR</span>
-                <span style={{ fontSize: "var(--text-xs)", color: "var(--color-text-faint)" }}>{currentIndex + 1} / {playlist.length}</span>
+                <span style={{ fontSize: "var(--text-xs)", color: "var(--color-text-faint)" }}>{visiblePlaylist.indexOf(currentTrack!) + 1 || "–"} / {visiblePlaylist.length}</span>
               </div>
               <h1 style={{ fontSize: "var(--text-lg)", fontWeight: 700, color: "var(--color-text)", lineHeight: 1.25, marginBottom: "4px" }}>
                 {currentTrack?.songTitle ?? "—"}
