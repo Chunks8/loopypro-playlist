@@ -187,7 +187,7 @@ def main():
     print(f"[{datetime.now().isoformat()}] Starting playlist refresh...")
 
     # Fetch discussions sorted by post date (newest first)
-    discs = fetch("https://forum.loopypro.com/api/v2/discussions?categoryID=3&limit=35&sort=-dateInserted")
+    discs = fetch("https://forum.loopypro.com/api/v2/discussions?categoryID=3&limit=70&sort=-dateInserted")
     print(f"  Fetched {len(discs)} discussions")
 
     # Threads to skip entirely (pinned/admin notices and SOTM competitions)
