@@ -8,6 +8,16 @@ import * as http from "http";
 // Corrected, deduplicated seed tracks — most recent post per thread
 const SEED_TRACKS: InsertTrack[] = [
   {
+    songTitle: "Marching Band Horn sample set (Kontakt + soundfont) with demo in Gestrument",
+    artistName: "zvon",
+    forumMember: "zvon",
+    mediaUrl: "https://www.youtube.com/watch?v=VrFbLPGyX2A",
+    mediaType: "youtube",
+    threadUrl: "https://forum.loopypro.com/discussion/68237/marching-band-horn-sample-set-kontakt-soundfont-with-demo-in-gestrument",
+    embedCode: "https://www.youtube.com/embed/VrFbLPGyX2A",
+    fetchedAt: "2026-04-21T15:25:31+00:00",
+  },
+  {
     songTitle: "\"Gentle Lullaby\" (Orchestral Downtempo in Korg Gadget)",
     artistName: "jwmmakerofmusic",
     forumMember: "jwmmakerofmusic",
@@ -16,16 +26,6 @@ const SEED_TRACKS: InsertTrack[] = [
     threadUrl: "https://forum.loopypro.com/discussion/68226/gentle-lullaby-orchestral-downtempo-in-korg-gadget",
     embedCode: "https://w.soundcloud.com/player/?url=https%3A%2F%2Fsoundcloud.com%2Fjwmmakerofmusic%2Fjwm-gentle-lullaby%3Fsi%3D8e3c48c27e8f4435a7a4cd5517885bec%26utm_source%3Dclipboard%26utm_medium%3Dtext%26utm_campaign%3Dsocial_sharing&color=ff5500&auto_play=false&hide_related=false&show_comments=false&show_user=true&show_reposts=false",
     fetchedAt: "2026-04-20T19:01:15+00:00",
-  },
-  {
-    songTitle: "Chitlin con carne cover.NAM XT.",
-    artistName: "flo",
-    forumMember: "flo",
-    mediaUrl: "https://www.youtube.com/watch?v=MbK-ha0VytE",
-    mediaType: "youtube",
-    threadUrl: "https://forum.loopypro.com/discussion/68221/chitlin-con-carne-cover-nam-xt",
-    embedCode: "https://www.youtube.com/embed/MbK-ha0VytE",
-    fetchedAt: "2026-04-20T10:43:28+00:00",
   },
   {
     songTitle: "Korg Gadget LE Challenge, 2026 Edition",
@@ -346,6 +346,16 @@ const SEED_TRACKS: InsertTrack[] = [
     threadUrl: "https://forum.loopypro.com/discussion/67823/a-thread-of-improvised-orchestra-sketches",
     embedCode: "https://w.soundcloud.com/player/?url=https%3A//soundcloud.com/user-403688328/sunrise-over-the-mountains?si=8eeba058a4cf4b98943f3aca57b92731&amp;utm_source=clipboard&amp;utm_medium=text&amp;utm_campaign=social_sharing&amp;color=ff5500&amp;auto_play=false&amp;hide_related=false&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false",
     fetchedAt: "2026-03-08T00:58:02+00:00",
+  },
+  {
+    songTitle: "Frondescentia",
+    artistName: "GeoTony",
+    forumMember: "GeoTony",
+    mediaUrl: "https://soundcloud.com/geotony/357-frondescentia?si=482c9e87476b4b8286927d8c7fda708f",
+    mediaType: "soundcloud",
+    threadUrl: "https://forum.loopypro.com/discussion/67767/frondescentia",
+    embedCode: "https://w.soundcloud.com/player/?url=https%3A//soundcloud.com/geotony/357-frondescentia?si=482c9e87476b4b8286927d8c7fda708f&amp;utm_source=clipboard&amp;utm_medium=text&amp;utm_campaign=social_sharing&amp;color=ff5500&amp;auto_play=false&amp;hide_related=false&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false",
+    fetchedAt: "2026-03-01T20:37:43+00:00",
   },
   {
     songTitle: "2026 resolution: a track a month (updated for April!)",
