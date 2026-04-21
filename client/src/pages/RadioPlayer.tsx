@@ -89,7 +89,7 @@ export default function RadioPlayer() {
         const data = typeof e.data === "string" ? JSON.parse(e.data) : e.data;
         if (data?.event === "onStateChange" && data?.info === 0) {
           // YouTube ended — advance to next visible track
-          const vis = visiblePlaylistRef.current;
+          const vis = getVisiblePlaylist();
           const cur = playlistRef.current[currentIndexRef.current];
           const visIdx = vis.indexOf(cur);
           const nextTrack = vis[(visIdx + 1) % vis.length];
@@ -122,18 +122,21 @@ export default function RadioPlayer() {
     const overflow: Record<string, Track[]> = {};
     for (const t of playlist) {
       const key = t.forumMember ?? t.artistName ?? "unknown";
-      if (!seen.has(key)) {
-        seen.add(key);
-        main.push(t);
-      } else {
-        if (!overflow[key]) overflow[key] = [];
-        overflow[key].push(t);
-      }
+      if (!seen.has(key)) { seen.add(key); main.push(t); }
+      else { if (!overflow[key]) overflow[key] = []; overflow[key].push(t); }
     }
     return { mainPlaylist: main, overflowByMember: overflow };
   })();
 
   const [expandedMembers, setExpandedMembers] = useState<Set<string>>(new Set());
+  // Keep refs to everything skip callbacks need — updated synchronously during render
+  const mainPlaylistRef = useRef<Track[]>(mainPlaylist);
+  const overflowByMemberRef = useRef<Record<string, Track[]>>(overflowByMember);
+  const expandedMembersRef = useRef<Set<string>>(expandedMembers);
+  mainPlaylistRef.current = mainPlaylist;
+  overflowByMemberRef.current = overflowByMember;
+  expandedMembersRef.current = expandedMembers;
+
   const toggleExpanded = (member: string) => {
     setExpandedMembers(prev => {
       const next = new Set(prev);
@@ -142,23 +145,22 @@ export default function RadioPlayer() {
     });
   };
 
-  // visiblePlaylist = main tracks + expanded overflow tracks, in display order.
-  // Skip buttons and the counter operate on this list only.
-  const visiblePlaylist = (() => {
+  // Compute visible playlist from current refs — safe to call inside callbacks
+  const getVisiblePlaylist = useCallback(() => {
     const result: Track[] = [];
-    for (const t of mainPlaylist) {
+    for (const t of mainPlaylistRef.current) {
       result.push(t);
       const member = t.forumMember ?? t.artistName ?? "unknown";
-      if (expandedMembers.has(member)) {
-        result.push(...(overflowByMember[member] ?? []));
+      if (expandedMembersRef.current.has(member)) {
+        result.push(...(overflowByMemberRef.current[member] ?? []));
       }
     }
     return result;
-  })();
-  const visiblePlaylistRef = useRef<Track[]>(visiblePlaylist);
-  useEffect(() => { visiblePlaylistRef.current = visiblePlaylist; }, [visiblePlaylist]);
+  }, []);
 
-  // navigateTo accepts a full-playlist index (used internally + by row taps)
+  // Render-time visible playlist (for display + counter)
+  const visiblePlaylist = getVisiblePlaylist();
+
   const currentTrack = playlist[currentIndex] ?? null;
   const embedSrc = currentTrack ? buildEmbedSrc(currentTrack) : null;
 
@@ -174,22 +176,22 @@ export default function RadioPlayer() {
     setTimeout(() => setFlash(false), 600);
   }, []);
 
-  // Skip operates within visiblePlaylist so collapsed tracks are never silently traversed
+  // Skip reads visiblePlaylist fresh via getVisiblePlaylist() — never stale
   const skipNext = useCallback(() => {
-    const vis = visiblePlaylistRef.current;
-    const cur = playlist[currentIndexRef.current];
+    const vis = getVisiblePlaylist();
+    const cur = playlistRef.current[currentIndexRef.current];
     const visIdx = vis.indexOf(cur);
     const nextTrack = vis[(visIdx + 1) % vis.length];
     navigateTo(playlistRef.current.indexOf(nextTrack));
-  }, [navigateTo]);
+  }, [navigateTo, getVisiblePlaylist]);
 
   const skipPrev = useCallback(() => {
-    const vis = visiblePlaylistRef.current;
-    const cur = playlist[currentIndexRef.current];
+    const vis = getVisiblePlaylist();
+    const cur = playlistRef.current[currentIndexRef.current];
     const visIdx = vis.indexOf(cur);
     const prevTrack = vis[(visIdx - 1 + vis.length) % vis.length];
     navigateTo(playlistRef.current.indexOf(prevTrack));
-  }, [navigateTo]);
+  }, [navigateTo, getVisiblePlaylist]);
 
   useEffect(() => {
     apiRequest("GET", "/api/tracks/status")
