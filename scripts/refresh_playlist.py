@@ -218,10 +218,25 @@ def main():
         ['challenge', 'edition'],   # e.g. "Korg Gadget LE Challenge, 2026 Edition"
     ]
 
-    # Threads where we only look at posts by the original thread author
-    # (long-running series threads where the author posts all their own tracks)
-    # Detected by insertUserID — Wagtunes Corner is run by user 22715
-    AUTHOR_ONLY_USERS = {22715}  # wagtunes / Steven Wagenheim
+    # Long-running threads where only the original author posts tracks.
+    # For these, we paginate to the last HTML page and find the author's most recent media.
+    # Key: insertUserID, Value: function that returns True if the thread title matches
+    # the long-running pattern (so individual EP/album threads by the same user are excluded).
+    MONTHS = ['january','february','march','april','may','june',
+              'july','august','september','october','november','december']
+
+    def is_jwm_monthly(title):
+        """JWM monthly threads contain his name, a month, and a year — but not 'JWM - ' single-track format."""
+        t = title.lower()
+        return (t.startswith('jwm') and
+                not t.startswith('jwm -') and
+                any(m in t for m in MONTHS) and
+                bool(re.search(r'20\d\d', t)))
+
+    AUTHOR_ONLY_RULES = {
+        22715: lambda title: True,          # wagtunes — all threads are long-running series
+        3108:  is_jwm_monthly,              # JWM — monthly threads only, not individual tracks
+    }
 
     user_cache = {}
     tracks = []
@@ -263,7 +278,8 @@ def main():
         username = user_cache[disc_id]
 
         # Choose media extraction strategy
-        if insert_user_id in AUTHOR_ONLY_USERS:
+        author_only_rule = AUTHOR_ONLY_RULES.get(insert_user_id)
+        if author_only_rule and author_only_rule(title):
             # Long-running thread: only look at posts by the thread author,
             # paginate from the end to find their most recent track
             print(f"  Author-only mode for: {title} ({count_comments} comments)")
