@@ -4,12 +4,13 @@ Playlist refresh script for LoopyPro Radio.
 Fetches latest threads from Vanilla Forums API, extracts most recent media per thread,
 updates SEED_TRACKS in routes.ts, rebuilds, and pushes to GitHub.
 """
-import urllib.request, urllib.parse, json, re, time, subprocess, sys, html as html_module
+import urllib.request, urllib.parse, json, re, time, subprocess, sys, html as html_module, os
 from datetime import datetime, timezone
 
-ROUTES_FILE = '/home/user/workspace/loopypro-radio/server/routes.ts'
-PROJECT_DIR = '/home/user/workspace/loopypro-radio'
-import os
+# Paths relative to the script's own location so this works both locally and in GitHub Actions
+SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
+PROJECT_DIR = os.path.dirname(SCRIPT_DIR)
+ROUTES_FILE = os.path.join(PROJECT_DIR, 'server', 'routes.ts')
 GITHUB_TOKEN = os.environ.get('GITHUB_TOKEN', '')
 
 def fetch(url):
