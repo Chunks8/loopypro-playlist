@@ -8,6 +8,16 @@ import * as http from "http";
 // Corrected, deduplicated seed tracks — most recent post per thread
 const SEED_TRACKS: InsertTrack[] = [
   {
+    songTitle: "flight, a new track with video",
+    artistName: "rottencat",
+    forumMember: "rottencat",
+    mediaUrl: "https://www.youtube.com/watch?v=ADIjJjLQeiQ",
+    mediaType: "youtube",
+    threadUrl: "https://forum.loopypro.com/discussion/68260/flight-a-new-track-with-video",
+    embedCode: "https://www.youtube.com/embed/ADIjJjLQeiQ",
+    fetchedAt: "2026-04-23T21:05:36+00:00",
+  },
+  {
     songTitle: "The Wagtunes Corner",
     artistName: "wagtunes",
     forumMember: "wagtunes",
@@ -36,16 +46,6 @@ const SEED_TRACKS: InsertTrack[] = [
     threadUrl: "https://forum.loopypro.com/discussion/68239/new-fusion-track-called-mach5-from-the-upcoming-album-coming-home",
     embedCode: "https://app.hearthis.at/embed/14207931/transparent_black/?",
     fetchedAt: "2026-04-21T17:28:54+00:00",
-  },
-  {
-    songTitle: "Marching Band Horn sample set (Kontakt + soundfont) with demo in Gestrument",
-    artistName: "zvon",
-    forumMember: "zvon",
-    mediaUrl: "https://www.youtube.com/watch?v=VrFbLPGyX2A",
-    mediaType: "youtube",
-    threadUrl: "https://forum.loopypro.com/discussion/68237/marching-band-horn-sample-set-kontakt-soundfont-with-demo-in-gestrument",
-    embedCode: "https://www.youtube.com/embed/VrFbLPGyX2A",
-    fetchedAt: "2026-04-21T15:25:31+00:00",
   },
   {
     songTitle: "\"Gentle Lullaby\" (Orchestral Downtempo in Korg Gadget)",
@@ -144,7 +144,7 @@ const SEED_TRACKS: InsertTrack[] = [
     mediaUrl: "https://on.soundcloud.com/sTuSa2ioQmquGXCATh",
     mediaType: "soundcloud",
     threadUrl: "https://forum.loopypro.com/discussion/68157/steady-as-she-blows-opto-rough-master-126-bpm",
-    embedCode: "https://w.soundcloud.com/player/?url=https%3A%2F%2Fon.soundcloud.com%2FsTuSa2ioQmquGXCATh&color=ff5500&auto_play=false&hide_related=false&show_comments=false&show_user=true&show_reposts=false",
+    embedCode: "https://w.soundcloud.com/player/?url=https%3A%2F%2Fsoundcloud.com%2Fmdbch1%2Fsteady-as-she-blows-opto-rough%3Fsi%3Dccb4bdcc2d3140e997d9fdcf198e5383%26utm_source%3Dclipboard%26utm_medium%3Dtext%26utm_campaign%3Dsocial_sharing&color=ff5500&auto_play=false&hide_related=false&show_comments=false&show_user=true&show_reposts=false",
     fetchedAt: "2026-04-14T17:32:37+00:00",
   },
   {
@@ -174,7 +174,7 @@ const SEED_TRACKS: InsertTrack[] = [
     mediaUrl: "https://on.soundcloud.com/6liFAn6gYRpqltDwMk",
     mediaType: "soundcloud",
     threadUrl: "https://forum.loopypro.com/discussion/68152/well-considered",
-    embedCode: "https://w.soundcloud.com/player/?url=https%3A%2F%2Fon.soundcloud.com%2F6liFAn6gYRpqltDwMk&color=ff5500&auto_play=false&hide_related=false&show_comments=false&show_user=true&show_reposts=false",
+    embedCode: "https://w.soundcloud.com/player/?url=https%3A%2F%2Fsoundcloud.com%2Fmdbch1%2Fwell-considered-139-opto-rough%3Fsi%3D4f7a821f7a5140d0b4ab6f96bf2601b4%26utm_source%3Dclipboard%26utm_medium%3Dtext%26utm_campaign%3Dsocial_sharing&color=ff5500&auto_play=false&hide_related=false&show_comments=false&show_user=true&show_reposts=false",
     fetchedAt: "2026-04-13T20:12:08+00:00",
   },
   {
@@ -184,7 +184,7 @@ const SEED_TRACKS: InsertTrack[] = [
     mediaUrl: "https://on.soundcloud.com/Jp89XO4lxCMCQZjbc6",
     mediaType: "soundcloud",
     threadUrl: "https://forum.loopypro.com/discussion/68142/heavy-lifting-headphone-mix",
-    embedCode: "https://w.soundcloud.com/player/?url=https%3A%2F%2Fon.soundcloud.com%2FJp89XO4lxCMCQZjbc6&color=ff5500&auto_play=false&hide_related=false&show_comments=false&show_user=true&show_reposts=false",
+    embedCode: "https://w.soundcloud.com/player/?url=https%3A%2F%2Fsoundcloud.com%2Fmdbch1%2Fheavy-lifting-opto-mix-rough%3Fsi%3Dfb4a268c699e4f5795917861a131d752%26utm_source%3Dclipboard%26utm_medium%3Dtext%26utm_campaign%3Dsocial_sharing&color=ff5500&auto_play=false&hide_related=false&show_comments=false&show_user=true&show_reposts=false",
     fetchedAt: "2026-04-13T02:20:03+00:00",
   },
   {
@@ -224,7 +224,7 @@ const SEED_TRACKS: InsertTrack[] = [
     mediaUrl: "https://on.soundcloud.com/qkTzLlb04Mpld4dXjV",
     mediaType: "soundcloud",
     threadUrl: "https://forum.loopypro.com/discussion/68108/first-track-in-awhile",
-    embedCode: "https://w.soundcloud.com/player/?url=https%3A%2F%2Fon.soundcloud.com%2FqkTzLlb04Mpld4dXjV&color=ff5500&auto_play=false&hide_related=false&show_comments=false&show_user=true&show_reposts=false",
+    embedCode: "https://w.soundcloud.com/player/?url=https%3A%2F%2Fsoundcloud.com%2Fmdbch1%2Fshango-master-opto-mix-rough%3Fsi%3D45d452e28aad475abe345698310f1e7c%26utm_source%3Dclipboard%26utm_medium%3Dtext%26utm_campaign%3Dsocial_sharing&color=ff5500&auto_play=false&hide_related=false&show_comments=false&show_user=true&show_reposts=false",
     fetchedAt: "2026-04-09T17:22:47+00:00",
   },
   {
