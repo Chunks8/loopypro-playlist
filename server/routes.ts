@@ -8,6 +8,16 @@ import * as http from "http";
 // Corrected, deduplicated seed tracks — most recent post per thread
 const SEED_TRACKS: InsertTrack[] = [
   {
+    songTitle: "Isle of Arran",
+    artistName: "GeoTony",
+    forumMember: "GeoTony",
+    mediaUrl: "https://soundcloud.com/geotony/sets/isle-of-arran",
+    mediaType: "soundcloud",
+    threadUrl: "https://forum.loopypro.com/discussion/68272/isle-of-arran",
+    embedCode: "https://w.soundcloud.com/player/?url=https%3A%2F%2Fsoundcloud.com%2Fgeotony%2Fsets%2Fisle-of-arran&color=ff5500&auto_play=false&hide_related=false&show_comments=false&show_user=true&show_reposts=false",
+    fetchedAt: "2026-04-24T19:25:14+00:00",
+  },
+  {
     songTitle: "The Navigator (Solo, Noire, Continua)",
     artistName: "DavidEnglish",
     forumMember: "DavidEnglish",
@@ -486,16 +496,6 @@ const SEED_TRACKS: InsertTrack[] = [
     threadUrl: "https://forum.loopypro.com/discussion/68040/lucid-dreaming-with-exosphere-and-vs2",
     embedCode: "https://www.youtube.com/embed/h4f7LWD8hes",
     fetchedAt: "2026-04-02T10:41:08+00:00",
-  },
-  {
-    songTitle: "Anyone dig Panda Bear, the Books, etc?",
-    artistName: "lukesleepwalker",
-    forumMember: "lukesleepwalker",
-    mediaUrl: "https://soundcloud.com/lukesleepwalker-1/february-wav",
-    mediaType: "soundcloud",
-    threadUrl: "https://forum.loopypro.com/discussion/68031/anyone-dig-panda-bear-the-books-etc",
-    embedCode: "https://w.soundcloud.com/player/?url=https%3A//soundcloud.com/lukesleepwalker-1/february-wav&amp;color=ff5500&amp;auto_play=false&amp;hide_related=false&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false",
-    fetchedAt: "2026-04-01T16:42:40+00:00",
   },
   {
     songTitle: "Goodbye Pork Pie Town",
