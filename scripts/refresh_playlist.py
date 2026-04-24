@@ -41,7 +41,7 @@ def get_media(html_body):
         if '/player' not in u:
             results.append(('soundcloud', u, None))
     # YouTube via data-youtube
-    for m in re.finditer(r'data-youtube=["\']?([A-Za-z0-9_-]{11})', html_body):
+    for m in re.finditer(r'data-youtube=["\']?(?:youtube-)?([A-Za-z0-9_-]{11})', html_body):
         vid = m.group(1)
         results.append(('youtube', f'https://www.youtube.com/watch?v={vid}',
                         f'https://www.youtube.com/embed/{vid}'))
@@ -94,7 +94,7 @@ def get_media_from_html_page(html):
         if '/player' not in u:
             results.append(('soundcloud', u, None))
     # YouTube
-    for m in re.finditer(r'data-youtube=["\']?([A-Za-z0-9_-]{11})', html):
+    for m in re.finditer(r'data-youtube=["\']?(?:youtube-)?([A-Za-z0-9_-]{11})', html):
         vid = m.group(1)
         results.append(('youtube', f'https://www.youtube.com/watch?v={vid}', f'https://www.youtube.com/embed/{vid}'))
     for m in re.finditer(r'href=["\']?(https?://(?:www\.)?(?:youtube\.com/watch\?v=|youtu\.be/)([A-Za-z0-9_-]{11})[^"\'>\s]*)', html):
@@ -318,7 +318,12 @@ def main():
             mtype, murl, embed = result
 
         # Deduplicate by media URL (strip query params for SC short URLs)
-        url_key = murl.split('?')[0].split('&')[0]
+        # Build a stable dedup key that preserves the YouTube video ID
+        if 'youtube.com/watch' in murl:
+            _yt = re.search(r'[?&]v=([A-Za-z0-9_-]{11})', murl)
+            url_key = f'https://www.youtube.com/watch?v={_yt.group(1)}' if _yt else murl
+        else:
+            url_key = murl.split('?')[0].split('&')[0]
         if url_key in seen_urls:
             print(f"  Duplicate URL, skipping: {title}")
             continue
