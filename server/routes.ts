@@ -8,6 +8,16 @@ import * as http from "http";
 // Corrected, deduplicated seed tracks — most recent post per thread
 const SEED_TRACKS: InsertTrack[] = [
   {
+    songTitle: "JWM's Music (rest of) April 2026 (various genres within!)",
+    artistName: "jwmmakerofmusic",
+    forumMember: "jwmmakerofmusic",
+    mediaUrl: "https://on.soundcloud.com/6r6AeSRsFCbP3nLFSI",
+    mediaType: "soundcloud",
+    threadUrl: "https://forum.loopypro.com/discussion/68242/jwms-music-rest-of-april-2026-various-genres-within",
+    embedCode: "https://w.soundcloud.com/player/?url=https%3A%2F%2Fsoundcloud.com%2Fjwmmakerofmusic%2Fjwm-anjaleas-stream-theme%3Fsi%3D9169649c323644bab52f5eb03c9f1338%26utm_source%3Dclipboard%26utm_medium%3Dtext%26utm_campaign%3Dsocial_sharing&color=ff5500&auto_play=false&hide_related=false&show_comments=false&show_user=true&show_reposts=false",
+    fetchedAt: "2026-04-25T19:20:05+00:00",
+  },
+  {
     songTitle: "Ritchie Blackmore tribute",
     artistName: "flo",
     forumMember: "flo",
@@ -46,16 +56,6 @@ const SEED_TRACKS: InsertTrack[] = [
     threadUrl: "https://forum.loopypro.com/discussion/68268/tribute-to-david-gilmour-marooned",
     embedCode: "https://www.youtube.com/embed/BoY0rW9KQRQ",
     fetchedAt: "2026-04-24T16:36:13+00:00",
-  },
-  {
-    songTitle: "JWM's Music (rest of) April 2026 (various genres within!)",
-    artistName: "jwmmakerofmusic",
-    forumMember: "jwmmakerofmusic",
-    mediaUrl: "https://on.soundcloud.com/QjHH2FiedWYua62QQP",
-    mediaType: "soundcloud",
-    threadUrl: "https://forum.loopypro.com/discussion/68242/jwms-music-rest-of-april-2026-various-genres-within",
-    embedCode: "https://w.soundcloud.com/player/?url=https%3A%2F%2Fsoundcloud.com%2Fjwmmakerofmusic%2Fjwm-shadows-of-darkness%3Fsi%3D4565fc73122747e8a3aa8ab3f725af72%26utm_source%3Dclipboard%26utm_medium%3Dtext%26utm_campaign%3Dsocial_sharing&color=ff5500&auto_play=false&hide_related=false&show_comments=false&show_user=true&show_reposts=false",
-    fetchedAt: "2026-04-23T23:50:16+00:00",
   },
   {
     songTitle: "A confluence of interests: There Is No Antimemetics Division",
