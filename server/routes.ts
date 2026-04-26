@@ -8,6 +8,16 @@ import * as http from "http";
 // Corrected, deduplicated seed tracks — most recent post per thread
 const SEED_TRACKS: InsertTrack[] = [
   {
+    songTitle: "JWM's Music (rest of) April 2026 (various genres within!)",
+    artistName: "jwmmakerofmusic",
+    forumMember: "jwmmakerofmusic",
+    mediaUrl: "https://on.soundcloud.com/PutgeVWIhsNRv5IJne",
+    mediaType: "soundcloud",
+    threadUrl: "https://forum.loopypro.com/discussion/68242/jwms-music-rest-of-april-2026-various-genres-within",
+    embedCode: "https://w.soundcloud.com/player/?url=https%3A%2F%2Fsoundcloud.com%2Fjwmmakerofmusic%2Fjwm-leagues-ahead%3Fsi%3De045d8940fe74feb9638beda33fd212f%26utm_source%3Dclipboard%26utm_medium%3Dtext%26utm_campaign%3Dsocial_sharing&color=ff5500&auto_play=false&hide_related=false&show_comments=false&show_user=true&show_reposts=false",
+    fetchedAt: "2026-04-26T22:18:56+00:00",
+  },
+  {
     songTitle: "Tape 1 - a track inspired by Boards of Canada",
     artistName: "timfromtheborder",
     forumMember: "timfromtheborder",
@@ -16,16 +26,6 @@ const SEED_TRACKS: InsertTrack[] = [
     threadUrl: "https://forum.loopypro.com/discussion/68283/tape-1-a-track-inspired-by-boards-of-canada",
     embedCode: "https://www.youtube.com/embed/2ZCfpmlk4uU",
     fetchedAt: "2026-04-26T18:04:06+00:00",
-  },
-  {
-    songTitle: "JWM's Music (rest of) April 2026 (various genres within!)",
-    artistName: "jwmmakerofmusic",
-    forumMember: "jwmmakerofmusic",
-    mediaUrl: "https://on.soundcloud.com/TaH24fdkHEij9zxLWW",
-    mediaType: "soundcloud",
-    threadUrl: "https://forum.loopypro.com/discussion/68242/jwms-music-rest-of-april-2026-various-genres-within",
-    embedCode: "https://w.soundcloud.com/player/?url=https%3A%2F%2Fsoundcloud.com%2Fjwmmakerofmusic%2Fjwm-climbing-mt-everest%3Fsi%3D38074e97dd164ba4b009ac9ebcfb1d9f%26utm_source%3Dclipboard%26utm_medium%3Dtext%26utm_campaign%3Dsocial_sharing&color=ff5500&auto_play=false&hide_related=false&show_comments=false&show_user=true&show_reposts=false",
-    fetchedAt: "2026-04-25T23:59:24+00:00",
   },
   {
     songTitle: "Ritchie Blackmore tribute",
@@ -476,16 +476,6 @@ const SEED_TRACKS: InsertTrack[] = [
     threadUrl: "https://forum.loopypro.com/discussion/68070/morning-star-conjecture",
     embedCode: "https://w.soundcloud.com/player/?url=https%3A//soundcloud.com/geotony/361-morning-star-conjecture?si=3c994894a9b44f54baa73344d4157685&amp;utm_source=clipboard&amp;utm_medium=text&amp;utm_campaign=social_sharing&amp;color=ff5500&amp;auto_play=false&amp;hide_related=false&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false",
     fetchedAt: "2026-04-05T15:15:46+00:00",
-  },
-  {
-    songTitle: "Outgrowth in scanning mode",
-    artistName: "rottencat",
-    forumMember: "rottencat",
-    mediaUrl: "https://www.youtube.com/watch?v=PkrNXqsAvLg",
-    mediaType: "youtube",
-    threadUrl: "https://forum.loopypro.com/discussion/68067/outgrowth-in-scanning-mode",
-    embedCode: "https://www.youtube.com/embed/PkrNXqsAvLg",
-    fetchedAt: "2026-04-05T00:53:07+00:00",
   },
   {
     songTitle: "Bowling Ball and Feather",
