@@ -8,6 +8,16 @@ import * as http from "http";
 // Corrected, deduplicated seed tracks — most recent post per thread
 const SEED_TRACKS: InsertTrack[] = [
   {
+    songTitle: "Tape 1 - a track inspired by Boards of Canada",
+    artistName: "timfromtheborder",
+    forumMember: "timfromtheborder",
+    mediaUrl: "https://www.youtube.com/watch?v=2ZCfpmlk4uU",
+    mediaType: "youtube",
+    threadUrl: "https://forum.loopypro.com/discussion/68283/tape-1-a-track-inspired-by-boards-of-canada",
+    embedCode: "https://www.youtube.com/embed/2ZCfpmlk4uU",
+    fetchedAt: "2026-04-26T18:04:06+00:00",
+  },
+  {
     songTitle: "JWM's Music (rest of) April 2026 (various genres within!)",
     artistName: "jwmmakerofmusic",
     forumMember: "jwmmakerofmusic",
@@ -516,16 +526,6 @@ const SEED_TRACKS: InsertTrack[] = [
     threadUrl: "https://forum.loopypro.com/discussion/68011/the-elusive-emergent-aether-society",
     embedCode: "https://w.soundcloud.com/player/?url=https%3A//soundcloud.com/id_23/ambex_01-the-elusive-emergent&amp;color=ff5500&amp;auto_play=false&amp;hide_related=false&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false",
     fetchedAt: "2026-03-30T15:45:42+00:00",
-  },
-  {
-    songTitle: "A long one (oo-er missus): The Fenlands",
-    artistName: "Svetlovska",
-    forumMember: "Svetlovska",
-    mediaUrl: "https://soundcloud.com/irena-svetlovska/the-fenlands?si=1b693107b39f4ef397128cae5ca5158d",
-    mediaType: "soundcloud",
-    threadUrl: "https://forum.loopypro.com/discussion/68010/a-long-one-oo-er-missus-the-fenlands",
-    embedCode: "https://w.soundcloud.com/player/?url=https%3A//soundcloud.com/irena-svetlovska/the-fenlands?si=1b693107b39f4ef397128cae5ca5158d&amp;utm_source=clipboard&amp;utm_medium=text&amp;utm_campaign=social_sharing&amp;color=ff5500&amp;auto_play=false&amp;hide_related=false&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false",
-    fetchedAt: "2026-03-30T12:29:29+00:00",
   },
   {
     songTitle: "JWM - Reggaeton Trance 032626 (Instrumental done in FL Studio Mobile)",
