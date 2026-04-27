@@ -8,6 +8,16 @@ import * as http from "http";
 // Corrected, deduplicated seed tracks — most recent post per thread
 const SEED_TRACKS: InsertTrack[] = [
   {
+    songTitle: "La Meuse my first real ambient track",
+    artistName: "Frenq",
+    forumMember: "Frenq",
+    mediaUrl: "https://hearthis.at/frenq/la-meuse",
+    mediaType: "hearthis",
+    threadUrl: "https://forum.loopypro.com/discussion/68287/la-meuse-my-first-real-ambient-track",
+    embedCode: "https://app.hearthis.at/embed/14235792/transparent_black/?",
+    fetchedAt: "2026-04-27T01:32:04+00:00",
+  },
+  {
     songTitle: "JWM's Music (rest of) April 2026 (various genres within!)",
     artistName: "jwmmakerofmusic",
     forumMember: "jwmmakerofmusic",
