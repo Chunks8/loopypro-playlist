@@ -8,6 +8,16 @@ import * as http from "http";
 // Corrected, deduplicated seed tracks — most recent post per thread
 const SEED_TRACKS: InsertTrack[] = [
   {
+    songTitle: "JWM's Music (rest of) April 2026 (various genres within!)",
+    artistName: "jwmmakerofmusic",
+    forumMember: "jwmmakerofmusic",
+    mediaUrl: "https://on.soundcloud.com/qSM7kq9S93w94C0Jm2",
+    mediaType: "soundcloud",
+    threadUrl: "https://forum.loopypro.com/discussion/68242/jwms-music-rest-of-april-2026-various-genres-within",
+    embedCode: "https://w.soundcloud.com/player/?url=https%3A%2F%2Fsoundcloud.com%2Fjwmmakerofmusic%2Fjwm-desert-sunrise%3Fsi%3D780223bd713f44d79e4fd9c5228bd1c2%26utm_source%3Dclipboard%26utm_medium%3Dtext%26utm_campaign%3Dsocial_sharing&color=ff5500&auto_play=false&hide_related=false&show_comments=false&show_user=true&show_reposts=false",
+    fetchedAt: "2026-04-27T13:02:32+00:00",
+  },
+  {
     songTitle: "La Meuse my first real ambient track",
     artistName: "Frenq",
     forumMember: "Frenq",
@@ -16,16 +26,6 @@ const SEED_TRACKS: InsertTrack[] = [
     threadUrl: "https://forum.loopypro.com/discussion/68287/la-meuse-my-first-real-ambient-track",
     embedCode: "https://app.hearthis.at/embed/14235792/transparent_black/?",
     fetchedAt: "2026-04-27T01:32:04+00:00",
-  },
-  {
-    songTitle: "JWM's Music (rest of) April 2026 (various genres within!)",
-    artistName: "jwmmakerofmusic",
-    forumMember: "jwmmakerofmusic",
-    mediaUrl: "https://on.soundcloud.com/PutgeVWIhsNRv5IJne",
-    mediaType: "soundcloud",
-    threadUrl: "https://forum.loopypro.com/discussion/68242/jwms-music-rest-of-april-2026-various-genres-within",
-    embedCode: "https://w.soundcloud.com/player/?url=https%3A%2F%2Fsoundcloud.com%2Fjwmmakerofmusic%2Fjwm-leagues-ahead%3Fsi%3De045d8940fe74feb9638beda33fd212f%26utm_source%3Dclipboard%26utm_medium%3Dtext%26utm_campaign%3Dsocial_sharing&color=ff5500&auto_play=false&hide_related=false&show_comments=false&show_user=true&show_reposts=false",
-    fetchedAt: "2026-04-26T22:18:56+00:00",
   },
   {
     songTitle: "Tape 1 - a track inspired by Boards of Canada",
@@ -448,16 +448,6 @@ const SEED_TRACKS: InsertTrack[] = [
     fetchedAt: "2026-04-08T07:53:03+00:00",
   },
   {
-    songTitle: "JWM - What a Trip (Breakbeat Music in Gadget!)",
-    artistName: "jwmmakerofmusic",
-    forumMember: "jwmmakerofmusic",
-    mediaUrl: "https://soundcloud.com/jwmmakerofmusic/jwm-what-a-trip",
-    mediaType: "soundcloud",
-    threadUrl: "https://forum.loopypro.com/discussion/68077/jwm-what-a-trip-breakbeat-music-in-gadget",
-    embedCode: "https://w.soundcloud.com/player/?url=https%3A//soundcloud.com/jwmmakerofmusic/jwm-what-a-trip&amp;color=ff5500&amp;auto_play=false&amp;hide_related=false&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false",
-    fetchedAt: "2026-04-06T17:26:59+00:00",
-  },
-  {
     songTitle: "JWM - Here Come the Champions (Stadium Techno in Gadget!)",
     artistName: "jwmmakerofmusic",
     forumMember: "jwmmakerofmusic",
@@ -596,6 +586,16 @@ const SEED_TRACKS: InsertTrack[] = [
     threadUrl: "https://forum.loopypro.com/discussion/67767/frondescentia",
     embedCode: "https://w.soundcloud.com/player/?url=https%3A//soundcloud.com/geotony/357-frondescentia?si=482c9e87476b4b8286927d8c7fda708f&amp;utm_source=clipboard&amp;utm_medium=text&amp;utm_campaign=social_sharing&amp;color=ff5500&amp;auto_play=false&amp;hide_related=false&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false",
     fetchedAt: "2026-03-01T20:37:43+00:00",
+  },
+  {
+    songTitle: "Acoustic cover mashup Find Me / Take me to the river",
+    artistName: "TheAudioDabbler",
+    forumMember: "TheAudioDabbler",
+    mediaUrl: "https://www.youtube.com/watch?v=j-YOJTXZAY4",
+    mediaType: "youtube",
+    threadUrl: "https://forum.loopypro.com/discussion/67669/acoustic-cover-mashup-find-me-take-me-to-the-river",
+    embedCode: "https://www.youtube.com/embed/j-YOJTXZAY4",
+    fetchedAt: "2026-02-19T12:10:35+00:00",
   },
   {
     songTitle: "Some Korg 01/W grooves from the 90's.",
