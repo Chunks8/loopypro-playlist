@@ -8,6 +8,16 @@ import * as http from "http";
 // Corrected, deduplicated seed tracks — most recent post per thread
 const SEED_TRACKS: InsertTrack[] = [
   {
+    songTitle: "The Wagtunes Corner",
+    artistName: "wagtunes",
+    forumMember: "wagtunes",
+    mediaUrl: "https://soundcloud.com/steven-wagenheim/the-gangs-all-here",
+    mediaType: "soundcloud",
+    threadUrl: "https://forum.loopypro.com/discussion/66861/the-wagtunes-corner",
+    embedCode: "https://w.soundcloud.com/player/?url=https://soundcloud.com/steven-wagenheim/the-gangs-all-here&color=ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false",
+    fetchedAt: "2026-04-27T21:18:17+00:00",
+  },
+  {
     songTitle: "JWM's Music (rest of) April 2026 (various genres within!)",
     artistName: "jwmmakerofmusic",
     forumMember: "jwmmakerofmusic",
@@ -106,16 +116,6 @@ const SEED_TRACKS: InsertTrack[] = [
     threadUrl: "https://forum.loopypro.com/discussion/68260/flight-a-new-track-with-video",
     embedCode: "https://www.youtube.com/embed/ADIjJjLQeiQ",
     fetchedAt: "2026-04-23T21:05:36+00:00",
-  },
-  {
-    songTitle: "The Wagtunes Corner",
-    artistName: "wagtunes",
-    forumMember: "wagtunes",
-    mediaUrl: "https://soundcloud.com/steven-wagenheim/frog-in-a-blender",
-    mediaType: "soundcloud",
-    threadUrl: "https://forum.loopypro.com/discussion/66861/the-wagtunes-corner",
-    embedCode: "https://w.soundcloud.com/player/?url=https://soundcloud.com/steven-wagenheim/frog-in-a-blender&color=ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false",
-    fetchedAt: "2026-04-22T18:30:47+00:00",
   },
   {
     songTitle: "New fusion track called MACH5 from the upcoming album Coming Home",
