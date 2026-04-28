@@ -8,6 +8,26 @@ import * as http from "http";
 // Corrected, deduplicated seed tracks — most recent post per thread
 const SEED_TRACKS: InsertTrack[] = [
   {
+    songTitle: "New small fusion album Coming Home (two new tracks)",
+    artistName: "Frenq",
+    forumMember: "Frenq",
+    mediaUrl: "https://hearthis.at/frenq/coming-home",
+    mediaType: "hearthis",
+    threadUrl: "https://forum.loopypro.com/discussion/68304/new-small-fusion-album-coming-home-two-new-tracks",
+    embedCode: "https://app.hearthis.at/embed/14239022/transparent_black/?",
+    fetchedAt: "2026-04-28T13:16:16+00:00",
+  },
+  {
+    songTitle: "Improvisation with Nam xt.",
+    artistName: "flo",
+    forumMember: "flo",
+    mediaUrl: "https://www.youtube.com/watch?v=sZz3mIapxKY",
+    mediaType: "youtube",
+    threadUrl: "https://forum.loopypro.com/discussion/68303/improvisation-with-nam-xt",
+    embedCode: "https://www.youtube.com/embed/sZz3mIapxKY",
+    fetchedAt: "2026-04-28T13:08:04+00:00",
+  },
+  {
     songTitle: "The Wagtunes Corner",
     artistName: "wagtunes",
     forumMember: "wagtunes",
@@ -456,16 +476,6 @@ const SEED_TRACKS: InsertTrack[] = [
     threadUrl: "https://forum.loopypro.com/discussion/68091/first-go-with-16-drones-midnight-plaza-samsara",
     embedCode: "https://www.youtube.com/embed/c3wk9WWTfNs",
     fetchedAt: "2026-04-08T07:53:03+00:00",
-  },
-  {
-    songTitle: "JWM - Here Come the Champions (Stadium Techno in Gadget!)",
-    artistName: "jwmmakerofmusic",
-    forumMember: "jwmmakerofmusic",
-    mediaUrl: "https://soundcloud.com/jwmmakerofmusic/jwm-here-come-the-champions",
-    mediaType: "soundcloud",
-    threadUrl: "https://forum.loopypro.com/discussion/68074/jwm-here-come-the-champions-stadium-techno-in-gadget",
-    embedCode: "https://w.soundcloud.com/player/?url=https%3A//soundcloud.com/jwmmakerofmusic/jwm-here-come-the-champions&amp;color=ff5500&amp;auto_play=false&amp;hide_related=false&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false",
-    fetchedAt: "2026-04-06T14:20:54+00:00",
   },
   {
     songTitle: "MIDNIGHT BLUES a new recording in collab with pbelgium",
