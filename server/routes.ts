@@ -8,6 +8,16 @@ import * as http from "http";
 // Corrected, deduplicated seed tracks — most recent post per thread
 const SEED_TRACKS: InsertTrack[] = [
   {
+    songTitle: "The Wagtunes Corner",
+    artistName: "wagtunes",
+    forumMember: "wagtunes",
+    mediaUrl: "https://soundcloud.com/steven-wagenheim/ah",
+    mediaType: "soundcloud",
+    threadUrl: "https://forum.loopypro.com/discussion/66861/the-wagtunes-corner",
+    embedCode: "https://w.soundcloud.com/player/?url=https://soundcloud.com/steven-wagenheim/ah&color=ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false",
+    fetchedAt: "2026-04-28T18:39:20+00:00",
+  },
+  {
     songTitle: "New small fusion album Coming Home (two new tracks)",
     artistName: "Frenq",
     forumMember: "Frenq",
@@ -26,16 +36,6 @@ const SEED_TRACKS: InsertTrack[] = [
     threadUrl: "https://forum.loopypro.com/discussion/68303/improvisation-with-nam-xt",
     embedCode: "https://www.youtube.com/embed/sZz3mIapxKY",
     fetchedAt: "2026-04-28T13:08:04+00:00",
-  },
-  {
-    songTitle: "The Wagtunes Corner",
-    artistName: "wagtunes",
-    forumMember: "wagtunes",
-    mediaUrl: "https://soundcloud.com/steven-wagenheim/the-gangs-all-here",
-    mediaType: "soundcloud",
-    threadUrl: "https://forum.loopypro.com/discussion/66861/the-wagtunes-corner",
-    embedCode: "https://w.soundcloud.com/player/?url=https://soundcloud.com/steven-wagenheim/the-gangs-all-here&color=ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false",
-    fetchedAt: "2026-04-27T21:18:17+00:00",
   },
   {
     songTitle: "JWM's Music (rest of) April 2026 (various genres within!)",
@@ -556,16 +556,6 @@ const SEED_TRACKS: InsertTrack[] = [
     threadUrl: "https://forum.loopypro.com/discussion/67993/earth-a-trilogy-new-small-album",
     embedCode: "https://app.hearthis.at/embed/14057310/transparent_black/?",
     fetchedAt: "2026-03-28T11:45:04+00:00",
-  },
-  {
-    songTitle: "Ripples (Solo, Vital Series: Mallets, Velvet Guitar, Continua)",
-    artistName: "DavidEnglish",
-    forumMember: "DavidEnglish",
-    mediaUrl: "https://www.youtube.com/watch?v=OTkbC9Td5nw",
-    mediaType: "youtube",
-    threadUrl: "https://forum.loopypro.com/discussion/67989/ripples-solo-vital-series-mallets-velvet-guitar-continua",
-    embedCode: "https://www.youtube.com/embed/OTkbC9Td5nw",
-    fetchedAt: "2026-03-27T17:07:47+00:00",
   },
   {
     songTitle: "Reply to a challenge",
