@@ -374,7 +374,7 @@ const SEED_TRACKS: InsertTrack[] = [
     mediaUrl: "https://hearthis.at/frenq/going-home",
     mediaType: "hearthis",
     threadUrl: "https://forum.loopypro.com/discussion/68140/going-home-another-new-blues-recording-in-collab-with-pbelgium",
-    embedCode: "https://app.hearthis.at/embed/14147295/transparent_black/?",
+    embedCode: null,
     fetchedAt: "2026-04-12T19:47:13+00:00",
   },
   {
