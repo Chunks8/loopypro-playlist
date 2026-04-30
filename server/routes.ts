@@ -8,6 +8,26 @@ import * as http from "http";
 // Corrected, deduplicated seed tracks — most recent post per thread
 const SEED_TRACKS: InsertTrack[] = [
   {
+    songTitle: "A Time Of Cruel Miracles",
+    artistName: "Svetlovska",
+    forumMember: "Svetlovska",
+    mediaUrl: "https://soundcloud.com/irena-svetlovska/a-time-of-cruel-miracles-wav?si=7ceb83b32d4949248fe881a1730a291b",
+    mediaType: "soundcloud",
+    threadUrl: "https://forum.loopypro.com/discussion/68323/a-time-of-cruel-miracles",
+    embedCode: "https://w.soundcloud.com/player/?url=https%3A//soundcloud.com/irena-svetlovska/a-time-of-cruel-miracles-wav?si=7ceb83b32d4949248fe881a1730a291b&amp;utm_source=clipboard&amp;utm_medium=text&amp;utm_campaign=social_sharing&amp;color=ff5500&amp;auto_play=false&amp;hide_related=false&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false",
+    fetchedAt: "2026-04-30T09:36:37+00:00",
+  },
+  {
+    songTitle: "Kombinat 4 guitar demo.",
+    artistName: "flo",
+    forumMember: "flo",
+    mediaUrl: "https://www.youtube.com/watch?v=yAS94ca29u0",
+    mediaType: "youtube",
+    threadUrl: "https://forum.loopypro.com/discussion/68317/kombinat-4-guitar-demo",
+    embedCode: "https://www.youtube.com/embed/yAS94ca29u0",
+    fetchedAt: "2026-04-30T04:16:29+00:00",
+  },
+  {
     songTitle: "The Wagtunes Corner",
     artistName: "wagtunes",
     forumMember: "wagtunes",
@@ -374,7 +394,7 @@ const SEED_TRACKS: InsertTrack[] = [
     mediaUrl: "https://hearthis.at/frenq/going-home",
     mediaType: "hearthis",
     threadUrl: "https://forum.loopypro.com/discussion/68140/going-home-another-new-blues-recording-in-collab-with-pbelgium",
-    embedCode: null,
+    embedCode: "https://app.hearthis.at/embed/14147295/transparent_black/?",
     fetchedAt: "2026-04-12T19:47:13+00:00",
   },
   {
@@ -456,16 +476,6 @@ const SEED_TRACKS: InsertTrack[] = [
     threadUrl: "https://forum.loopypro.com/discussion/68108/first-track-in-awhile",
     embedCode: "https://w.soundcloud.com/player/?url=https%3A%2F%2Fsoundcloud.com%2Fmdbch1%2Fshango-master-opto-mix-rough%3Fsi%3D45d452e28aad475abe345698310f1e7c%26utm_source%3Dclipboard%26utm_medium%3Dtext%26utm_campaign%3Dsocial_sharing&color=ff5500&auto_play=false&hide_related=false&show_comments=false&show_user=true&show_reposts=false",
     fetchedAt: "2026-04-09T17:22:47+00:00",
-  },
-  {
-    songTitle: "Music and Action for Peace!",
-    artistName: "zvon",
-    forumMember: "zvon",
-    mediaUrl: "https://www.youtube.com/watch?v=sm88ePdaqro",
-    mediaType: "youtube",
-    threadUrl: "https://forum.loopypro.com/discussion/68100/music-and-action-for-peace",
-    embedCode: "https://www.youtube.com/embed/sm88ePdaqro",
-    fetchedAt: "2026-04-08T20:50:10+00:00",
   },
   {
     songTitle: "First go with 16 Drones & Midnight Plaza: Samsara",
@@ -556,16 +566,6 @@ const SEED_TRACKS: InsertTrack[] = [
     threadUrl: "https://forum.loopypro.com/discussion/67993/earth-a-trilogy-new-small-album",
     embedCode: "https://app.hearthis.at/embed/14057310/transparent_black/?",
     fetchedAt: "2026-03-28T11:45:04+00:00",
-  },
-  {
-    songTitle: "Reply to a challenge",
-    artistName: "rottencat",
-    forumMember: "rottencat",
-    mediaUrl: "https://www.youtube.com/watch?v=2ijTmxJJBR4",
-    mediaType: "youtube",
-    threadUrl: "https://forum.loopypro.com/discussion/67946/reply-to-a-challenge",
-    embedCode: "https://www.youtube.com/embed/2ijTmxJJBR4",
-    fetchedAt: "2026-03-23T14:01:21+00:00",
   },
   {
     songTitle: "Koala Ambient | Negative Space Challenge |",
