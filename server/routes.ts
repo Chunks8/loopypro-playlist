@@ -8,6 +8,16 @@ import * as http from "http";
 // Corrected, deduplicated seed tracks — most recent post per thread
 const SEED_TRACKS: InsertTrack[] = [
   {
+    songTitle: "Back to Outgrowrh",
+    artistName: "rottencat",
+    forumMember: "rottencat",
+    mediaUrl: "https://www.youtube.com/watch?v=pGoQiHwRPIg",
+    mediaType: "youtube",
+    threadUrl: "https://forum.loopypro.com/discussion/68332/back-to-outgrowrh",
+    embedCode: "https://www.youtube.com/embed/pGoQiHwRPIg",
+    fetchedAt: "2026-04-30T21:57:49+00:00",
+  },
+  {
     songTitle: "JWM - The Patch EP (Tech House EP in FLSM)",
     artistName: "jwmmakerofmusic",
     forumMember: "jwmmakerofmusic",
@@ -488,16 +498,6 @@ const SEED_TRACKS: InsertTrack[] = [
     fetchedAt: "2026-04-10T02:16:53+00:00",
   },
   {
-    songTitle: "JWM - Vortex (2010s Brostep in Korg Gadget 3)",
-    artistName: "jwmmakerofmusic",
-    forumMember: "jwmmakerofmusic",
-    mediaUrl: "https://soundcloud.com/jwmmakerofmusic/jwm-vortex",
-    mediaType: "soundcloud",
-    threadUrl: "https://forum.loopypro.com/discussion/68111/jwm-vortex-2010s-brostep-in-korg-gadget-3",
-    embedCode: "https://w.soundcloud.com/player/?url=https%3A//soundcloud.com/jwmmakerofmusic/jwm-vortex&amp;color=ff5500&amp;auto_play=false&amp;hide_related=false&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false",
-    fetchedAt: "2026-04-10T01:28:50+00:00",
-  },
-  {
     songTitle: "First track in awhile.",
     artistName: "Gravitas",
     forumMember: "Gravitas",
@@ -506,16 +506,6 @@ const SEED_TRACKS: InsertTrack[] = [
     threadUrl: "https://forum.loopypro.com/discussion/68108/first-track-in-awhile",
     embedCode: "https://w.soundcloud.com/player/?url=https%3A%2F%2Fsoundcloud.com%2Fmdbch1%2Fshango-master-opto-mix-rough%3Fsi%3D45d452e28aad475abe345698310f1e7c%26utm_source%3Dclipboard%26utm_medium%3Dtext%26utm_campaign%3Dsocial_sharing&color=ff5500&auto_play=false&hide_related=false&show_comments=false&show_user=true&show_reposts=false",
     fetchedAt: "2026-04-09T17:22:47+00:00",
-  },
-  {
-    songTitle: "First go with 16 Drones & Midnight Plaza: Samsara",
-    artistName: "Svetlovska",
-    forumMember: "Svetlovska",
-    mediaUrl: "https://www.youtube.com/watch?v=c3wk9WWTfNs",
-    mediaType: "youtube",
-    threadUrl: "https://forum.loopypro.com/discussion/68091/first-go-with-16-drones-midnight-plaza-samsara",
-    embedCode: "https://www.youtube.com/embed/c3wk9WWTfNs",
-    fetchedAt: "2026-04-08T07:53:03+00:00",
   },
   {
     songTitle: "MIDNIGHT BLUES a new recording in collab with pbelgium",
