@@ -8,6 +8,16 @@ import * as http from "http";
 // Corrected, deduplicated seed tracks — most recent post per thread
 const SEED_TRACKS: InsertTrack[] = [
   {
+    songTitle: "UpsideDown - My first full ambient track",
+    artistName: "LoopRabbit",
+    forumMember: "LoopRabbit",
+    mediaUrl: "https://www.youtube.com/watch?v=xfFHPx5n-7E",
+    mediaType: "youtube",
+    threadUrl: "https://forum.loopypro.com/discussion/68341/upsidedown-my-first-full-ambient-track",
+    embedCode: "https://www.youtube.com/embed/xfFHPx5n-7E",
+    fetchedAt: "2026-05-01T23:26:41+00:00",
+  },
+  {
     songTitle: "FHTH - For Those Who Sailed West (industrial, synth pop)",
     artistName: "Slava",
     forumMember: "Slava",
@@ -446,16 +456,6 @@ const SEED_TRACKS: InsertTrack[] = [
     threadUrl: "https://forum.loopypro.com/discussion/68133/egobeats-favorite",
     embedCode: "https://www.youtube.com/embed/_sBlmfP15CM",
     fetchedAt: "2026-04-12T02:22:13+00:00",
-  },
-  {
-    songTitle: "JWM - Exceeding Expectations (Electro-House in Auxy Studio)",
-    artistName: "jwmmakerofmusic",
-    forumMember: "jwmmakerofmusic",
-    mediaUrl: "https://soundcloud.com/jwmmakerofmusic/jwm-exceeding-expectations",
-    mediaType: "soundcloud",
-    threadUrl: "https://forum.loopypro.com/discussion/68123/jwm-exceeding-expectations-electro-house-in-auxy-studio",
-    embedCode: "https://w.soundcloud.com/player/?url=https%3A//soundcloud.com/jwmmakerofmusic/jwm-exceeding-expectations&amp;color=ff5500&amp;auto_play=false&amp;hide_related=false&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false",
-    fetchedAt: "2026-04-11T01:51:40+00:00",
   },
   {
     songTitle: "A weird one",
