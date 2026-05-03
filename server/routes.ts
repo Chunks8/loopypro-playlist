@@ -8,6 +8,16 @@ import * as http from "http";
 // Corrected, deduplicated seed tracks — most recent post per thread
 const SEED_TRACKS: InsertTrack[] = [
   {
+    songTitle: "JWM's Music May 2026",
+    artistName: "jwmmakerofmusic",
+    forumMember: "jwmmakerofmusic",
+    mediaUrl: "https://on.soundcloud.com/YAG9F4tLwpsXSl7OHb",
+    mediaType: "soundcloud",
+    threadUrl: "https://forum.loopypro.com/discussion/68333/jwms-music-may-2026",
+    embedCode: "https://w.soundcloud.com/player/?url=https%3A%2F%2Fsoundcloud.com%2Fjwmmakerofmusic%2Fjwm-bored-af%3Fsi%3Dc5f5e3ae144f4faa9f9034fde3bcf3dc%26utm_source%3Dclipboard%26utm_medium%3Dtext%26utm_campaign%3Dsocial_sharing&color=ff5500&auto_play=false&hide_related=false&show_comments=false&show_user=true&show_reposts=false",
+    fetchedAt: "2026-05-02T21:34:16+00:00",
+  },
+  {
     songTitle: "UpsideDown - My first full ambient track",
     artistName: "LoopRabbit",
     forumMember: "LoopRabbit",
@@ -321,10 +331,10 @@ const SEED_TRACKS: InsertTrack[] = [
     songTitle: "\"Tape Test\" (A BoC-inspired Ambient piece in Korg Gadget)",
     artistName: "jwmmakerofmusic",
     forumMember: "jwmmakerofmusic",
-    mediaUrl: "https://on.soundcloud.com/UfLiyoWRVQwlll2kW1",
+    mediaUrl: "https://on.soundcloud.com/gm34LLZlc04oGttef2",
     mediaType: "soundcloud",
     threadUrl: "https://forum.loopypro.com/discussion/68194/tape-test-a-boc-inspired-ambient-piece-in-korg-gadget",
-    embedCode: "https://w.soundcloud.com/player/?url=https%3A%2F%2Fsoundcloud.com%2Fjwmmakerofmusic%2Fjwm-tape-test%3Fsi%3D97b9f619f73842d78e1e7fd1c754bd11%26utm_source%3Dclipboard%26utm_medium%3Dtext%26utm_campaign%3Dsocial_sharing&color=ff5500&auto_play=false&hide_related=false&show_comments=false&show_user=true&show_reposts=false",
+    embedCode: "https://w.soundcloud.com/player/?url=https%3A%2F%2Fsoundcloud.com%2Fjwmmakerofmusic%2Fjwm-untitled-auxy-album%3Fref%3Dclipboard%26p%3Di%26c%3D1%26si%3D21B8982C294149EBA2780C32A440BB47%26utm_source%3Dclipboard%26utm_medium%3Dtext%26utm_campaign%3Dsocial_sharing&color=ff5500&auto_play=false&hide_related=false&show_comments=false&show_user=true&show_reposts=false",
     fetchedAt: "2026-04-17T17:41:43+00:00",
   },
   {
