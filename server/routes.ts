@@ -8,6 +8,26 @@ import * as http from "http";
 // Corrected, deduplicated seed tracks — most recent post per thread
 const SEED_TRACKS: InsertTrack[] = [
   {
+    songTitle: "First real ambient album (Yoga), The great Dutch RIVERS!",
+    artistName: "Frenq",
+    forumMember: "Frenq",
+    mediaUrl: "https://hearthis.at/frenq/rivers",
+    mediaType: "hearthis",
+    threadUrl: "https://forum.loopypro.com/discussion/68359/first-real-ambient-album-yoga-the-great-dutch-rivers",
+    embedCode: "https://app.hearthis.at/embed/14262656/transparent_black/?",
+    fetchedAt: "2026-05-04T13:49:27+00:00",
+  },
+  {
+    songTitle: "Iwave5 my new Song made with Loopy Pro",
+    artistName: "ErikWerkema",
+    forumMember: "ErikWerkema",
+    mediaUrl: "https://www.youtube.com/watch?v=lQHf44DFV3U",
+    mediaType: "youtube",
+    threadUrl: "https://forum.loopypro.com/discussion/68357/iwave5-my-new-song-made-with-loopy-pro",
+    embedCode: "https://www.youtube.com/embed/lQHf44DFV3U",
+    fetchedAt: "2026-05-04T09:04:16+00:00",
+  },
+  {
     songTitle: "JWM's Music May 2026",
     artistName: "jwmmakerofmusic",
     forumMember: "jwmmakerofmusic",
@@ -408,16 +428,6 @@ const SEED_TRACKS: InsertTrack[] = [
     fetchedAt: "2026-04-14T19:26:41+00:00",
   },
   {
-    songTitle: "Steady As She Blows-Opto Rough Master-126 Bpm",
-    artistName: "Gravitas",
-    forumMember: "Gravitas",
-    mediaUrl: "https://on.soundcloud.com/sTuSa2ioQmquGXCATh",
-    mediaType: "soundcloud",
-    threadUrl: "https://forum.loopypro.com/discussion/68157/steady-as-she-blows-opto-rough-master-126-bpm",
-    embedCode: "https://w.soundcloud.com/player/?url=https%3A%2F%2Fsoundcloud.com%2Fmdbch1%2Fsteady-as-she-blows-opto-rough%3Fsi%3Dccb4bdcc2d3140e997d9fdcf198e5383%26utm_source%3Dclipboard%26utm_medium%3Dtext%26utm_campaign%3Dsocial_sharing&color=ff5500&auto_play=false&hide_related=false&show_comments=false&show_user=true&show_reposts=false",
-    fetchedAt: "2026-04-14T17:32:37+00:00",
-  },
-  {
     songTitle: "Luc.A - The cave (House in Groove Rider 2)",
     artistName: "Luc_A",
     forumMember: "Luc_A",
@@ -526,16 +536,6 @@ const SEED_TRACKS: InsertTrack[] = [
     threadUrl: "https://forum.loopypro.com/discussion/68061/bowling-ball-and-feather",
     embedCode: "https://www.youtube.com/embed/YzB9YTnKLHE",
     fetchedAt: "2026-04-04T02:37:36+00:00",
-  },
-  {
-    songTitle: "Lucid Dreaming with Exosphere and VS2",
-    artistName: "id_23",
-    forumMember: "id_23",
-    mediaUrl: "https://www.youtube.com/watch?v=h4f7LWD8hes",
-    mediaType: "youtube",
-    threadUrl: "https://forum.loopypro.com/discussion/68040/lucid-dreaming-with-exosphere-and-vs2",
-    embedCode: "https://www.youtube.com/embed/h4f7LWD8hes",
-    fetchedAt: "2026-04-02T10:41:08+00:00",
   },
   {
     songTitle: "Goodbye Pork Pie Town",
