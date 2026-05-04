@@ -8,6 +8,16 @@ import * as http from "http";
 // Corrected, deduplicated seed tracks — most recent post per thread
 const SEED_TRACKS: InsertTrack[] = [
   {
+    songTitle: "Zvon's 12 Reward Sample Packs from Year 1 available to all for purchase (video demo)",
+    artistName: "zvon",
+    forumMember: "zvon",
+    mediaUrl: "https://www.youtube.com/watch?v=qOI8JaWDqrs",
+    mediaType: "youtube",
+    threadUrl: "https://forum.loopypro.com/discussion/68366/zvons-12-reward-sample-packs-from-year-1-available-to-all-for-purchase-video-demo",
+    embedCode: "https://www.youtube.com/embed/qOI8JaWDqrs",
+    fetchedAt: "2026-05-04T19:27:00+00:00",
+  },
+  {
     songTitle: "First real ambient album (Yoga), The great Dutch RIVERS!",
     artistName: "Frenq",
     forumMember: "Frenq",
@@ -408,16 +418,6 @@ const SEED_TRACKS: InsertTrack[] = [
     fetchedAt: "2026-04-14T21:09:17+00:00",
   },
   {
-    songTitle: "Greetings from the Cornucopia Sector! Another Exosphere (et al) jam",
-    artistName: "id_23",
-    forumMember: "id_23",
-    mediaUrl: "https://soundcloud.com/jak_larson/the-cornucopia-sector-node-113",
-    mediaType: "soundcloud",
-    threadUrl: "https://forum.loopypro.com/discussion/68159/greetings-from-the-cornucopia-sector-another-exosphere-et-al-jam",
-    embedCode: "https://w.soundcloud.com/player/?url=https%3A//soundcloud.com/jak_larson/the-cornucopia-sector-node-113&amp;color=ff5500&amp;auto_play=false&amp;hide_related=false&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false",
-    fetchedAt: "2026-04-14T21:08:32+00:00",
-  },
-  {
     songTitle: "Power Tends to Corrupt and...",
     artistName: "zvon",
     forumMember: "zvon",
@@ -476,16 +476,6 @@ const SEED_TRACKS: InsertTrack[] = [
     threadUrl: "https://forum.loopypro.com/discussion/68133/egobeats-favorite",
     embedCode: "https://www.youtube.com/embed/_sBlmfP15CM",
     fetchedAt: "2026-04-12T02:22:13+00:00",
-  },
-  {
-    songTitle: "A weird one",
-    artistName: "rottencat",
-    forumMember: "rottencat",
-    mediaUrl: "https://www.youtube.com/watch?v=xcd14C9z9FI",
-    mediaType: "youtube",
-    threadUrl: "https://forum.loopypro.com/discussion/68122/a-weird-one",
-    embedCode: "https://www.youtube.com/embed/xcd14C9z9FI",
-    fetchedAt: "2026-04-11T00:55:03+00:00",
   },
   {
     songTitle: "Drifting (Intimate Cello, Vital Series: Mallets, Velvet Guitar, Noire, Solo, Continua)",
