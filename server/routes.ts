@@ -8,6 +8,16 @@ import * as http from "http";
 // Corrected, deduplicated seed tracks — most recent post per thread
 const SEED_TRACKS: InsertTrack[] = [
   {
+    songTitle: "JWM's Music May 2026",
+    artistName: "jwmmakerofmusic",
+    forumMember: "jwmmakerofmusic",
+    mediaUrl: "https://on.soundcloud.com/0IsfrkYOLhhWXaqUKp",
+    mediaType: "soundcloud",
+    threadUrl: "https://forum.loopypro.com/discussion/68333/jwms-music-may-2026",
+    embedCode: "https://w.soundcloud.com/player/?url=https%3A%2F%2Fsoundcloud.com%2Fjwmmakerofmusic%2Fjwm-the-journey-2026-version%3Fsi%3Dff461f0860fd44398da2c83078011b44%26utm_source%3Dclipboard%26utm_medium%3Dtext%26utm_campaign%3Dsocial_sharing&color=ff5500&auto_play=false&hide_related=false&show_comments=false&show_user=true&show_reposts=false",
+    fetchedAt: "2026-05-05T19:12:22+00:00",
+  },
+  {
     songTitle: "Zvon's 12 Reward Sample Packs from Year 1 available to all for purchase (video demo)",
     artistName: "zvon",
     forumMember: "zvon",
@@ -38,16 +48,6 @@ const SEED_TRACKS: InsertTrack[] = [
     fetchedAt: "2026-05-04T09:04:16+00:00",
   },
   {
-    songTitle: "JWM's Music May 2026",
-    artistName: "jwmmakerofmusic",
-    forumMember: "jwmmakerofmusic",
-    mediaUrl: "https://on.soundcloud.com/v3JozzNhCVfJnsqYbz",
-    mediaType: "soundcloud",
-    threadUrl: "https://forum.loopypro.com/discussion/68333/jwms-music-may-2026",
-    embedCode: "https://w.soundcloud.com/player/?url=https%3A%2F%2Fsoundcloud.com%2Fjwmmakerofmusic%2Fjwm-90s-bass-house%3Fsi%3D47b2fca3e04e4fe9b7c4022954cd059f%26utm_source%3Dclipboard%26utm_medium%3Dtext%26utm_campaign%3Dsocial_sharing&color=ff5500&auto_play=false&hide_related=false&show_comments=false&show_user=true&show_reposts=false",
-    fetchedAt: "2026-05-04T02:04:50+00:00",
-  },
-  {
     songTitle: "Folk|Jazz|Rock|Ambient",
     artistName: "GeoTony",
     forumMember: "GeoTony",
@@ -76,16 +76,6 @@ const SEED_TRACKS: InsertTrack[] = [
     threadUrl: "https://forum.loopypro.com/discussion/68335/fhth-for-those-who-sailed-west-industrial-synth-pop",
     embedCode: "https://www.youtube.com/embed/sTU7vhVHius",
     fetchedAt: "2026-05-01T03:45:32+00:00",
-  },
-  {
-    songTitle: "My second ambient piece 'De linge (The Linge)'",
-    artistName: "Frenq",
-    forumMember: "Frenq",
-    mediaUrl: "https://hearthis.at/frenq/la-meuse",
-    mediaType: "hearthis",
-    threadUrl: "https://forum.loopypro.com/discussion/68334/my-second-ambient-piece-de-linge-the-linge",
-    embedCode: "https://app.hearthis.at/embed/14235792/transparent_black/?",
-    fetchedAt: "2026-05-01T02:35:51+00:00",
   },
   {
     songTitle: "Back to Outgrowrh",
@@ -196,6 +186,16 @@ const SEED_TRACKS: InsertTrack[] = [
     threadUrl: "https://forum.loopypro.com/discussion/68292/the-desert-island-synth-challenge-may-2026",
     embedCode: "https://w.soundcloud.com/player/?url=https%3A%2F%2Fsoundcloud.com%2Fjwmmakerofmusic%2Fjwm-desert-sunrise%3Fsi%3D780223bd713f44d79e4fd9c5228bd1c2%26utm_source%3Dclipboard%26utm_medium%3Dtext%26utm_campaign%3Dsocial_sharing&color=ff5500&auto_play=false&hide_related=false&show_comments=false&show_user=true&show_reposts=false",
     fetchedAt: "2026-04-27T03:55:49+00:00",
+  },
+  {
+    songTitle: "La Meuse my first real ambient track",
+    artistName: "Frenq",
+    forumMember: "Frenq",
+    mediaUrl: "https://hearthis.at/frenq/la-meuse",
+    mediaType: "hearthis",
+    threadUrl: "https://forum.loopypro.com/discussion/68287/la-meuse-my-first-real-ambient-track",
+    embedCode: "https://app.hearthis.at/embed/14235792/transparent_black/?",
+    fetchedAt: "2026-04-27T01:32:04+00:00",
   },
   {
     songTitle: "Tape 1 - a track inspired by Boards of Canada",
