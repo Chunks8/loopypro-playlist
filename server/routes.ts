@@ -8,6 +8,16 @@ import * as http from "http";
 // Corrected, deduplicated seed tracks — most recent post per thread
 const SEED_TRACKS: InsertTrack[] = [
   {
+    songTitle: "countenance - a Koala thing",
+    artistName: "rottencat",
+    forumMember: "rottencat",
+    mediaUrl: "https://www.youtube.com/watch?v=fNrT0lNWUSs",
+    mediaType: "youtube",
+    threadUrl: "https://forum.loopypro.com/discussion/68381/countenance-a-koala-thing",
+    embedCode: "https://www.youtube.com/embed/fNrT0lNWUSs",
+    fetchedAt: "2026-05-05T22:07:55+00:00",
+  },
+  {
     songTitle: "JWM's Music May 2026",
     artistName: "jwmmakerofmusic",
     forumMember: "jwmmakerofmusic",
@@ -416,16 +426,6 @@ const SEED_TRACKS: InsertTrack[] = [
     threadUrl: "https://forum.loopypro.com/discussion/68160/the-modern-classic-neo-90s-house-in-gadget",
     embedCode: "https://w.soundcloud.com/player/?url=https%3A%2F%2Fsoundcloud.com%2Fjwmmakerofmusic%2Fjwm-exceeding-expectations%3Fref%3Dclipboard%26p%3Di%26c%3D1%26si%3D591B37312C664E9AA61C3B7E5BB64B06%26utm_source%3Dclipboard%26utm_medium%3Dtext%26utm_campaign%3Dsocial_sharing&color=ff5500&auto_play=false&hide_related=false&show_comments=false&show_user=true&show_reposts=false",
     fetchedAt: "2026-04-14T21:09:17+00:00",
-  },
-  {
-    songTitle: "Power Tends to Corrupt and...",
-    artistName: "zvon",
-    forumMember: "zvon",
-    mediaUrl: "https://www.youtube.com/watch?v=Gm3DXG5jT3c",
-    mediaType: "youtube",
-    threadUrl: "https://forum.loopypro.com/discussion/68158/power-tends-to-corrupt-and",
-    embedCode: "https://www.youtube.com/embed/Gm3DXG5jT3c",
-    fetchedAt: "2026-04-14T19:26:41+00:00",
   },
   {
     songTitle: "Luc.A - The cave (House in Groove Rider 2)",
