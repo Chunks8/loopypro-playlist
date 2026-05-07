@@ -8,6 +8,16 @@ import * as http from "http";
 // Corrected, deduplicated seed tracks — most recent post per thread
 const SEED_TRACKS: InsertTrack[] = [
   {
+    songTitle: "JWM's Music May 2026",
+    artistName: "jwmmakerofmusic",
+    forumMember: "jwmmakerofmusic",
+    mediaUrl: "https://on.soundcloud.com/0TNMBo7EXOe3Tn3yVk",
+    mediaType: "soundcloud",
+    threadUrl: "https://forum.loopypro.com/discussion/68333/jwms-music-may-2026",
+    embedCode: "https://w.soundcloud.com/player/?url=https%3A%2F%2Fsoundcloud.com%2Fjwmmakerofmusic%2Fjwm-relaxation-method%3Fsi%3Dfd7d7dd746f446b690183382c8435614%26utm_source%3Dclipboard%26utm_medium%3Dtext%26utm_campaign%3Dsocial_sharing&color=ff5500&auto_play=false&hide_related=false&show_comments=false&show_user=true&show_reposts=false",
+    fetchedAt: "2026-05-07T02:55:20+00:00",
+  },
+  {
     songTitle: "While my guitar\u2026\u2026improvisation.",
     artistName: "flo",
     forumMember: "flo",
@@ -16,16 +26,6 @@ const SEED_TRACKS: InsertTrack[] = [
     threadUrl: "https://forum.loopypro.com/discussion/68390/while-my-guitar-improvisation",
     embedCode: "https://www.youtube.com/embed/ub1iR6W7V8s",
     fetchedAt: "2026-05-06T20:56:37+00:00",
-  },
-  {
-    songTitle: "JWM's Music May 2026",
-    artistName: "jwmmakerofmusic",
-    forumMember: "jwmmakerofmusic",
-    mediaUrl: "https://on.soundcloud.com/ozyAEOPjNI64pA0K4d",
-    mediaType: "soundcloud",
-    threadUrl: "https://forum.loopypro.com/discussion/68333/jwms-music-may-2026",
-    embedCode: "https://w.soundcloud.com/player/?url=https%3A%2F%2Fsoundcloud.com%2Fjwmmakerofmusic%2Fjwm-the-monument%3Fsi%3D5ae187ae680f415d90449b663f4b9e97%26utm_source%3Dclipboard%26utm_medium%3Dtext%26utm_campaign%3Dsocial_sharing&color=ff5500&auto_play=false&hide_related=false&show_comments=false&show_user=true&show_reposts=false",
-    fetchedAt: "2026-05-06T17:49:41+00:00",
   },
   {
     songTitle: "countenance - a Koala thing",
