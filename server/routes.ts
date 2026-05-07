@@ -8,6 +8,16 @@ import * as http from "http";
 // Corrected, deduplicated seed tracks — most recent post per thread
 const SEED_TRACKS: InsertTrack[] = [
   {
+    songTitle: "Luc.A - Sometimes (Deep House in Korg Gadget)",
+    artistName: "Luc_A",
+    forumMember: "Luc_A",
+    mediaUrl: "https://soundcloud.com/luca_production/sometimes?si=4027c7af711a4850810f581db9fb38cb",
+    mediaType: "soundcloud",
+    threadUrl: "https://forum.loopypro.com/discussion/68402/luc-a-sometimes-deep-house-in-korg-gadget",
+    embedCode: "https://w.soundcloud.com/player/?url=https%3A//soundcloud.com/luca_production/sometimes?si=4027c7af711a4850810f581db9fb38cb&amp;utm_source=clipboard&amp;utm_medium=text&amp;utm_campaign=social_sharing&amp;color=ff5500&amp;auto_play=false&amp;hide_related=false&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false",
+    fetchedAt: "2026-05-07T16:56:49+00:00",
+  },
+  {
     songTitle: "JWM's Music May 2026",
     artistName: "jwmmakerofmusic",
     forumMember: "jwmmakerofmusic",
@@ -486,16 +496,6 @@ const SEED_TRACKS: InsertTrack[] = [
     threadUrl: "https://forum.loopypro.com/discussion/68133/egobeats-favorite",
     embedCode: "https://www.youtube.com/embed/_sBlmfP15CM",
     fetchedAt: "2026-04-12T02:22:13+00:00",
-  },
-  {
-    songTitle: "Drifting (Intimate Cello, Vital Series: Mallets, Velvet Guitar, Noire, Solo, Continua)",
-    artistName: "DavidEnglish",
-    forumMember: "DavidEnglish",
-    mediaUrl: "https://www.youtube.com/watch?v=6zHWMjZeCoo",
-    mediaType: "youtube",
-    threadUrl: "https://forum.loopypro.com/discussion/68116/drifting-intimate-cello-vital-series-mallets-velvet-guitar-noire-solo-continua",
-    embedCode: "https://www.youtube.com/embed/6zHWMjZeCoo",
-    fetchedAt: "2026-04-10T17:11:11+00:00",
   },
   {
     songTitle: "bygones",
