@@ -8,6 +8,26 @@ import * as http from "http";
 // Corrected, deduplicated seed tracks — most recent post per thread
 const SEED_TRACKS: InsertTrack[] = [
   {
+    songTitle: "Pulse - New ambient track mastered with Afterglow",
+    artistName: "LoopRabbit",
+    forumMember: "LoopRabbit",
+    mediaUrl: "https://www.youtube.com/watch?v=wGxvrtJllgI",
+    mediaType: "youtube",
+    threadUrl: "https://forum.loopypro.com/discussion/68408/pulse-new-ambient-track-mastered-with-afterglow",
+    embedCode: "https://www.youtube.com/embed/wGxvrtJllgI",
+    fetchedAt: "2026-05-08T02:21:29+00:00",
+  },
+  {
+    songTitle: "JWM's Music May 2026",
+    artistName: "jwmmakerofmusic",
+    forumMember: "jwmmakerofmusic",
+    mediaUrl: "https://on.soundcloud.com/8qT7MAyY7rvHvhHFWn",
+    mediaType: "soundcloud",
+    threadUrl: "https://forum.loopypro.com/discussion/68333/jwms-music-may-2026",
+    embedCode: "https://w.soundcloud.com/player/?url=https%3A%2F%2Fsoundcloud.com%2Fjwmmakerofmusic%2Fjwm-the-mysterious-mr-doom%3Fsi%3D3dcbf87b21cd477e9a6cfa36f96b24e9%26utm_source%3Dclipboard%26utm_medium%3Dtext%26utm_campaign%3Dsocial_sharing&color=ff5500&auto_play=false&hide_related=false&show_comments=false&show_user=true&show_reposts=false",
+    fetchedAt: "2026-05-07T18:55:28+00:00",
+  },
+  {
     songTitle: "Luc.A - Sometimes (Deep House in Korg Gadget)",
     artistName: "Luc_A",
     forumMember: "Luc_A",
@@ -16,16 +36,6 @@ const SEED_TRACKS: InsertTrack[] = [
     threadUrl: "https://forum.loopypro.com/discussion/68402/luc-a-sometimes-deep-house-in-korg-gadget",
     embedCode: "https://w.soundcloud.com/player/?url=https%3A//soundcloud.com/luca_production/sometimes?si=4027c7af711a4850810f581db9fb38cb&amp;utm_source=clipboard&amp;utm_medium=text&amp;utm_campaign=social_sharing&amp;color=ff5500&amp;auto_play=false&amp;hide_related=false&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false",
     fetchedAt: "2026-05-07T16:56:49+00:00",
-  },
-  {
-    songTitle: "JWM's Music May 2026",
-    artistName: "jwmmakerofmusic",
-    forumMember: "jwmmakerofmusic",
-    mediaUrl: "https://on.soundcloud.com/0TNMBo7EXOe3Tn3yVk",
-    mediaType: "soundcloud",
-    threadUrl: "https://forum.loopypro.com/discussion/68333/jwms-music-may-2026",
-    embedCode: "https://w.soundcloud.com/player/?url=https%3A%2F%2Fsoundcloud.com%2Fjwmmakerofmusic%2Fjwm-relaxation-method%3Fsi%3Dfd7d7dd746f446b690183382c8435614%26utm_source%3Dclipboard%26utm_medium%3Dtext%26utm_campaign%3Dsocial_sharing&color=ff5500&auto_play=false&hide_related=false&show_comments=false&show_user=true&show_reposts=false",
-    fetchedAt: "2026-05-07T02:55:20+00:00",
   },
   {
     songTitle: "While my guitar\u2026\u2026improvisation.",
@@ -526,16 +536,6 @@ const SEED_TRACKS: InsertTrack[] = [
     threadUrl: "https://forum.loopypro.com/discussion/68072/midnight-blues-a-new-recording-in-collab-with-pbelgium",
     embedCode: "https://app.hearthis.at/embed/14105746/transparent_black/?",
     fetchedAt: "2026-04-06T06:47:37+00:00",
-  },
-  {
-    songTitle: "Goodbye Pork Pie Town",
-    artistName: "GeoTony",
-    forumMember: "GeoTony",
-    mediaUrl: "https://soundcloud.com/geotony/360-goodbye-pork-pie-town?si=dfec9858e91143e0814c51f0abe70978",
-    mediaType: "soundcloud",
-    threadUrl: "https://forum.loopypro.com/discussion/68013/goodbye-pork-pie-town",
-    embedCode: "https://w.soundcloud.com/player/?url=https%3A//soundcloud.com/geotony/360-goodbye-pork-pie-town?si=dfec9858e91143e0814c51f0abe70978&amp;utm_source=clipboard&amp;utm_medium=text&amp;utm_campaign=social_sharing&amp;color=ff5500&amp;auto_play=false&amp;hide_related=false&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false",
-    fetchedAt: "2026-03-30T19:14:53+00:00",
   },
   {
     songTitle: "JWM - Reggaeton Trance 032626 (Instrumental done in FL Studio Mobile)",
