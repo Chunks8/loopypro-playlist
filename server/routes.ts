@@ -311,10 +311,10 @@ const SEED_TRACKS: InsertTrack[] = [
     songTitle: "Mojotele65/Elet Ojom\u2019s Music - 2026",
     artistName: "Mojotele65",
     forumMember: "Mojotele65",
-    mediaUrl: "https://www.youtube.com/watch?v=CC2dopUAtlE",
+    mediaUrl: "https://www.youtube.com/watch?v=6uQ6ZyFoFmQ",
     mediaType: "youtube",
     threadUrl: "https://forum.loopypro.com/discussion/68267/mojotele65-elet-ojom-s-music-2026",
-    embedCode: "https://www.youtube.com/embed/CC2dopUAtlE",
+    embedCode: "https://www.youtube.com/embed/6uQ6ZyFoFmQ",
     fetchedAt: "2026-04-24T12:21:55+00:00",
   },
   {
