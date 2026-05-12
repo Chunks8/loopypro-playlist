@@ -8,6 +8,16 @@ import * as http from "http";
 // Corrected, deduplicated seed tracks — most recent post per thread
 const SEED_TRACKS: InsertTrack[] = [
   {
+    songTitle: "Remember those school dances?",
+    artistName: "lukesleepwalker",
+    forumMember: "lukesleepwalker",
+    mediaUrl: "https://soundcloud.com/lukesleepwalker-1/may-wav",
+    mediaType: "soundcloud",
+    threadUrl: "https://forum.loopypro.com/discussion/68446/remember-those-school-dances",
+    embedCode: "https://w.soundcloud.com/player/?url=https%3A//soundcloud.com/lukesleepwalker-1/may-wav&amp;color=ff5500&amp;auto_play=false&amp;hide_related=false&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false",
+    fetchedAt: "2026-05-12T12:39:46+00:00",
+  },
+  {
     songTitle: "A Saturday night at Ronnie\u202fScott\u2019s - frenq",
     artistName: "Frenq",
     forumMember: "Frenq",
@@ -436,16 +446,6 @@ const SEED_TRACKS: InsertTrack[] = [
     threadUrl: "https://forum.loopypro.com/discussion/68212/live-session-ipad",
     embedCode: "https://www.youtube.com/embed/FeEde9QI17w",
     fetchedAt: "2026-04-19T16:22:01+00:00",
-  },
-  {
-    songTitle: "\"Ambient Beat Thing\" (Electronic Music in Gadget)",
-    artistName: "jwmmakerofmusic",
-    forumMember: "jwmmakerofmusic",
-    mediaUrl: "https://on.soundcloud.com/bu1ZeMjNKGoSKfPH1z",
-    mediaType: "soundcloud",
-    threadUrl: "https://forum.loopypro.com/discussion/68207/ambient-beat-thing-electronic-music-in-gadget",
-    embedCode: "https://w.soundcloud.com/player/?url=https%3A%2F%2Fsoundcloud.com%2Fjwmmakerofmusic%2Fjwm-ambient-beat-thing%3Fsi%3D4342ee07d6384764838a30e9633850ce%26utm_source%3Dclipboard%26utm_medium%3Dtext%26utm_campaign%3Dsocial_sharing&color=ff5500&auto_play=false&hide_related=false&show_comments=false&show_user=true&show_reposts=false",
-    fetchedAt: "2026-04-18T21:35:42+00:00",
   },
   {
     songTitle: "A new Koala/Outgrowth track",
