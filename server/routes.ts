@@ -8,6 +8,16 @@ import * as http from "http";
 // Corrected, deduplicated seed tracks — most recent post per thread
 const SEED_TRACKS: InsertTrack[] = [
   {
+    songTitle: "The sorcery of Koala",
+    artistName: "rottencat",
+    forumMember: "rottencat",
+    mediaUrl: "https://www.youtube.com/watch?v=3A_H76yITW8",
+    mediaType: "youtube",
+    threadUrl: "https://forum.loopypro.com/discussion/68452/the-sorcery-of-koala",
+    embedCode: "https://www.youtube.com/embed/3A_H76yITW8",
+    fetchedAt: "2026-05-12T22:20:24+00:00",
+  },
+  {
     songTitle: "Remember those school dances?",
     artistName: "lukesleepwalker",
     forumMember: "lukesleepwalker",
@@ -428,26 +438,6 @@ const SEED_TRACKS: InsertTrack[] = [
     fetchedAt: "2026-04-20T10:43:28+00:00",
   },
   {
-    songTitle: "\"After the Storm\" (Lofi in Korg Gadget)",
-    artistName: "jwmmakerofmusic",
-    forumMember: "jwmmakerofmusic",
-    mediaUrl: "https://on.soundcloud.com/FDoMyTwEciJl0qQJsm",
-    mediaType: "soundcloud",
-    threadUrl: "https://forum.loopypro.com/discussion/68213/after-the-storm-lofi-in-korg-gadget",
-    embedCode: "https://w.soundcloud.com/player/?url=https%3A%2F%2Fsoundcloud.com%2Fjwmmakerofmusic%2Fjwm-after-the-storm%3Fsi%3D96aeafc20f3d43f092906a8afa372790%26utm_source%3Dclipboard%26utm_medium%3Dtext%26utm_campaign%3Dsocial_sharing&color=ff5500&auto_play=false&hide_related=false&show_comments=false&show_user=true&show_reposts=false",
-    fetchedAt: "2026-04-19T18:13:34+00:00",
-  },
-  {
-    songTitle: "Live Session iPad",
-    artistName: "RedSkyLullaby",
-    forumMember: "RedSkyLullaby",
-    mediaUrl: "https://www.youtube.com/watch?v=FeEde9QI17w",
-    mediaType: "youtube",
-    threadUrl: "https://forum.loopypro.com/discussion/68212/live-session-ipad",
-    embedCode: "https://www.youtube.com/embed/FeEde9QI17w",
-    fetchedAt: "2026-04-19T16:22:01+00:00",
-  },
-  {
     songTitle: "A new Koala/Outgrowth track",
     artistName: "rottencat",
     forumMember: "rottencat",
@@ -616,6 +606,16 @@ const SEED_TRACKS: InsertTrack[] = [
     threadUrl: "https://forum.loopypro.com/discussion/50272/echo-opera-daily-dose-of-music-compilation-thread",
     embedCode: "https://www.youtube.com/embed/fCtkaePAERI",
     fetchedAt: "2022-05-21T05:36:34+00:00",
+  },
+  {
+    songTitle: "-The Pixel Producers - Everyday Music Thread",
+    artistName: "Thepixelproducers",
+    forumMember: "Thepixelproducers",
+    mediaUrl: "https://www.youtube.com/watch?v=tyTCXhAWF5U",
+    mediaType: "youtube",
+    threadUrl: "https://forum.loopypro.com/discussion/49403/the-pixel-producers-everyday-music-thread",
+    embedCode: "https://www.youtube.com/embed/tyTCXhAWF5U",
+    fetchedAt: "2022-03-09T00:37:27+00:00",
   }
 ];
 
