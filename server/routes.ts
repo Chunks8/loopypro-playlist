@@ -8,6 +8,16 @@ import * as http from "http";
 // Corrected, deduplicated seed tracks — most recent post per thread
 const SEED_TRACKS: InsertTrack[] = [
   {
+    songTitle: "Atmosphere",
+    artistName: "Paulieworld",
+    forumMember: "Paulieworld",
+    mediaUrl: "https://soundcloud.com/paulieworld/atmosphere",
+    mediaType: "soundcloud",
+    threadUrl: "https://forum.loopypro.com/discussion/68487/atmosphere",
+    embedCode: "https://w.soundcloud.com/player/?url=https%3A//soundcloud.com/paulieworld/atmosphere&amp;color=ff5500&amp;auto_play=false&amp;hide_related=false&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false",
+    fetchedAt: "2026-05-16T18:38:48+00:00",
+  },
+  {
     songTitle: "Quantovox melthaven as a univibe?",
     artistName: "flo",
     forumMember: "flo",
@@ -376,16 +386,6 @@ const SEED_TRACKS: InsertTrack[] = [
     threadUrl: "https://forum.loopypro.com/discussion/68283/tape-1-a-track-inspired-by-boards-of-canada",
     embedCode: "https://www.youtube.com/embed/2ZCfpmlk4uU",
     fetchedAt: "2026-04-26T18:04:06+00:00",
-  },
-  {
-    songTitle: "Isle of Arran",
-    artistName: "GeoTony",
-    forumMember: "GeoTony",
-    mediaUrl: "https://soundcloud.com/geotony/sets/isle-of-arran",
-    mediaType: "soundcloud",
-    threadUrl: "https://forum.loopypro.com/discussion/68272/isle-of-arran",
-    embedCode: "https://w.soundcloud.com/player/?url=https%3A%2F%2Fsoundcloud.com%2Fgeotony%2Fsets%2Fisle-of-arran&color=ff5500&auto_play=false&hide_related=false&show_comments=false&show_user=true&show_reposts=false",
-    fetchedAt: "2026-04-24T19:25:14+00:00",
   },
   {
     songTitle: "The Navigator (Solo, Noire, Continua)",
