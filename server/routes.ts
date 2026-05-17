@@ -8,6 +8,26 @@ import * as http from "http";
 // Corrected, deduplicated seed tracks — most recent post per thread
 const SEED_TRACKS: InsertTrack[] = [
   {
+    songTitle: "New album Easylistening, jazz with 2 brand-new tracks!",
+    artistName: "Frenq",
+    forumMember: "Frenq",
+    mediaUrl: "https://hearthis.at/frenq/easylistening",
+    mediaType: "hearthis",
+    threadUrl: "https://forum.loopypro.com/discussion/68498/new-album-easylistening-jazz-with-2-brand-new-tracks",
+    embedCode: "https://app.hearthis.at/embed/14357491/transparent_black/?",
+    fetchedAt: "2026-05-17T20:22:51+00:00",
+  },
+  {
+    songTitle: "Improvisation in the style of\u2026\u2026\u2026guess.",
+    artistName: "flo",
+    forumMember: "flo",
+    mediaUrl: "https://www.youtube.com/watch?v=6qplNyIQEXg",
+    mediaType: "youtube",
+    threadUrl: "https://forum.loopypro.com/discussion/68497/improvisation-in-the-style-of-guess",
+    embedCode: "https://www.youtube.com/embed/6qplNyIQEXg",
+    fetchedAt: "2026-05-17T20:09:00+00:00",
+  },
+  {
     songTitle: "Quantovox real phase guitar demo.",
     artistName: "flo",
     forumMember: "flo",
@@ -518,16 +538,6 @@ const SEED_TRACKS: InsertTrack[] = [
     fetchedAt: "2026-04-15T03:59:30+00:00",
   },
   {
-    songTitle: "Space in the 70\u2019s. A koala ambient thing.",
-    artistName: "sevenape",
-    forumMember: "sevenape",
-    mediaUrl: "https://www.youtube.com/watch?v=Jkfd5CgTUGA",
-    mediaType: "youtube",
-    threadUrl: "https://forum.loopypro.com/discussion/68155/space-in-the-70-s-a-koala-ambient-thing",
-    embedCode: "https://www.youtube.com/embed/Jkfd5CgTUGA",
-    fetchedAt: "2026-04-14T10:45:43+00:00",
-  },
-  {
     songTitle: "@egobeats favorite \ud83d\ude42",
     artistName: "rottencat",
     forumMember: "rottencat",
@@ -546,16 +556,6 @@ const SEED_TRACKS: InsertTrack[] = [
     threadUrl: "https://forum.loopypro.com/discussion/67823/a-thread-of-improvised-orchestra-sketches",
     embedCode: "https://w.soundcloud.com/player/?url=https%3A//soundcloud.com/user-403688328/fan-faire?si=b6f8a45d29e945b88ea797c1b813e0ce&amp;utm_source=clipboard&amp;utm_medium=text&amp;utm_campaign=social_sharing&amp;color=ff5500&amp;auto_play=false&amp;hide_related=false&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false",
     fetchedAt: "2026-03-08T00:58:02+00:00",
-  },
-  {
-    songTitle: "Acoustic cover mashup Find Me / Take me to the river",
-    artistName: "TheAudioDabbler",
-    forumMember: "TheAudioDabbler",
-    mediaUrl: "https://www.youtube.com/watch?v=j-YOJTXZAY4",
-    mediaType: "youtube",
-    threadUrl: "https://forum.loopypro.com/discussion/67669/acoustic-cover-mashup-find-me-take-me-to-the-river",
-    embedCode: "https://www.youtube.com/embed/j-YOJTXZAY4",
-    fetchedAt: "2026-02-19T12:10:35+00:00",
   },
   {
     songTitle: "lukesleepwalker\u2019s 2026 resolution: a track a month (updated for May)",
