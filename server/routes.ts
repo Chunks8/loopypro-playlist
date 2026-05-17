@@ -488,16 +488,6 @@ const SEED_TRACKS: InsertTrack[] = [
     fetchedAt: "2026-04-17T17:41:43+00:00",
   },
   {
-    songTitle: "Happy to announce Horseflies a new single recording",
-    artistName: "Frenq",
-    forumMember: "Frenq",
-    mediaUrl: "https://hearthis.at/frenq/horseflies",
-    mediaType: "hearthis",
-    threadUrl: "https://forum.loopypro.com/discussion/68191/happy-to-announce-horseflies-a-new-single-recording",
-    embedCode: "https://app.hearthis.at/embed/14181159/transparent_black/?",
-    fetchedAt: "2026-04-17T12:59:22+00:00",
-  },
-  {
     songTitle: "Cosmic ambient in a pop-up void\u2026 \u201cSleeping Through the Apogee\u201d",
     artistName: "wired2moon",
     forumMember: "wired2moon",
@@ -546,6 +536,16 @@ const SEED_TRACKS: InsertTrack[] = [
     threadUrl: "https://forum.loopypro.com/discussion/68133/egobeats-favorite",
     embedCode: "https://www.youtube.com/embed/_sBlmfP15CM",
     fetchedAt: "2026-04-12T02:22:13+00:00",
+  },
+  {
+    songTitle: "A thread of improvised orchestra sketches",
+    artistName: "McD",
+    forumMember: "McD",
+    mediaUrl: "https://soundcloud.com/user-403688328/fan-faire?si=b6f8a45d29e945b88ea797c1b813e0ce",
+    mediaType: "soundcloud",
+    threadUrl: "https://forum.loopypro.com/discussion/67823/a-thread-of-improvised-orchestra-sketches",
+    embedCode: "https://w.soundcloud.com/player/?url=https%3A//soundcloud.com/user-403688328/fan-faire?si=b6f8a45d29e945b88ea797c1b813e0ce&amp;utm_source=clipboard&amp;utm_medium=text&amp;utm_campaign=social_sharing&amp;color=ff5500&amp;auto_play=false&amp;hide_related=false&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false",
+    fetchedAt: "2026-03-08T00:58:02+00:00",
   },
   {
     songTitle: "Acoustic cover mashup Find Me / Take me to the river",
