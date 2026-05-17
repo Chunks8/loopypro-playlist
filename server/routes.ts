@@ -8,6 +8,16 @@ import * as http from "http";
 // Corrected, deduplicated seed tracks — most recent post per thread
 const SEED_TRACKS: InsertTrack[] = [
   {
+    songTitle: "Quantovox real phase guitar demo.",
+    artistName: "flo",
+    forumMember: "flo",
+    mediaUrl: "https://www.youtube.com/watch?v=xjy1bt07eZU",
+    mediaType: "youtube",
+    threadUrl: "https://forum.loopypro.com/discussion/68491/quantovox-real-phase-guitar-demo",
+    embedCode: "https://www.youtube.com/embed/xjy1bt07eZU",
+    fetchedAt: "2026-05-17T15:26:15+00:00",
+  },
+  {
     songTitle: "Atmosphere",
     artistName: "Paulieworld",
     forumMember: "Paulieworld",
@@ -516,16 +526,6 @@ const SEED_TRACKS: InsertTrack[] = [
     threadUrl: "https://forum.loopypro.com/discussion/68155/space-in-the-70-s-a-koala-ambient-thing",
     embedCode: "https://www.youtube.com/embed/Jkfd5CgTUGA",
     fetchedAt: "2026-04-14T10:45:43+00:00",
-  },
-  {
-    songTitle: "'Going Home' another new blues recording in collab with pbelgium",
-    artistName: "Frenq",
-    forumMember: "Frenq",
-    mediaUrl: "https://hearthis.at/frenq/going-home",
-    mediaType: "hearthis",
-    threadUrl: "https://forum.loopypro.com/discussion/68140/going-home-another-new-blues-recording-in-collab-with-pbelgium",
-    embedCode: "https://app.hearthis.at/embed/14147295/transparent_black/?",
-    fetchedAt: "2026-04-12T19:47:13+00:00",
   },
   {
     songTitle: "@egobeats favorite \ud83d\ude42",
