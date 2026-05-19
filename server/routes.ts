@@ -8,6 +8,16 @@ import * as http from "http";
 // Corrected, deduplicated seed tracks — most recent post per thread
 const SEED_TRACKS: InsertTrack[] = [
   {
+    songTitle: "Primes",
+    artistName: "GeoTony",
+    forumMember: "GeoTony",
+    mediaUrl: "https://soundcloud.com/geotony/365-primes?si=716971d05e3c4158a8b5c658a5d5ee55",
+    mediaType: "soundcloud",
+    threadUrl: "https://forum.loopypro.com/discussion/68518/primes",
+    embedCode: "https://w.soundcloud.com/player/?url=https%3A//soundcloud.com/geotony/365-primes?si=716971d05e3c4158a8b5c658a5d5ee55&amp;utm_source=clipboard&amp;utm_medium=text&amp;utm_campaign=social_sharing&amp;color=ff5500&amp;auto_play=false&amp;hide_related=false&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false",
+    fetchedAt: "2026-05-19T10:36:40+00:00",
+  },
+  {
     songTitle: "The Wagtunes Corner",
     artistName: "wagtunes",
     forumMember: "wagtunes",
@@ -56,6 +66,16 @@ const SEED_TRACKS: InsertTrack[] = [
     threadUrl: "https://forum.loopypro.com/discussion/68511/luc-a-my-skin-tech-house-in-korg-gadget",
     embedCode: "https://w.soundcloud.com/player/?url=https%3A//soundcloud.com/luca_production/my-skin?si=e015d3ce50c34b55a7d5c86c57329c2d&amp;utm_source=clipboard&amp;utm_medium=text&amp;utm_campaign=social_sharing&amp;color=ff5500&amp;auto_play=false&amp;hide_related=false&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false",
     fetchedAt: "2026-05-18T17:27:00+00:00",
+  },
+  {
+    songTitle: "A Body of Water",
+    artistName: "Kashi",
+    forumMember: "Kashi",
+    mediaUrl: "https://www.youtube.com/watch?v=cBgfhWADAig",
+    mediaType: "youtube",
+    threadUrl: "https://forum.loopypro.com/discussion/68510/a-body-of-water",
+    embedCode: "https://www.youtube.com/embed/cBgfhWADAig",
+    fetchedAt: "2026-05-18T15:57:57+00:00",
   },
   {
     songTitle: "New album Easylistening, jazz with 2 brand-new tracks!",
