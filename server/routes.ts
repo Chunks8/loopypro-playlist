@@ -8,6 +8,16 @@ import * as http from "http";
 // Corrected, deduplicated seed tracks — most recent post per thread
 const SEED_TRACKS: InsertTrack[] = [
   {
+    songTitle: "The Wagtunes Corner",
+    artistName: "wagtunes",
+    forumMember: "wagtunes",
+    mediaUrl: "https://soundcloud.com/steven-wagenheim/walking-in-the-out-door",
+    mediaType: "soundcloud",
+    threadUrl: "https://forum.loopypro.com/discussion/66861/the-wagtunes-corner",
+    embedCode: "https://w.soundcloud.com/player/?url=https://soundcloud.com/steven-wagenheim/walking-in-the-out-door&color=ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false",
+    fetchedAt: "2026-05-18T23:10:18+00:00",
+  },
+  {
     songTitle: "Quantovox real phase.Demo with backing track.what a great app.",
     artistName: "flo",
     forumMember: "flo",
@@ -96,16 +106,6 @@ const SEED_TRACKS: InsertTrack[] = [
     threadUrl: "https://forum.loopypro.com/discussion/68482/quantovox-melthaven-as-a-univibe",
     embedCode: "https://www.youtube.com/embed/ayHTge2fEXY",
     fetchedAt: "2026-05-16T11:09:51+00:00",
-  },
-  {
-    songTitle: "The Wagtunes Corner",
-    artistName: "wagtunes",
-    forumMember: "wagtunes",
-    mediaUrl: "https://soundcloud.com/steven-wagenheim/in-my-garage",
-    mediaType: "soundcloud",
-    threadUrl: "https://forum.loopypro.com/discussion/66861/the-wagtunes-corner",
-    embedCode: "https://w.soundcloud.com/player/?url=https://soundcloud.com/steven-wagenheim/in-my-garage&color=ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false",
-    fetchedAt: "2026-05-15T19:25:21+00:00",
   },
   {
     songTitle: "I blame The Sound Test Room: To An Artificial Mind All Reality Is Virtual",
