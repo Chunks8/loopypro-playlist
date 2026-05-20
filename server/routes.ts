@@ -8,6 +8,16 @@ import * as http from "http";
 // Corrected, deduplicated seed tracks — most recent post per thread
 const SEED_TRACKS: InsertTrack[] = [
   {
+    songTitle: "Woolgathering",
+    artistName: "GeoTony",
+    forumMember: "GeoTony",
+    mediaUrl: "https://soundcloud.com/geotony/366-woolgathering?si=12c4da4459db42d68e076ab89de79b5a",
+    mediaType: "soundcloud",
+    threadUrl: "https://forum.loopypro.com/discussion/68533/woolgathering",
+    embedCode: "https://w.soundcloud.com/player/?url=https%3A//soundcloud.com/geotony/366-woolgathering?si=12c4da4459db42d68e076ab89de79b5a&amp;utm_source=clipboard&amp;utm_medium=text&amp;utm_campaign=social_sharing&amp;color=ff5500&amp;auto_play=false&amp;hide_related=false&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false",
+    fetchedAt: "2026-05-20T21:05:33+00:00",
+  },
+  {
     songTitle: "JWM's Music May 2026",
     artistName: "jwmmakerofmusic",
     forumMember: "jwmmakerofmusic",
@@ -356,16 +366,6 @@ const SEED_TRACKS: InsertTrack[] = [
     threadUrl: "https://forum.loopypro.com/discussion/68341/upsidedown-my-first-full-ambient-track",
     embedCode: "https://www.youtube.com/embed/xfFHPx5n-7E",
     fetchedAt: "2026-05-01T23:26:41+00:00",
-  },
-  {
-    songTitle: "FHTH - For Those Who Sailed West (industrial, synth pop)",
-    artistName: "Slava",
-    forumMember: "Slava",
-    mediaUrl: "https://www.youtube.com/watch?v=sTU7vhVHius",
-    mediaType: "youtube",
-    threadUrl: "https://forum.loopypro.com/discussion/68335/fhth-for-those-who-sailed-west-industrial-synth-pop",
-    embedCode: "https://www.youtube.com/embed/sTU7vhVHius",
-    fetchedAt: "2026-05-01T03:45:32+00:00",
   },
   {
     songTitle: "My second ambient piece 'De linge (The Linge)'",
