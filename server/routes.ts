@@ -171,10 +171,10 @@ const SEED_TRACKS: InsertTrack[] = [
     songTitle: "Channeling my inner Aphex Twin",
     artistName: "kyrillik",
     forumMember: "kyrillik",
-    mediaUrl: "https://www.youtube.com/watch?v=uMbMpa7N12g",
+    mediaUrl: "https://www.youtube.com/watch?v=R_p3jJVPLyo",
     mediaType: "youtube",
     threadUrl: "https://forum.loopypro.com/discussion/68465/channeling-my-inner-aphex-twin",
-    embedCode: "https://www.youtube.com/embed/uMbMpa7N12g",
+    embedCode: "https://www.youtube.com/embed/R_p3jJVPLyo",
     fetchedAt: "2026-05-14T08:22:42+00:00",
   },
   {
