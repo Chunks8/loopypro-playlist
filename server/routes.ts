@@ -8,6 +8,16 @@ import * as http from "http";
 // Corrected, deduplicated seed tracks — most recent post per thread
 const SEED_TRACKS: InsertTrack[] = [
   {
+    songTitle: "JWM's Music May 2026",
+    artistName: "jwmmakerofmusic",
+    forumMember: "jwmmakerofmusic",
+    mediaUrl: "https://on.soundcloud.com/TVFnKaCUGtfkQ6ftRt",
+    mediaType: "soundcloud",
+    threadUrl: "https://forum.loopypro.com/discussion/68333/jwms-music-may-2026",
+    embedCode: "https://w.soundcloud.com/player/?url=https%3A%2F%2Fsoundcloud.com%2Fjwmmakerofmusic%2Fjwm-troubles-melt-away%3Fsi%3D0ba387794eb9463aa598d49ce64587ab%26utm_source%3Dclipboard%26utm_medium%3Dtext%26utm_campaign%3Dsocial_sharing&color=ff5500&auto_play=false&hide_related=false&show_comments=false&show_user=true&show_reposts=false",
+    fetchedAt: "2026-05-20T03:00:24+00:00",
+  },
+  {
     songTitle: "Gearing up for Drone Day",
     artistName: "rottencat",
     forumMember: "rottencat",
@@ -26,16 +36,6 @@ const SEED_TRACKS: InsertTrack[] = [
     threadUrl: "https://forum.loopypro.com/discussion/68522/smile-cover",
     embedCode: "https://www.youtube.com/embed/6HGlRwaVx-8",
     fetchedAt: "2026-05-19T20:01:51+00:00",
-  },
-  {
-    songTitle: "JWM's Music May 2026",
-    artistName: "jwmmakerofmusic",
-    forumMember: "jwmmakerofmusic",
-    mediaUrl: "https://on.soundcloud.com/80PxBAN9mYQRZHuyp7",
-    mediaType: "soundcloud",
-    threadUrl: "https://forum.loopypro.com/discussion/68333/jwms-music-may-2026",
-    embedCode: "https://w.soundcloud.com/player/?url=https%3A%2F%2Fsoundcloud.com%2Fjwmmakerofmusic%2Fjwm-happy-78th%3Fsi%3Df6c4e4541ce94be9bbd2d584b6989c64%26utm_source%3Dclipboard%26utm_medium%3Dtext%26utm_campaign%3Dsocial_sharing&color=ff5500&auto_play=false&hide_related=false&show_comments=false&show_user=true&show_reposts=false",
-    fetchedAt: "2026-05-19T19:00:02+00:00",
   },
   {
     songTitle: "Primes",
@@ -218,13 +218,13 @@ const SEED_TRACKS: InsertTrack[] = [
     fetchedAt: "2026-05-11T07:37:14+00:00",
   },
   {
-    songTitle: "Backing Tracks: \"Dark Spacewalk\" in C Lydian",
+    songTitle: "Backing Tracks: \"Dark Spacewalk\" in C Lydian (now with flutes added)",
     artistName: "jimhanks",
     forumMember: "jimhanks",
-    mediaUrl: "https://www.youtube.com/watch?v=CHZk5ElfT7Y",
+    mediaUrl: "https://www.youtube.com/watch?v=qbqfPtE9o5o",
     mediaType: "youtube",
-    threadUrl: "https://forum.loopypro.com/discussion/68434/backing-tracks-dark-spacewalk-in-c-lydian",
-    embedCode: "https://www.youtube.com/embed/CHZk5ElfT7Y",
+    threadUrl: "https://forum.loopypro.com/discussion/68434/backing-tracks-dark-spacewalk-in-c-lydian-now-with-flutes-added",
+    embedCode: "https://www.youtube.com/embed/qbqfPtE9o5o",
     fetchedAt: "2026-05-11T01:38:38+00:00",
   },
   {
