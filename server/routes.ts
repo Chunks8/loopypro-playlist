@@ -24,7 +24,7 @@ const SEED_TRACKS: InsertTrack[] = [
     mediaUrl: "https://on.soundcloud.com/n69QhzVPef6cXJlH6w",
     mediaType: "soundcloud",
     threadUrl: "https://forum.loopypro.com/discussion/68333/jwms-music-may-2026",
-    embedCode: "https://w.soundcloud.com/player/?url=https%3A%2F%2Fon.soundcloud.com%2Fn69QhzVPef6cXJlH6w&color=ff5500&auto_play=false&hide_related=false&show_comments=false&show_user=true&show_reposts=false",
+    embedCode: "https://w.soundcloud.com/player/?url=https%3A%2F%2Fsoundcloud.com%2Fjwmmakerofmusic%2Fjwm-mt-fuji%3Fsi%3Da6a23b72b3dc4ac28c068494ea6388af%26utm_source%3Dclipboard%26utm_medium%3Dtext%26utm_campaign%3Dsocial_sharing&color=ff5500&auto_play=false&hide_related=false&show_comments=false&show_user=true&show_reposts=false",
     fetchedAt: "2026-05-20T16:36:34+00:00",
   },
   {
@@ -394,7 +394,7 @@ const SEED_TRACKS: InsertTrack[] = [
     mediaUrl: "https://on.soundcloud.com/jGtEAKI0QAjPnhAtUH",
     mediaType: "soundcloud",
     threadUrl: "https://forum.loopypro.com/discussion/68331/jwm-the-patch-ep-tech-house-ep-in-flsm",
-    embedCode: "https://w.soundcloud.com/player/?url=https%3A%2F%2Fon.soundcloud.com%2FjGtEAKI0QAjPnhAtUH&color=ff5500&auto_play=false&hide_related=false&show_comments=false&show_user=true&show_reposts=false",
+    embedCode: "https://w.soundcloud.com/player/?url=https%3A%2F%2Fsoundcloud.com%2Fjwmmakerofmusic%2Fjwm-the-patch-ep%3Fsi%3Def1da294b030452b876fbe6fe03c6a1e%26utm_source%3Dclipboard%26utm_medium%3Dtext%26utm_campaign%3Dsocial_sharing&color=ff5500&auto_play=false&hide_related=false&show_comments=false&show_user=true&show_reposts=false",
     fetchedAt: "2026-04-30T20:34:00+00:00",
   },
   {
@@ -444,7 +444,7 @@ const SEED_TRACKS: InsertTrack[] = [
     mediaUrl: "https://on.soundcloud.com/9LizZnNgDomBh5KuRL",
     mediaType: "soundcloud",
     threadUrl: "https://forum.loopypro.com/discussion/68242/jwms-music-rest-of-april-2026-various-genres-within",
-    embedCode: "https://w.soundcloud.com/player/?url=https%3A%2F%2Fon.soundcloud.com%2F9LizZnNgDomBh5KuRL&color=ff5500&auto_play=false&hide_related=false&show_comments=false&show_user=true&show_reposts=false",
+    embedCode: "https://w.soundcloud.com/player/?url=https%3A%2F%2Fsoundcloud.com%2Fjwmmakerofmusic%2Fjwm-triphop-lullaby%3Fsi%3D10f62dd73966408da94baac715abedc7%26utm_source%3Dclipboard%26utm_medium%3Dtext%26utm_campaign%3Dsocial_sharing&color=ff5500&auto_play=false&hide_related=false&show_comments=false&show_user=true&show_reposts=false",
     fetchedAt: "2026-04-27T17:12:21+00:00",
   },
   {
@@ -454,7 +454,7 @@ const SEED_TRACKS: InsertTrack[] = [
     mediaUrl: "https://on.soundcloud.com/qSM7kq9S93w94C0Jm2",
     mediaType: "soundcloud",
     threadUrl: "https://forum.loopypro.com/discussion/68292/the-desert-island-synth-challenge-may-2026",
-    embedCode: "https://w.soundcloud.com/player/?url=https%3A%2F%2Fon.soundcloud.com%2FqSM7kq9S93w94C0Jm2&color=ff5500&auto_play=false&hide_related=false&show_comments=false&show_user=true&show_reposts=false",
+    embedCode: "https://w.soundcloud.com/player/?url=https%3A%2F%2Fsoundcloud.com%2Fjwmmakerofmusic%2Fjwm-desert-sunrise%3Fsi%3D780223bd713f44d79e4fd9c5228bd1c2%26utm_source%3Dclipboard%26utm_medium%3Dtext%26utm_campaign%3Dsocial_sharing&color=ff5500&auto_play=false&hide_related=false&show_comments=false&show_user=true&show_reposts=false",
     fetchedAt: "2026-04-27T03:55:49+00:00",
   },
   {
@@ -544,7 +544,7 @@ const SEED_TRACKS: InsertTrack[] = [
     mediaUrl: "https://on.soundcloud.com/JC0btMdsZkwsuZ0j7U",
     mediaType: "soundcloud",
     threadUrl: "https://forum.loopypro.com/discussion/68197/soft-breaks-boc-inspired-piece-of-ambient-in-gadget",
-    embedCode: "https://w.soundcloud.com/player/?url=https%3A%2F%2Fon.soundcloud.com%2FJC0btMdsZkwsuZ0j7U&color=ff5500&auto_play=false&hide_related=false&show_comments=false&show_user=true&show_reposts=false",
+    embedCode: "https://w.soundcloud.com/player/?url=https%3A%2F%2Fsoundcloud.com%2Fjwmmakerofmusic%2Fjwm-soft-breaks%3Fsi%3Dc67320db576340e3a18f95eb512aa72e%26utm_source%3Dclipboard%26utm_medium%3Dtext%26utm_campaign%3Dsocial_sharing&color=ff5500&auto_play=false&hide_related=false&show_comments=false&show_user=true&show_reposts=false",
     fetchedAt: "2026-04-18T03:27:11+00:00",
   },
   {
@@ -554,7 +554,7 @@ const SEED_TRACKS: InsertTrack[] = [
     mediaUrl: "https://on.soundcloud.com/gm34LLZlc04oGttef2",
     mediaType: "soundcloud",
     threadUrl: "https://forum.loopypro.com/discussion/68194/tape-test-a-boc-inspired-ambient-piece-in-korg-gadget",
-    embedCode: "https://w.soundcloud.com/player/?url=https%3A%2F%2Fon.soundcloud.com%2Fgm34LLZlc04oGttef2&color=ff5500&auto_play=false&hide_related=false&show_comments=false&show_user=true&show_reposts=false",
+    embedCode: "https://w.soundcloud.com/player/?url=https%3A%2F%2Fsoundcloud.com%2Fjwmmakerofmusic%2Fjwm-untitled-auxy-album%3Fref%3Dclipboard%26p%3Di%26c%3D1%26si%3D21B8982C294149EBA2780C32A440BB47%26utm_source%3Dclipboard%26utm_medium%3Dtext%26utm_campaign%3Dsocial_sharing&color=ff5500&auto_play=false&hide_related=false&show_comments=false&show_user=true&show_reposts=false",
     fetchedAt: "2026-04-17T17:41:43+00:00",
   },
   {
