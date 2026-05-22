@@ -8,6 +8,16 @@ import * as http from "http";
 // Corrected, deduplicated seed tracks — most recent post per thread
 const SEED_TRACKS: InsertTrack[] = [
   {
+    songTitle: "JWM's Music May 2026",
+    artistName: "jwmmakerofmusic",
+    forumMember: "jwmmakerofmusic",
+    mediaUrl: "https://on.soundcloud.com/zrEJblzg0W8aYKjgwv",
+    mediaType: "soundcloud",
+    threadUrl: "https://forum.loopypro.com/discussion/68333/jwms-music-may-2026",
+    embedCode: "https://w.soundcloud.com/player/?url=https%3A%2F%2Fsoundcloud.com%2Fjwmmakerofmusic%2Fjwm-shine-the-light%3Fsi%3D20db71941e444a57b2a3a00257eab9d2%26utm_source%3Dclipboard%26utm_medium%3Dtext%26utm_campaign%3Dsocial_sharing&color=ff5500&auto_play=false&hide_related=false&show_comments=false&show_user=true&show_reposts=false",
+    fetchedAt: "2026-05-21T22:21:18+00:00",
+  },
+  {
     songTitle: "Woolgathering",
     artistName: "GeoTony",
     forumMember: "GeoTony",
@@ -16,16 +26,6 @@ const SEED_TRACKS: InsertTrack[] = [
     threadUrl: "https://forum.loopypro.com/discussion/68533/woolgathering",
     embedCode: "https://w.soundcloud.com/player/?url=https%3A//soundcloud.com/geotony/366-woolgathering?si=12c4da4459db42d68e076ab89de79b5a&amp;utm_source=clipboard&amp;utm_medium=text&amp;utm_campaign=social_sharing&amp;color=ff5500&amp;auto_play=false&amp;hide_related=false&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false",
     fetchedAt: "2026-05-20T21:05:33+00:00",
-  },
-  {
-    songTitle: "JWM's Music May 2026",
-    artistName: "jwmmakerofmusic",
-    forumMember: "jwmmakerofmusic",
-    mediaUrl: "https://on.soundcloud.com/n69QhzVPef6cXJlH6w",
-    mediaType: "soundcloud",
-    threadUrl: "https://forum.loopypro.com/discussion/68333/jwms-music-may-2026",
-    embedCode: "https://w.soundcloud.com/player/?url=https%3A%2F%2Fsoundcloud.com%2Fjwmmakerofmusic%2Fjwm-mt-fuji%3Fsi%3Da6a23b72b3dc4ac28c068494ea6388af%26utm_source%3Dclipboard%26utm_medium%3Dtext%26utm_campaign%3Dsocial_sharing&color=ff5500&auto_play=false&hide_related=false&show_comments=false&show_user=true&show_reposts=false",
-    fetchedAt: "2026-05-20T16:36:34+00:00",
   },
   {
     songTitle: "Gearing up for Drone Day",
@@ -571,10 +571,10 @@ const SEED_TRACKS: InsertTrack[] = [
     songTitle: "A thread of improvised orchestra sketches",
     artistName: "McD",
     forumMember: "McD",
-    mediaUrl: "https://soundcloud.com/user-403688328/fan-faire?si=b6f8a45d29e945b88ea797c1b813e0ce",
+    mediaUrl: "https://soundcloud.com/user-403688328/finger-memory-wav?si=31d45bb007164a7e959ad7601eca8916",
     mediaType: "soundcloud",
     threadUrl: "https://forum.loopypro.com/discussion/67823/a-thread-of-improvised-orchestra-sketches",
-    embedCode: "https://w.soundcloud.com/player/?url=https%3A//soundcloud.com/user-403688328/fan-faire?si=b6f8a45d29e945b88ea797c1b813e0ce&amp;utm_source=clipboard&amp;utm_medium=text&amp;utm_campaign=social_sharing&amp;color=ff5500&amp;auto_play=false&amp;hide_related=false&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false",
+    embedCode: "https://w.soundcloud.com/player/?url=https%3A//soundcloud.com/user-403688328/finger-memory-wav?si=31d45bb007164a7e959ad7601eca8916&amp;utm_source=clipboard&amp;utm_medium=text&amp;utm_campaign=social_sharing&amp;color=ff5500&amp;auto_play=false&amp;hide_related=false&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false",
     fetchedAt: "2026-03-08T00:58:02+00:00",
   },
   {
