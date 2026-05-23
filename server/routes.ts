@@ -8,6 +8,16 @@ import * as http from "http";
 // Corrected, deduplicated seed tracks — most recent post per thread
 const SEED_TRACKS: InsertTrack[] = [
   {
+    songTitle: "Granular Digital Mayhem - Smashing Mashup",
+    artistName: "zvon",
+    forumMember: "zvon",
+    mediaUrl: "https://www.youtube.com/watch?v=nmY1tq_CSxc",
+    mediaType: "youtube",
+    threadUrl: "https://forum.loopypro.com/discussion/68546/granular-digital-mayhem-smashing-mashup",
+    embedCode: "https://www.youtube.com/embed/nmY1tq_CSxc",
+    fetchedAt: "2026-05-23T00:49:26+00:00",
+  },
+  {
     songTitle: "Deep Waters (Solo, Noire, Velvet Guitar, Continua)",
     artistName: "DavidEnglish",
     forumMember: "DavidEnglish",
@@ -41,10 +51,10 @@ const SEED_TRACKS: InsertTrack[] = [
     songTitle: "Woolgathering",
     artistName: "GeoTony",
     forumMember: "GeoTony",
-    mediaUrl: "https://soundcloud.com/geotony/366-woolgathering?si=12c4da4459db42d68e076ab89de79b5a",
-    mediaType: "soundcloud",
+    mediaUrl: "https://www.youtube.com/watch?v=VbrFQOAjb60",
+    mediaType: "youtube",
     threadUrl: "https://forum.loopypro.com/discussion/68533/woolgathering",
-    embedCode: "https://w.soundcloud.com/player/?url=https%3A//soundcloud.com/geotony/366-woolgathering?si=12c4da4459db42d68e076ab89de79b5a&amp;utm_source=clipboard&amp;utm_medium=text&amp;utm_campaign=social_sharing&amp;color=ff5500&amp;auto_play=false&amp;hide_related=false&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false",
+    embedCode: "https://www.youtube.com/embed/VbrFQOAjb60",
     fetchedAt: "2026-05-20T21:05:33+00:00",
   },
   {
@@ -506,16 +516,6 @@ const SEED_TRACKS: InsertTrack[] = [
     threadUrl: "https://forum.loopypro.com/discussion/68267/mojotele65-elet-ojom-s-music-2026",
     embedCode: "https://www.youtube.com/embed/wivU7WS81fM",
     fetchedAt: "2026-04-24T12:21:55+00:00",
-  },
-  {
-    songTitle: "A confluence of interests: There Is No Antimemetics Division",
-    artistName: "Svetlovska",
-    forumMember: "Svetlovska",
-    mediaUrl: "https://soundcloud.com/irena-svetlovska/there-is-no-antimemetics?si=08e3015778604addbe97e537b80d4fde",
-    mediaType: "soundcloud",
-    threadUrl: "https://forum.loopypro.com/discussion/68262/a-confluence-of-interests-there-is-no-antimemetics-division",
-    embedCode: "https://w.soundcloud.com/player/?url=https%3A//soundcloud.com/irena-svetlovska/there-is-no-antimemetics?si=08e3015778604addbe97e537b80d4fde&amp;utm_source=clipboard&amp;utm_medium=text&amp;utm_campaign=social_sharing&amp;color=ff5500&amp;auto_play=false&amp;hide_related=false&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false",
-    fetchedAt: "2026-04-23T23:16:23+00:00",
   },
   {
     songTitle: "flight, a new track with video",
