@@ -281,10 +281,10 @@ const SEED_TRACKS: InsertTrack[] = [
     songTitle: "Drone Day 2026 (30 May)",
     artistName: "jwmmakerofmusic",
     forumMember: "jwmmakerofmusic",
-    mediaUrl: "https://www.youtube.com/watch?v=QRg_8NNPTD8",
+    mediaUrl: "https://www.youtube.com/watch?v=W_VxEKbDSRc",
     mediaType: "youtube",
     threadUrl: "https://forum.loopypro.com/discussion/68462/drone-day-2026-30-may",
-    embedCode: "https://www.youtube.com/embed/QRg_8NNPTD8",
+    embedCode: "https://www.youtube.com/embed/W_VxEKbDSRc",
     fetchedAt: "2026-05-13T22:59:31+00:00",
   },
   {
