@@ -8,6 +8,26 @@ import * as http from "http";
 // Corrected, deduplicated seed tracks — most recent post per thread
 const SEED_TRACKS: InsertTrack[] = [
   {
+    songTitle: "I wanted to use my new Pro-A5\u2026",
+    artistName: "rottencat",
+    forumMember: "rottencat",
+    mediaUrl: "https://www.youtube.com/watch?v=bWvsWguBu8E",
+    mediaType: "youtube",
+    threadUrl: "https://forum.loopypro.com/discussion/68693/i-wanted-to-use-my-new-pro-a5",
+    embedCode: "https://www.youtube.com/embed/bWvsWguBu8E",
+    fetchedAt: "2026-06-06T22:22:34+00:00",
+  },
+  {
+    songTitle: "5 8 7 9 8 1 2  (Pbelgium and Paulieworld)",
+    artistName: "Paulieworld",
+    forumMember: "Paulieworld",
+    mediaUrl: "https://soundcloud.com/paulieworld/5-8-7-9-8-1-2",
+    mediaType: "soundcloud",
+    threadUrl: "https://forum.loopypro.com/discussion/68691/5-8-7-9-8-1-2-pbelgium-and-paulieworld",
+    embedCode: "https://w.soundcloud.com/player/?url=https%3A//soundcloud.com/paulieworld/5-8-7-9-8-1-2&amp;color=ff5500&amp;auto_play=false&amp;hide_related=false&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false",
+    fetchedAt: "2026-06-06T17:10:05+00:00",
+  },
+  {
     songTitle: "Autumn Afternoon (Intimate Violin, Solo, Noire, Velvet Guitar, Continua)",
     artistName: "DavidEnglish",
     forumMember: "DavidEnglish",
@@ -556,16 +576,6 @@ const SEED_TRACKS: InsertTrack[] = [
     threadUrl: "https://forum.loopypro.com/discussion/68350/folk-jazz-rock-ambient",
     embedCode: "https://w.soundcloud.com/player/?url=https%3A//soundcloud.com/geotony/362-folk-jazz-rock-ambient?si=afec35642a0c4faa9fd676aada60947c&amp;utm_source=clipboard&amp;utm_medium=text&amp;utm_campaign=social_sharing&amp;color=ff5500&amp;auto_play=false&amp;hide_related=false&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false",
     fetchedAt: "2026-05-03T16:28:38+00:00",
-  },
-  {
-    songTitle: "New small fusion album Coming Home (two new tracks)",
-    artistName: "Frenq",
-    forumMember: "Frenq",
-    mediaUrl: "https://hearthis.at/frenq/coming-home",
-    mediaType: "hearthis",
-    threadUrl: "https://forum.loopypro.com/discussion/68304/new-small-fusion-album-coming-home-two-new-tracks",
-    embedCode: "https://app.hearthis.at/embed/14239022/transparent_black/?",
-    fetchedAt: "2026-04-28T13:16:16+00:00",
   },
   {
     songTitle: "Mojotele65/Elet Ojom\u2019s Music - 2026",
