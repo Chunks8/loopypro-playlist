@@ -8,6 +8,26 @@ import * as http from "http";
 // Corrected, deduplicated seed tracks — most recent post per thread
 const SEED_TRACKS: InsertTrack[] = [
   {
+    songTitle: "Sonic Vignette 113 - Toughest Spot Ever",
+    artistName: "zvon",
+    forumMember: "zvon",
+    mediaUrl: "https://www.youtube.com/watch?v=gf3onZ6DcLA",
+    mediaType: "youtube",
+    threadUrl: "https://forum.loopypro.com/discussion/68710/sonic-vignette-113-toughest-spot-ever",
+    embedCode: "https://www.youtube.com/embed/gf3onZ6DcLA",
+    fetchedAt: "2026-06-09T19:55:05+00:00",
+  },
+  {
+    songTitle: "New underground-rock single recording ''Slipped Away\"",
+    artistName: "Frenq",
+    forumMember: "Frenq",
+    mediaUrl: "https://hearthis.at/frenq/slippedaway",
+    mediaType: "hearthis",
+    threadUrl: "https://forum.loopypro.com/discussion/68708/new-underground-rock-single-recording-slipped-away",
+    embedCode: "https://app.hearthis.at/embed/14466504/transparent_black/?",
+    fetchedAt: "2026-06-09T13:34:55+00:00",
+  },
+  {
     songTitle: "I wanted to use my new Pro-A5\u2026",
     artistName: "rottencat",
     forumMember: "rottencat",
@@ -546,26 +566,6 @@ const SEED_TRACKS: InsertTrack[] = [
     threadUrl: "https://forum.loopypro.com/discussion/68381/countenance-a-koala-thing",
     embedCode: "https://www.youtube.com/embed/fNrT0lNWUSs",
     fetchedAt: "2026-05-05T22:07:55+00:00",
-  },
-  {
-    songTitle: "First real ambient album (Yoga), The great Dutch RIVERS!",
-    artistName: "Frenq",
-    forumMember: "Frenq",
-    mediaUrl: "https://hearthis.at/frenq/rivers",
-    mediaType: "hearthis",
-    threadUrl: "https://forum.loopypro.com/discussion/68359/first-real-ambient-album-yoga-the-great-dutch-rivers",
-    embedCode: "https://app.hearthis.at/embed/14262656/transparent_black/?",
-    fetchedAt: "2026-05-04T13:49:27+00:00",
-  },
-  {
-    songTitle: "Iwave5 my new Song made with Loopy Pro",
-    artistName: "ErikWerkema",
-    forumMember: "ErikWerkema",
-    mediaUrl: "https://www.youtube.com/watch?v=lQHf44DFV3U",
-    mediaType: "youtube",
-    threadUrl: "https://forum.loopypro.com/discussion/68357/iwave5-my-new-song-made-with-loopy-pro",
-    embedCode: "https://www.youtube.com/embed/lQHf44DFV3U",
-    fetchedAt: "2026-05-04T09:04:16+00:00",
   },
   {
     songTitle: "Folk|Jazz|Rock|Ambient",
