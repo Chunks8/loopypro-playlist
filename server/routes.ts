@@ -8,6 +8,16 @@ import * as http from "http";
 // Corrected, deduplicated seed tracks — most recent post per thread
 const SEED_TRACKS: InsertTrack[] = [
   {
+    songTitle: "JWM's Music June 2026",
+    artistName: "jwmmakerofmusic",
+    forumMember: "jwmmakerofmusic",
+    mediaUrl: "https://on.soundcloud.com/D0DOASJmxTb0PQmccA",
+    mediaType: "soundcloud",
+    threadUrl: "https://forum.loopypro.com/discussion/68718/jwms-music-june-2026",
+    embedCode: "https://w.soundcloud.com/player/?url=https%3A%2F%2Fon.soundcloud.com%2FD0DOASJmxTb0PQmccA&color=ff5500&auto_play=false&hide_related=false&show_comments=false&show_user=true&show_reposts=false",
+    fetchedAt: "2026-06-10T14:58:52+00:00",
+  },
+  {
     songTitle: "Sonic Vignette 113 - Toughest Spot Ever",
     artistName: "zvon",
     forumMember: "zvon",
@@ -124,7 +134,7 @@ const SEED_TRACKS: InsertTrack[] = [
     mediaUrl: "https://on.soundcloud.com/1Y9nUbORITpnUsaNJj",
     mediaType: "soundcloud",
     threadUrl: "https://forum.loopypro.com/discussion/68333/jwms-music-may-2026",
-    embedCode: "https://w.soundcloud.com/player/?url=https%3A%2F%2Fsoundcloud.com%2Fjwmmakerofmusic%2Fjwm-meanwhile-in-canada%3Fsi%3Da66af8abbe14497cb75bf4dd712d3f49%26utm_source%3Dclipboard%26utm_medium%3Dtext%26utm_campaign%3Dsocial_sharing&color=ff5500&auto_play=false&hide_related=false&show_comments=false&show_user=true&show_reposts=false",
+    embedCode: "https://w.soundcloud.com/player/?url=https%3A%2F%2Fon.soundcloud.com%2F1Y9nUbORITpnUsaNJj&color=ff5500&auto_play=false&hide_related=false&show_comments=false&show_user=true&show_reposts=false",
     fetchedAt: "2026-05-31T01:53:41+00:00",
   },
   {
@@ -154,7 +164,7 @@ const SEED_TRACKS: InsertTrack[] = [
     mediaUrl: "https://on.soundcloud.com/Pvb3Drb54iwowFjA1P",
     mediaType: "soundcloud",
     threadUrl: "https://forum.loopypro.com/discussion/68633/hammering-past-the-stop-omnivocal-swam-staffpad-cubasis-cubase",
-    embedCode: "https://w.soundcloud.com/player/?url=https%3A%2F%2Fsoundcloud.com%2Fandyhoneybone%2Fhammering-past-the-stop-1%3Futm_source%3Dclipboard%26utm_medium%3Dtext%26utm_campaign%3Dsocial_sharing%26si%3Dd06b11032da14157818656ef7694f4da&color=ff5500&auto_play=false&hide_related=false&show_comments=false&show_user=true&show_reposts=false",
+    embedCode: "https://w.soundcloud.com/player/?url=https%3A%2F%2Fon.soundcloud.com%2FPvb3Drb54iwowFjA1P&color=ff5500&auto_play=false&hide_related=false&show_comments=false&show_user=true&show_reposts=false",
     fetchedAt: "2026-05-30T14:27:21+00:00",
   },
   {
@@ -254,7 +264,7 @@ const SEED_TRACKS: InsertTrack[] = [
     mediaUrl: "https://on.soundcloud.com/B2Drn03QZOGh4pTMe1",
     mediaType: "soundcloud",
     threadUrl: "https://forum.loopypro.com/discussion/68559/happy-international-synthesizer-day-2026-ambient-in-koala-sampler",
-    embedCode: "https://w.soundcloud.com/player/?url=https%3A%2F%2Fsoundcloud.com%2Fjwmmakerofmusic%2Fjwm-synth-day-2026%3Fsi%3D0e03d76e6b964d49a81617f658c01d40%26utm_source%3Dclipboard%26utm_medium%3Dtext%26utm_campaign%3Dsocial_sharing&color=ff5500&auto_play=false&hide_related=false&show_comments=false&show_user=true&show_reposts=false",
+    embedCode: "https://w.soundcloud.com/player/?url=https%3A%2F%2Fon.soundcloud.com%2FB2Drn03QZOGh4pTMe1&color=ff5500&auto_play=false&hide_related=false&show_comments=false&show_user=true&show_reposts=false",
     fetchedAt: "2026-05-23T19:29:33+00:00",
   },
   {
@@ -506,16 +516,6 @@ const SEED_TRACKS: InsertTrack[] = [
     threadUrl: "https://forum.loopypro.com/discussion/68434/backing-tracks-dark-spacewalk-in-c-lydian-now-with-flutes-added",
     embedCode: "https://www.youtube.com/embed/qbqfPtE9o5o",
     fetchedAt: "2026-05-11T01:38:38+00:00",
-  },
-  {
-    songTitle: "shapesynth anyone?",
-    artistName: "rottencat",
-    forumMember: "rottencat",
-    mediaUrl: "https://www.youtube.com/watch?v=yOAD3vvNpF4",
-    mediaType: "youtube",
-    threadUrl: "https://forum.loopypro.com/discussion/68433/shapesynth-anyone",
-    embedCode: "https://www.youtube.com/embed/yOAD3vvNpF4",
-    fetchedAt: "2026-05-10T23:04:21+00:00",
   },
   {
     songTitle: "New track-Link audio stress testing",
