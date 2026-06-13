@@ -8,13 +8,33 @@ import * as http from "http";
 // Corrected, deduplicated seed tracks — most recent post per thread
 const SEED_TRACKS: InsertTrack[] = [
   {
+    songTitle: "The new Drone Meditations app",
+    artistName: "rottencat",
+    forumMember: "rottencat",
+    mediaUrl: "https://www.youtube.com/watch?v=mMh83ybQSzQ",
+    mediaType: "youtube",
+    threadUrl: "https://forum.loopypro.com/discussion/68734/the-new-drone-meditations-app",
+    embedCode: "https://www.youtube.com/embed/mMh83ybQSzQ",
+    fetchedAt: "2026-06-12T17:39:31+00:00",
+  },
+  {
+    songTitle: "You're Just Not Like That Babe - a collab with Unlink and Jankun",
+    artistName: "richardyot",
+    forumMember: "richardyot",
+    mediaUrl: "https://soundcloud.com/richardyot/youre-just-not-like-that-babe",
+    mediaType: "soundcloud",
+    threadUrl: "https://forum.loopypro.com/discussion/68731/youre-just-not-like-that-babe-a-collab-with-unlink-and-jankun",
+    embedCode: "https://w.soundcloud.com/player/?url=https%3A//soundcloud.com/richardyot/youre-just-not-like-that-babe&amp;color=ff5500&amp;auto_play=false&amp;hide_related=false&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false",
+    fetchedAt: "2026-06-12T09:20:35+00:00",
+  },
+  {
     songTitle: "JWM's Music June 2026",
     artistName: "jwmmakerofmusic",
     forumMember: "jwmmakerofmusic",
     mediaUrl: "https://on.soundcloud.com/D0DOASJmxTb0PQmccA",
     mediaType: "soundcloud",
     threadUrl: "https://forum.loopypro.com/discussion/68718/jwms-music-june-2026",
-    embedCode: "https://w.soundcloud.com/player/?url=https%3A%2F%2Fon.soundcloud.com%2FD0DOASJmxTb0PQmccA&color=ff5500&auto_play=false&hide_related=false&show_comments=false&show_user=true&show_reposts=false",
+    embedCode: "https://w.soundcloud.com/player/?url=https%3A%2F%2Fsoundcloud.com%2Fjwmmakerofmusic%2Fjwm-hurt-me-no-more%3Fsi%3D6626baf0a7094911a8e5273aca1d296b%26utm_source%3Dclipboard%26utm_medium%3Dtext%26utm_campaign%3Dsocial_sharing&color=ff5500&auto_play=false&hide_related=false&show_comments=false&show_user=true&show_reposts=false",
     fetchedAt: "2026-06-10T14:58:52+00:00",
   },
   {
@@ -134,7 +154,7 @@ const SEED_TRACKS: InsertTrack[] = [
     mediaUrl: "https://on.soundcloud.com/1Y9nUbORITpnUsaNJj",
     mediaType: "soundcloud",
     threadUrl: "https://forum.loopypro.com/discussion/68333/jwms-music-may-2026",
-    embedCode: "https://w.soundcloud.com/player/?url=https%3A%2F%2Fon.soundcloud.com%2F1Y9nUbORITpnUsaNJj&color=ff5500&auto_play=false&hide_related=false&show_comments=false&show_user=true&show_reposts=false",
+    embedCode: "https://w.soundcloud.com/player/?url=https%3A%2F%2Fsoundcloud.com%2Fjwmmakerofmusic%2Fjwm-meanwhile-in-canada%3Fsi%3Da66af8abbe14497cb75bf4dd712d3f49%26utm_source%3Dclipboard%26utm_medium%3Dtext%26utm_campaign%3Dsocial_sharing&color=ff5500&auto_play=false&hide_related=false&show_comments=false&show_user=true&show_reposts=false",
     fetchedAt: "2026-05-31T01:53:41+00:00",
   },
   {
@@ -164,7 +184,7 @@ const SEED_TRACKS: InsertTrack[] = [
     mediaUrl: "https://on.soundcloud.com/Pvb3Drb54iwowFjA1P",
     mediaType: "soundcloud",
     threadUrl: "https://forum.loopypro.com/discussion/68633/hammering-past-the-stop-omnivocal-swam-staffpad-cubasis-cubase",
-    embedCode: "https://w.soundcloud.com/player/?url=https%3A%2F%2Fon.soundcloud.com%2FPvb3Drb54iwowFjA1P&color=ff5500&auto_play=false&hide_related=false&show_comments=false&show_user=true&show_reposts=false",
+    embedCode: "https://w.soundcloud.com/player/?url=https%3A%2F%2Fsoundcloud.com%2Fandyhoneybone%2Fhammering-past-the-stop-1%3Futm_source%3Dclipboard%26utm_medium%3Dtext%26utm_campaign%3Dsocial_sharing%26si%3Dd06b11032da14157818656ef7694f4da&color=ff5500&auto_play=false&hide_related=false&show_comments=false&show_user=true&show_reposts=false",
     fetchedAt: "2026-05-30T14:27:21+00:00",
   },
   {
@@ -264,7 +284,7 @@ const SEED_TRACKS: InsertTrack[] = [
     mediaUrl: "https://on.soundcloud.com/B2Drn03QZOGh4pTMe1",
     mediaType: "soundcloud",
     threadUrl: "https://forum.loopypro.com/discussion/68559/happy-international-synthesizer-day-2026-ambient-in-koala-sampler",
-    embedCode: "https://w.soundcloud.com/player/?url=https%3A%2F%2Fon.soundcloud.com%2FB2Drn03QZOGh4pTMe1&color=ff5500&auto_play=false&hide_related=false&show_comments=false&show_user=true&show_reposts=false",
+    embedCode: "https://w.soundcloud.com/player/?url=https%3A%2F%2Fsoundcloud.com%2Fjwmmakerofmusic%2Fjwm-synth-day-2026%3Fsi%3D0e03d76e6b964d49a81617f658c01d40%26utm_source%3Dclipboard%26utm_medium%3Dtext%26utm_campaign%3Dsocial_sharing&color=ff5500&auto_play=false&hide_related=false&show_comments=false&show_user=true&show_reposts=false",
     fetchedAt: "2026-05-23T19:29:33+00:00",
   },
   {
@@ -568,16 +588,6 @@ const SEED_TRACKS: InsertTrack[] = [
     fetchedAt: "2026-05-05T22:07:55+00:00",
   },
   {
-    songTitle: "Folk|Jazz|Rock|Ambient",
-    artistName: "GeoTony",
-    forumMember: "GeoTony",
-    mediaUrl: "https://soundcloud.com/geotony/362-folk-jazz-rock-ambient?si=afec35642a0c4faa9fd676aada60947c",
-    mediaType: "soundcloud",
-    threadUrl: "https://forum.loopypro.com/discussion/68350/folk-jazz-rock-ambient",
-    embedCode: "https://w.soundcloud.com/player/?url=https%3A//soundcloud.com/geotony/362-folk-jazz-rock-ambient?si=afec35642a0c4faa9fd676aada60947c&amp;utm_source=clipboard&amp;utm_medium=text&amp;utm_campaign=social_sharing&amp;color=ff5500&amp;auto_play=false&amp;hide_related=false&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false",
-    fetchedAt: "2026-05-03T16:28:38+00:00",
-  },
-  {
     songTitle: "Mojotele65/Elet Ojom\u2019s Music - 2026",
     artistName: "Mojotele65",
     forumMember: "Mojotele65",
@@ -616,16 +626,6 @@ const SEED_TRACKS: InsertTrack[] = [
     threadUrl: "https://forum.loopypro.com/discussion/66105/5-ate-7-7-ate-9-acoustic-guitar-loop-for-collaboration",
     embedCode: "https://www.youtube.com/embed/m78o2mPSR9s",
     fetchedAt: "2025-09-23T15:06:26+00:00",
-  },
-  {
-    songTitle: "echo opera: daily dose of music compilation thread",
-    artistName: "echoopera",
-    forumMember: "echoopera",
-    mediaUrl: "https://www.youtube.com/watch?v=fCtkaePAERI",
-    mediaType: "youtube",
-    threadUrl: "https://forum.loopypro.com/discussion/50272/echo-opera-daily-dose-of-music-compilation-thread",
-    embedCode: "https://www.youtube.com/embed/fCtkaePAERI",
-    fetchedAt: "2022-05-21T05:36:34+00:00",
   },
   {
     songTitle: "-The Pixel Producers - Everyday Music Thread",
