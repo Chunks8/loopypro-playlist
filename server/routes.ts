@@ -8,6 +8,16 @@ import * as http from "http";
 // Corrected, deduplicated seed tracks — most recent post per thread
 const SEED_TRACKS: InsertTrack[] = [
   {
+    songTitle: "\"Electronic Horizons EP\" (Various Electronic Genres)",
+    artistName: "jwmmakerofmusic",
+    forumMember: "jwmmakerofmusic",
+    mediaUrl: "https://on.soundcloud.com/AO4V8V5ISGJNxE4gZK",
+    mediaType: "soundcloud",
+    threadUrl: "https://forum.loopypro.com/discussion/68785/electronic-horizons-ep-various-electronic-genres",
+    embedCode: "https://w.soundcloud.com/player/?url=https%3A%2F%2Fsoundcloud.com%2Fjwmmakerofmusic%2Fjwm-electronic-horizons-ep%3Fsi%3D3b24db913bfa4f25a71f7725bcf69867%26utm_source%3Dclipboard%26utm_medium%3Dtext%26utm_campaign%3Dsocial_sharing&color=ff5500&auto_play=false&hide_related=false&show_comments=false&show_user=true&show_reposts=false",
+    fetchedAt: "2026-06-18T03:00:05+00:00",
+  },
+  {
     songTitle: "Ambiotica Sound Demo | No Talking just playing",
     artistName: "TheAudioDabbler",
     forumMember: "TheAudioDabbler",
@@ -496,16 +506,6 @@ const SEED_TRACKS: InsertTrack[] = [
     threadUrl: "https://forum.loopypro.com/discussion/68491/quantovox-real-phase-guitar-demo",
     embedCode: "https://www.youtube.com/embed/i3Z8bm0nZXs",
     fetchedAt: "2026-05-17T15:26:15+00:00",
-  },
-  {
-    songTitle: "Quantovox melthaven as a univibe?",
-    artistName: "flo",
-    forumMember: "flo",
-    mediaUrl: "https://www.youtube.com/watch?v=ayHTge2fEXY",
-    mediaType: "youtube",
-    threadUrl: "https://forum.loopypro.com/discussion/68482/quantovox-melthaven-as-a-univibe",
-    embedCode: "https://www.youtube.com/embed/ayHTge2fEXY",
-    fetchedAt: "2026-05-16T11:09:51+00:00",
   },
   {
     songTitle: "I blame The Sound Test Room: To An Artificial Mind All Reality Is Virtual",
